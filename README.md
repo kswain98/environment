@@ -3,7 +3,7 @@
  <img src="assets/environment.png" width="300px" style="max-width: 100%;">
 </div>
 
-# Environment
+# VirtualCity
 
 <p align="center">
   <a href="https://">Environment</a> •
@@ -12,7 +12,7 @@
   <a href="https://">Contribute</a>
 </p>
 
-Environment is an interactive platform to simulate complex everyday activities. Key aspect of Environment is that it allows complex interactions with the environment, such as picking up objects, switching on/off electronics, opening appliances, etc. Our environment can easily be interacted with a Python API: write the activity as a simple sequence of instructions which then get rendered in the environment. You can choose between different agents and environments, as well as modify environments on the fly. You can also stream different ground-truth such as time-stamped actions, instance/semantic segmentation, and optical flow and depth. The platform allows to simulate multi-agent activities and can serve as an environment to train agents for embodied AI tasks.
+VirtualCity is an interactive platform to simulate complex everyday activities. Key aspect of VirtualCity is that it allows complex interactions with the environment, such as picking up objects, switching on/off electronics, opening appliances, etc. Our environment can easily be interacted with a Python API: write the activity as a simple sequence of instructions which then get rendered in the environment. You can choose between different agents and environments, as well as modify environments on the fly. You can also stream different ground-truth such as time-stamped actions, instance/semantic segmentation, and optical flow and depth. The platform allows to simulate multi-agent activities and can serve as an environment to train agents for embodied AI tasks.
 
 For detailed usage, installation guidelines, and more, please refer to our comprehensive documentation.
 
@@ -20,12 +20,12 @@ For detailed usage, installation guidelines, and more, please refer to our compr
 
 ______________________________________________________________________
 
-## Install Environment API
+## Install VirtualCity API
 
 Simple installation from PyPI
 
 ```bash
-pip install environment-api
+pip install virtualcity-api
 ```
 
 <details>
@@ -36,9 +36,6 @@ pip install environment-api
 </div>
 <div align="left">
  <a href="https://">Windows</a>
-</div>
-<div align="left">
- <a href="https://">MacOS</a>
 </div>
 </details>
 
@@ -71,8 +68,8 @@ ______________________________________________________________________
 If you found this environment useful, please consider citing our work:
 
 ```bibtex
-@article{environment2024cool,
-  title={Environment},
+@article{virtualcity2024cool,
+  title={VirtualCity},
   author={},
   journal={arXiv preprint arXiv:2024.2024},
   year={2024}
