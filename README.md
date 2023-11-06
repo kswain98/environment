@@ -54,7 +54,7 @@ Supported GPU:
 
 Supported CPU:
 * Intel Skylake, AlderLake, and Raptor Lake architecture (8 cores or more)
-* AMD Zen 2/3 (8 cores or more)
+* AMD Zen 2/3/4 (8 cores or more)
 
 ______________________________________________________________________
 
