@@ -25,7 +25,7 @@ ______________________________________________________________________
 Simple installation from PyPI
 
 ```bash
-pip install virtualcity-api
+pip install virtualcity
 ```
 
 <details>
@@ -46,7 +46,7 @@ ______________________________________________________________________
 Supported Platform:
 * Linux
 * Windows
-* MacOS (Apple GPTK)
+* MacOS [(Apple GPTK)](https://developer.apple.com/download/all/?q=game%20porting%20toolkit)
 
 Supported GPU:
 * NVIDIA Ada, Ampere, Volta, and Turing architecture (8 GB or more)
