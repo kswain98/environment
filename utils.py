@@ -10,7 +10,7 @@ fixed_action_ids = {
     "close": 8,
     "lookat": 9,
     "switch on": 10,
-    "switch off":11,
+    "switch off": 11,
     "sit": 12,
     "sleep": 13,
     "eat": 14,
