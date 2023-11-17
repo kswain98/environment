@@ -21,6 +21,7 @@ setup(
   install_requires=[
     'python-socketio',
     'python-socketio[client]'
+    'eventlet',
   ],
   classifiers=[
     'Development Status :: 4 - Beta',
