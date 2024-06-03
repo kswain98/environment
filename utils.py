@@ -93,4 +93,4 @@ def sequence(phrases):
 
         # Emit the message
         data = {"agent_index": agent_index, "task": task}
-        sio.emit("set_action", data)
+        # set_action(data)
