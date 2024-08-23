@@ -33,10 +33,10 @@ fixed_action_ids = {
     "cry": 31,
     "call": 32,
     "interact": 33,
-    "step forward": 34,
-    "step backwards": 35,
-    "turn left": 36,
-    "turn right": 37,
+    "step_forward": 34,
+    "step_backwards": 35,
+    "turn_left": 36,
+    "turn_right": 37,
 }
 
 fixed_relation_ids = {"on": 1, "under": 2, "inside": 3, "next to": 4}
@@ -82,6 +82,7 @@ def process_phrase_with_relations(
 def sequence(phrases):
     object_mapping = {}  # Initialize an empty object mapping
 
+    data_list = []
     for phrase in phrases:
         processed, object_mapping = process_phrase_with_relations(
             phrase, fixed_action_ids, fixed_relation_ids, object_mapping
@@ -93,4 +94,6 @@ def sequence(phrases):
 
         # Emit the message
         data = {"agent_index": agent_index, "task": task}
+        data_list.append(data)
         # set_action(data)
+    return data_list
