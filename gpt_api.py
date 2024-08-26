@@ -18,7 +18,8 @@ class OpenAIBot():
             You are able to see, move around, and interact with objects around you. However, you cannot be violent or break things. \
             The format of this interactive game is iterative, where you are provided information about the objects around and you need to send back a single \
             line of instruction of what you would do in the situation."
-        self.sys_msg = """You are an agent trapped in an escape room, use the observation and history clues wot figure out your next move. You can do the following:
+            
+        self.sys_msg = """You are an agent trapped in an escape room, use the observation and history clues to figure out your next move. You can do the following:
             1. Move to <location name>
             2. Pick up <nearby object name>
             3. ....
