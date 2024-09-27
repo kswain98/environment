@@ -1,3 +1,16 @@
+# Some test examples: #
+
+# Use UI:
+#   python llm_escaper.py --ui
+
+# Don't use UI:
+#  * Use openai api with key:
+#     python llm_escaper.py --api-key your_openai_key --api-option openai --model gpt-4o-mini
+#
+#  * Use local llm served through vllm server:
+#     python llm_escaper.py --model my_local_llm_model_path --llm-url my_vllm_server_url
+
+
 from typing import Literal, Union
 
 from argparse import ArgumentParser
@@ -78,14 +91,20 @@ log_output = True
 
 def get_args():
     parser = ArgumentParser()
-    parser.add_argument("--ui", action='store_true', help="use UI") 
+    parser.add_argument("--ui", action='store_true', 
+        help="set to use UI, if True, the following arguments are ignored and set through UI") 
 
-    parser.add_argument("--api-key", default='000', help="if use openai-api, specify the key") 
-    parser.add_argument("--api-option", default='vllm', help="[vllm | openai]")
-    parser.add_argument("--model", default='gpt-4o-mini', help="if use local llm, specify the path of the model that vllm is serving")
-    parser.add_argument("--vllm-url", default='localhost:8000', help="if use local vllm, served llm, specify the url")
+    parser.add_argument("--api-key", default='000', 
+        help="if using OpenAI API with key, specify the key") 
+    parser.add_argument("--api-option", default='other', 
+        help="[other | openai], set to 'openai' if using OpenAI API with key")
+    parser.add_argument("--model", default='gpt-4o-mini', 
+        help="model used for llm call")
+    parser.add_argument("--llm-url", default='localhost:8000', 
+        help="Ignore if using OpenAI API with key, otherwise specify url")
 
-    parser.add_argument("--available-rooms", nargs="*", help="available escaperoom names") 
+    parser.add_argument("--available-rooms", nargs="*", 
+        help="available escaperoom names, separated by space") 
     
     return parser.parse_args()
 
@@ -247,22 +266,22 @@ def ui():
     with gr.Blocks() as exp:
         with gr.Row():
             api_key_box = gr.Textbox(
-                label="api_key (Required if using OpenAI API)", 
+                label="api_key (Required if using OpenAI API with key, otherwise ignored)", 
                 value='000', 
                 interactive=True
             )
             api_option_box = gr.Textbox(
-                label="api_option (Set to 'openai' if using OpenAI API)", 
-                value='vllm', 
+                label="api_option (Set to 'openai' if using OpenAI API with key)", 
+                value='other', 
                 interactive=True
             )
             llm_model_box = gr.Textbox(
-                label="llm_model (Can be openai model or local vllm served model)", 
+                label="llm_model", 
                 value='gpt-4o-mini', 
                 interactive=True
             )
             base_url_box = gr.Textbox(
-                label="vllm url (Required if use local vllm served model)", 
+                label="llm_url (Required if not using OpenAI API with key, otherwise set the url)", 
                 value='localhost:8000', 
                 interactive=True
             )    
@@ -300,7 +319,7 @@ if __name__ == "__main__":
     api_key = args.api_key
     api_option = args.api_option
     llm_model = args.model
-    base_url = args.vllm_url
+    base_url = args.llm_url
 
     available_rooms = args.available_rooms
 
