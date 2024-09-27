@@ -1,53 +1,30 @@
 # Define the fixed IDs for actions and relations
 fixed_action_ids = {
-    "stand": 1,
-    "walk": 2,
-    "run": 3,
-    "drive": 4,
-    "grab": 5,
-    "place": 6,
-    "open": 7,
-    "close": 8,
-    "lookat": 9,
-    "switch on": 10,
-    "switch off": 11,
-    "sit": 12,
-    "sleep": 13,
-    "eat": 14,
-    "drink": 15,
-    "clean": 16,
-    "point": 17,
-    "pull": 18,
-    "push": 19,
-    "cook": 20,
-    "cut": 21,
-    "pour": 22,
-    "shower": 23,
-    "dry": 24,
-    "lock": 25,
-    "unlock": 26,
-    "fill": 27,
-    "talk": 28,
-    "laugh": 29,
-    "angry": 30,
-    "cry": 31,
-    "call": 32,
-    "interact": 33,
-    "step_forward": 34,
-    "step_backwards": 35,
-    "turn_left": 36,
-    "turn_right": 37,
+    "walk": 0,
+    "run": 1,
+    "grab": 2,
+    "place": 3,
+    "open": 4,
+    "close": 5,
+    "lookat": 6,
+    "switch_on": 7,
+    "switch_off": 8,
+    "sit": 9,
+    "interact": 10,
+    "step_forward": 11,
+    "step_backwards": 12,
+    "turn_left": 13,
+    "turn_right": 14,
 }
 
 fixed_relation_ids = {"on": 1, "under": 2, "inside": 3, "next to": 4}
 
-
 # Function to update object mapping
 def update_mapping(word, mapping):
     if word not in mapping and word.startswith("object"):
-        mapping[word] = len(mapping) + 1
+        # mapping[word] = len(mapping) + 1
+        mapping[word] = int(word.replace("object", '').replace('_', ''))
     return mapping
-
 
 # Process phrase with fixed action and relation IDs
 def process_phrase_with_relations(
@@ -57,26 +34,28 @@ def process_phrase_with_relations(
         object_mapping = {}
 
     words = phrase.split()
-    processed = {"agent_index": [], "task": [0, 0, 0, 0]}
+    processed = {"agent_index": [], "task": [0, 0, 0, 0]}  # Action, Object1, Object2, Relation
+    ignore_object2 = False  # Flag to ignore object2 if "to" or "from" is in the phrase
 
     for word in words:
         if word.startswith("agent_"):
             processed["agent_index"].append(int(word.split("_")[1]))
         elif word in action_ids:
-            processed["task"][0] = action_ids[word]
+            processed["task"][0] = action_ids[word]  # Set the action
         elif word in relation_ids:
-            processed["task"][2] = relation_ids[word]
+            processed["task"][3] = relation_ids[word]  # Set the relation (last position)
+        elif word in ["to", "from"]:
+            ignore_object2 = True  # Mark that we should ignore the second object
         else:
             # Update mapping only for words that start with 'object'
             object_mapping = update_mapping(word, object_mapping)
             if word.startswith("object"):
                 if processed["task"][1] == 0:
-                    processed["task"][1] = object_mapping[word]
-                elif processed["task"][3] == 0:
-                    processed["task"][3] = object_mapping[word]
+                    processed["task"][1] = object_mapping[word]  # Set object1
+                elif not ignore_object2 and processed["task"][2] == 0:
+                    processed["task"][2] = object_mapping[word]  # Set object2
 
     return processed, object_mapping
-
 
 # Define the sequence function
 def sequence(phrases):
@@ -93,7 +72,14 @@ def sequence(phrases):
         task = processed["task"]
 
         # Emit the message
-        data = {"agent_index": agent_index, "task": task}
+        data = {"agent_index": [agent_index], "task": task}
         data_list.append(data)
         # set_action(data)
     return data_list
+
+
+if __name__ == "__main__":
+    action_list = ["agent_0 run to object_140"]
+
+    ret = sequence(action_list)
+    print(ret)

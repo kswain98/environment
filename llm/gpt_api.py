@@ -5,7 +5,10 @@ class OpenAIBot():
     def __init__(self, 
         base_url='localhost',
         model="gpt-3.5-turbo-0125", 
-        use_openai=False):
+        use_openai=False,
+        api_key="000",
+        llm_config={}
+        ):
 
         """
         Define openai agent and give prompt examples.
@@ -21,14 +24,14 @@ class OpenAIBot():
 
         if use_openai:
             self.client = OpenAI(
-                organization="your-org",
-                api_key="your-key",
+                # organization="your-org",
+                # project="your-project",
+                api_key=api_key,
             ) 
         else:
-            openai_api_key = "000" # random text str
             openai_api_base = f"http://{base_url}/v1"
             self.client = OpenAI(
-                api_key=openai_api_key,
+                api_key=api_key,
                 base_url=openai_api_base,
             )
 
@@ -45,11 +48,16 @@ class OpenAIBot():
             """
         
         self.sampling_params = {
-            "max_tokens": 2048, # 16384, #
+            "max_tokens": 16384, # max_tokens for gpt-4o-mini
             "temperature": 0.4,
             "top_p": 0.9
         }
  
+        if llm_config:
+            for k, v in self.sampling_params.items():
+                if k in llm_config:
+                    self.sampling_params[k] = llm_config[k]
+
         self.use_openai = use_openai
         self.model = model
    
@@ -126,6 +134,8 @@ if __name__ == "__main__":
     local_model = "/local_path/models/Mistral-7B-Instruct-v0.2"
     openai_model = "gpt-4o-mini"
 
+    api_key = "000"
+
     api_option = "openai" # "local"
     log_output = True
 
@@ -134,9 +144,9 @@ if __name__ == "__main__":
     if test_case == 1 or test_case == "all":
         ## >>> Test 1 >>>
         if api_option == "openai":
-            openai_bot = OpenAIBot(model=local_model, use_openai=True)
+            openai_bot = OpenAIBot(model=openai_model, use_openai=True, api_key=api_key)
         else:
-            openai_bot = OpenAIBot(base_url=base_url, model=openai_model)
+            openai_bot = OpenAIBot(base_url=base_url, model=local_model, llm_config={'max_token': 2048})
         
         prompt = "Hi, how are you?"
 
@@ -164,9 +174,9 @@ if __name__ == "__main__":
         sys_msg = "You're a knowledgable assistant who can well understand the virtual home simulation environment and good at problem solving, please answer the requests from the us."
         
         if api_option == "openai":
-            openai_bot = OpenAIBot(model=local_model, use_openai=True)
+            openai_bot = OpenAIBot(model=openai_model, use_openai=True, api_key=api_key)
         else:
-            openai_bot = OpenAIBot(base_url=base_url, model=openai_model)
+            openai_bot = OpenAIBot(base_url=base_url, model=local_model, llm_config={'max_token': 2048})
         
         ret = []
         for p in prompts:
@@ -197,17 +207,16 @@ if __name__ == "__main__":
             "turn_left": 36, "turn_right": 37}
 
 
-        sys_msg = f"You're an embodied agent trapped in a simulated environment game popularly known as an escape room. \
-        You will be provided with an obervation graph in json format representing the objects and their corresponding relationships within the room. \
-        You'll be given a set of allowed actions. However, you cannot be violent or break things. \
-        The allowed actions are represented in the format of 'action_name: action_index', a complete list of allowed actions is as follows: {fixed_action_ids}\n. \
-        The format of this interactive game is iterative, \
-        where you are provided information about the objects around and you need to send back a single line of instruction of what you would do in the situation. \
-        While trying to escape, please report your every action in the following format: \
-            Move to <location or object> \
-            Pick up <object name> \
-            , etc. \
-        After all your actions are executed, please update the observation graph in the same json format, and save it out to new_observation.json file."
+        sys_msg = f"""You're an embodied agent trapped in a simulated environment game popularly known as an escape room.
+You will be provided with an obervation graph in json format representing the objects and their corresponding relationships within the room.
+You'll be given a set of allowed actions. However, you cannot be violent or break things.
+The allowed actions are represented in the format of 'action_name: action_index', a complete list of allowed actions is as follows: {fixed_action_ids}\n.
+The format of this interactive game is iterative, where you are provided information about the objects around and you need to send back a single line of instruction of what you would do in the situation.
+While trying to escape, please report your every action in the following format:
+    Move to <location or object>
+    Pick up <object name>
+    , etc.
+After all your actions are executed, please update the observation graph in the same json format, and save it out to new_observation.json file."""
     
 
         prompt = f"The observation graph of current environment is as follows:\n{graph}\n \
@@ -215,9 +224,9 @@ if __name__ == "__main__":
         output the final observation graph in json format."
 
         if api_option == "openai":
-            openai_bot = OpenAIBot(model=local_model, use_openai=True)
+            openai_bot = OpenAIBot(model=openai_model, use_openai=True, api_key=api_key)
         else:
-            openai_bot = OpenAIBot(base_url=base_url, model=openai_model)
+            openai_bot = OpenAIBot(base_url=base_url, model=local_model, llm_config={'max_token': 2048})
 
         resp, resp_text = openai_bot(prompt, sys_msg=sys_msg)
         print_text = f"User: {prompt}\nLLM: {resp_text}\n\n"
@@ -245,23 +254,23 @@ if __name__ == "__main__":
 
         images, img_format = get_image_encode(image_dir, start_idx=0, count=1)
 
-        sys_msg = f"You're an embodied agent trapped in a simulated environment game popularly known as an escape room. \
-        Your goal is to observe and interact with the environment to escape the room. \
-        You'll be given a set of allowed actions to control the movement of the agents. However, you cannot be violent or break things.\
-        Everytime you control the agent to take an action, the observation of the environment will be returned to you by an image, you need to translate the image into an observation graph in json format. An example of the observation graph in json format is as follows:\n{graph}\n \
-        While trying to escape, please report your every action in the following format: \
-            Move to <location or object> \
-            Turn left \
-            Pick up <object name> \
-            , etc."
+        sys_msg = f"""You're an embodied agent trapped in a simulated environment game popularly known as an escape room.
+Your goal is to observe and interact with the environment to escape the room.
+You'll be given a set of allowed actions to control the movement of the agents. However, you cannot be violent or break things.
+Everytime you control the agent to take an action, the observation of the environment will be returned to you by an image, you need to translate the image into an observation graph in json format. An example of the observation graph in json format is as follows:\n{graph}\n
+While trying to escape, please report your every action in the following format:
+Move to <location or object>
+    Turn left
+    Pick up <object name>
+    , etc."""
         
 
         prompt = "Can you tell what objects are in the image and what are the relationships between those objects? Please refer to the above example of observation graph in json format and generate the json format of observation graph for this image."
        
         if api_option == "openai":
-            openai_bot = OpenAIBot(model=local_model, use_openai=True)
+            openai_bot = OpenAIBot(model=openai_model, use_openai=True, api_key=api_key)
         else:
-            openai_bot = OpenAIBot(base_url=base_url, model=openai_model)
+            openai_bot = OpenAIBot(base_url=base_url, model=local_model, llm_config={'max_token': 2048})
         
         for img in images:
             resp, resp_text = openai_bot(prompt, img, img_format, sys_msg=sys_msg)
