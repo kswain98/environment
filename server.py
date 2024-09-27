@@ -18,8 +18,12 @@ def disconnect(sid):
         clients.remove(sid)
 
 @sio.event
-def debug(sid, data):
+def message(sid, data):
     sio.emit('message', data)
+
+@sio.event
+def graph(sid, data):
+    sio.emit('graph', data)
 
 @sio.event
 def make(sid, data):
