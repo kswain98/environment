@@ -89,7 +89,7 @@ log_output = True
 
 def get_args():
     parser = ArgumentParser()
-    parser.add_argument("--ui", action='store_false', 
+    parser.add_argument("--ui", action='store_true', 
         help="set to use UI, if True, the following arguments are ignored and set through UI") 
 
     parser.add_argument("--api-key", default='000', 
