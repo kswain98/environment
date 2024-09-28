@@ -37,9 +37,7 @@ obs_start_phrase = "Start of New Observation Graph"
 obs_end_phrase = "End of New Observation Graph"
 
 sys_msg = f"""You're playing a game as an embodied agent trapped in an escape room, your goal is to escape from it. 
-You'll be given the name of the escaperoom, to initialize the environment, please call "func <create_escaperoom escaperoom_name>" in order to continue with the game. For example, if the escaperoom name is MyNiceEscapeRoom, you should first call "func <create_escaperoom MyNiceEscapeRoom>".
-
-Once the environment is successfully created, you can call the "func <observe_environment>" function anytime to obtain the observation graph in json format representing the objects and their corresponding relationships in the room.
+Once the room is successfully created, you can call the "func <observe_environment>" function anytime to obtain the observation graph in json format representing the objects and their corresponding relationships in the room.
 
 Once you obtain the observation graph in json format, you need to analyze it to understand what objects are in the room and what their attributes are. After you understand the observation graph for the current environment, you can instruct the agent to interact with the environment in order to escape the room. You're only allowed to use the following {len(allowed_actions)} actions: {' '.join(allowed_actions)}. Please try different action instructions if you noticed no changes in the observation graph since the previous action instruction.
 
@@ -91,7 +89,7 @@ log_output = True
 
 def get_args():
     parser = ArgumentParser()
-    parser.add_argument("--ui", action='store_true', 
+    parser.add_argument("--ui", action='store_false', 
         help="set to use UI, if True, the following arguments are ignored and set through UI") 
 
     parser.add_argument("--api-key", default='000', 
@@ -142,7 +140,7 @@ def get_observation():
     }
 
     observation(data)
-    environment = load_json('graph.json')
+    environment = load_json('observation.json')
     return environment
 
 def set_agent_actions(func_call: str):
@@ -158,7 +156,8 @@ def update_observation(llm_resp):
     obs_end_idx = llm_resp.find(obs_end_phrase)
 
     environment = json.loads(llm_resp[obs_start_idx : obs_end_idx])
-    save_json(environment, 'new_graph.json')
+    save_json(environment, 'new_observation.json')
+    return environment
 
 def end_program():
     exit(0)
@@ -171,39 +170,28 @@ def extract_func(llm_response):
 
 def parse_func(
     function_calls: list=[], 
-    func_type: Literal["create", "other"]="create",
-    llm_resp: str="",
-    available_escaperooms: list=available_escaperooms):
+    llm_resp: str=""):
     
     global environment
 
     for func in function_calls:
         func_call = func.replace("func", '').\
-            replace('<', '').replace('>', '').strip()
+            replace('<', '').replace('>', '').replace("\\", "")\
+            .strip()
         
         print(func_call)
 
-        if func_type == "create": # TODO: currently ignore other func if create
-            if not "create" in func_call:
-                continue
-            escape_room_name = func_call.split(' ')[-1]
-            assert escape_room_name in available_escaperooms
-            create_environment(escape_room_name=escape_room_name)
+        if "observe_environment" in func_call:
             environment = get_observation()
-            return environment
 
-        else:
-            if "observe_environment" in func_call:
-                environment = get_observation()
+        elif "action" in func_call:
+            set_agent_actions(func_call)
 
-            elif "action" in func_call:
-                set_agent_actions(func_call)
+        elif "update" in func_call:
+            environment = update_observation(llm_resp=llm_resp)
 
-            elif "update" in func_call:
-                update_observation(llm_resp=llm_resp)
-
-            elif "end" in func_call:
-                end_program()
+        elif "end" in func_call:
+            end_program()
 
     return environment
 
@@ -226,37 +214,20 @@ def get_llm_response(
         available_escaperooms = available_rooms
 
     if user_input in available_escaperooms:
-        prompt = f"{init_prompt} {user_input}"
-        llm_response = call_llm(
-            sys_msg=sys_msg, query=prompt, llm=openai_bot)
-        function_calls = extract_func(llm_response)
-        
-        environment = parse_func(
-            function_calls, func_type="create", 
-            llm_resp=llm_response, available_escaperooms=available_escaperooms)
-
-        send_obs_prompt += f"{environment}\n"
-
-        llm_response = call_llm(
-            sys_msg=sys_msg, query=send_obs_prompt, llm=openai_bot)
-        
-        function_calls = extract_func(llm_response)
-
-        environment = parse_func(
-            function_calls, func_type="other", 
-            llm_resp=llm_response, available_escaperooms=available_escaperooms)
+        create_environment(user_input)
+        environment = get_observation()
+        llm_response = f"Succesfully created {user_input}!"
 
     else:
         send_obs_prompt += f"{environment}\n"
 
         llm_response = call_llm(
-            sys_msg=sys_msg, query=f"{user_input}\n{send_obs_prompt}",
+            sys_msg=sys_msg, 
+            query=f"{user_input}\n{send_obs_prompt}",
             llm=openai_bot)
         
         function_calls = extract_func(llm_response)
-        environment = parse_func(
-            function_calls, func_type="other", 
-            llm_resp=llm_response, available_escaperooms=available_escaperooms)
+        environment = parse_func(function_calls=function_calls, llm_resp=llm_response)
 
         
     return llm_response
@@ -277,7 +248,7 @@ def ui():
             )
             llm_model_box = gr.Textbox(
                 label="llm_model", 
-                value='gpt-4o-mini', 
+                value='gpt-4o-mini',
                 interactive=True
             )
             base_url_box = gr.Textbox(
@@ -334,7 +305,7 @@ if __name__ == "__main__":
             api_key, api_option, llm_model, base_url,
             available_rooms, "KswainEscapeRoom4")
 
-        try_steps = 2 # TODO: set to 2 for quick debug
+        try_steps = 5 # TODO: set to 2 for quick debug
         while try_steps:
             get_llm_response(
                 api_key, api_option, llm_model, base_url,
