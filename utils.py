@@ -82,4 +82,20 @@ if __name__ == "__main__":
     action_list = ["agent_0 run to object_140"]
 
     ret = sequence(action_list)
-    print(ret)
+    print(f"\nparsed action:\n{ret}")
+
+
+    # Sequence
+    action_list = [
+        "agent_1 pickup object_1",
+        "agent_2 walk to object_2",
+        "agent_3 place object_4 on object_5",
+        "agent_4 jump over object_6",
+        "agent_5 examine object3 under object_7",
+        "agent_6 run from object_8 to object_9",
+        "agent_7 pick object_10 and place on object_11",
+    ]
+
+    ret = sequence(action_list)
+    print(f"\nparsed action:\n{ret}")
+
