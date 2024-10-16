@@ -98,3 +98,4 @@ if __name__ == "__main__":
 
     ret = sequence(action_list)
     print(f"\nparsed action:\n{ret}")
+
