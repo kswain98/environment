@@ -7,8 +7,8 @@ fixed_action_ids = {
     "open": 4,
     "close": 5,
     "lookat": 6,
-    "switch on": 7,
-    "switch off": 8,
+    "switch_on": 7,
+    "switch_off": 8,
     "sit": 9,
     "interact": 10,
     "step_forward": 11,
@@ -22,7 +22,8 @@ fixed_relation_ids = {"on": 1, "under": 2, "inside": 3, "next to": 4}
 # Function to update object mapping
 def update_mapping(word, mapping):
     if word not in mapping and word.startswith("object"):
-        mapping[word] = len(mapping) + 1
+        # mapping[word] = len(mapping) + 1
+        mapping[word] = int(word.replace("object", '').replace('_', ''))
     return mapping
 
 # Process phrase with fixed action and relation IDs
@@ -71,7 +72,29 @@ def sequence(phrases):
         task = processed["task"]
 
         # Emit the message
-        data = {"agent_index": agent_index, "task": task}
+        data = {"agent_index": [agent_index], "task": task}
         data_list.append(data)
         # set_action(data)
     return data_list
+
+
+if __name__ == "__main__":
+    action_list = ["agent_0 run to object_140"]
+
+    ret = sequence(action_list)
+    print(f"\nparsed action:\n{ret}")
+
+
+    # Sequence
+    action_list = [
+        "agent_1 pickup object_1",
+        "agent_2 walk to object_2",
+        "agent_3 place object_4 on object_5",
+        "agent_4 jump over object_6",
+        "agent_5 examine object3 under object_7",
+        "agent_6 run from object_8 to object_9",
+        "agent_7 pick object_10 and place on object_11",
+    ]
+
+    ret = sequence(action_list)
+    print(f"\nparsed action:\n{ret}")
