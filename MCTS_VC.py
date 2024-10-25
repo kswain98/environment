@@ -861,7 +861,17 @@ class MCTS:
 # For example:
 # Node(id=(...), num_visited=0, sum_value=0, subgoal_prior=..., is_expanded=False)
 def find_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-
+    pass
+def grab_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
+    pass
+def put_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
+    pass
+def cook_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
+    pass
+def open_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
+    pass
+def close_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
+    pass
 
 if __name__ == "__main__":
 
@@ -904,7 +914,6 @@ if __name__ == "__main__":
     # Create root node using current state instead of loading from file
     root = Node(
         id=('initial', [
-            mcts.current_state,           # Current VirtuaCity
             mcts.current_state,           # State as dictionary (same as above since we don't have separate formats)
             goal_specification,           # Goal predicates
             satisfied_predicates,         # Currently satisfied predicates
