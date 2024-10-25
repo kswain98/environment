@@ -26,6 +26,7 @@ class MCTS:
 
 
     def check_progress(self, state, goal_spec):
+        
         """TODO: add more predicate checkers; currently only ON"""
         count = 0
         for key, value in goal_spec.items():
