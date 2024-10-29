@@ -24,7 +24,7 @@ def main(api_key, prompt, model, interval, output_file):
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Run a loop to prompt an LLM model and save responses.")
     parser.add_argument("api_key", type=str, default=10, help="The API key for the Groq client.")
-    parser.add_argument("--prompt", type=str, help="The prompt to send to the language model.")
+    parser.add_argument("prompt", type=str, help="The prompt to send to the language model.")
     parser.add_argument("--model", type=str, default="llama-3.1-70b-versatile", help="The language model to use.")
     parser.add_argument("--interval", type=int, default=10, help="Interval in seconds between each prompt (default: 10).")
     parser.add_argument("--output_file", type=str, default="llm_responses.txt", help="The file to save responses (default: llm_responses.txt).")
