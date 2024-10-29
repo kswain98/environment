@@ -3,7 +3,6 @@ import time
 import argparse
 import logging
 from groq import Groq
-from datetime import datetime
 import requests
 
 
@@ -47,11 +46,8 @@ def main(api_key, prompt, model, interval, output_file):
         response, rate_limits = get_llm_response(client, prompt, model)
 
         if response:
-            timestamp = datetime.now().isoformat()
             with open(output_file, "a") as file:
-                file.write(
-                    f"Timestamp: {timestamp}\nPrompt: {prompt}\nResponse: {response}\n\n"
-                )
+                file.write(f"Prompt: {prompt}\nResponse: {response}\n\n")
             print("Response appended to text file.")
 
             if (
@@ -64,7 +60,6 @@ def main(api_key, prompt, model, interval, output_file):
                 and int(rate_limits["remaining_tokens"]) < 50
             ):
                 print("Warning: Approaching token rate limit.")
-
         else:
             print("No response received. Check error_log.txt for details.")
 
