@@ -61,14 +61,23 @@ ctr = 0
 while True:
     try:
         response = llm_chain.run(input=args.prompt)
-
         formatted_response = (
-            f"Response #{ctr + 1}\n" f"{'-'*40}\n" f"{response}\n" f"{'='*60}\n\n"
+            f"Task #{ctr + 1}\n" f"{'-'*40}\n" f"{response}\n" f"{'='*60}\n\n"
         )
 
         with open(args.output_file, "a") as file:
             file.write(formatted_response)
-            print(f"Response #{ctr + 1} saved to {args.output_file}.")
+            print(f"Task Response #{ctr + 1} saved to {args.output_file}.")
+
+        subgoal_prompt = f"What would all the intermediate steps required to {response}?"
+        subgoal_response = llm_chain.run(input=subgoal_prompt)
+        formatted_subgoal_response = (
+            f"Subgoals for Response #{ctr + 1}\n" f"{'-'*40}\n" f"{subgoal_response}\n" f"{'='*60}\n\n"
+        )
+
+        with open(args.output_file, "a") as file:
+            file.write(formatted_subgoal_response)
+            print(f"Subgoal Response #{ctr + 1} saved to {args.output_file}.")
 
         ctr += 1
     except Exception as e:
