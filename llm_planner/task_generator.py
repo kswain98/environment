@@ -1,6 +1,5 @@
 import argparse
 from groq import Groq
-from langchain.chains import LLMChain
 from langchain.prompts import ChatPromptTemplate
 from langchain.memory import ConversationBufferMemory
 from langchain.llms.base import LLM
@@ -33,10 +32,17 @@ class GroqLLM(LLM, BaseModel):
 
 
 parser = argparse.ArgumentParser(
-    description="Generate responses using Groq LLM API."
+    description="Generate tasks and subgoals using Groq LLM API."
 )
 parser.add_argument("--api_key", required=True, help="API key for Groq.")
-parser.add_argument("--prompt", required=True, help="Initial prompt for the LLM.")
+parser.add_argument(
+    "--prompt", required=True, help="Initial prompt to generate the task."
+)
+parser.add_argument(
+    "--subgoal_prompt",
+    default="What would all the intermediate steps required to {task}",
+    help="Custom prompt for generating subgoals. Use '{task}' as a placeholder for the generated task.",
+)
 parser.add_argument(
     "--model", default="llama-3.1-70b-versatile", help="Model version for the LLM."
 )
@@ -50,34 +56,38 @@ memory = ConversationBufferMemory()
 groq_llm = GroqLLM(client=client, model=args.model)
 
 prompt_template = ChatPromptTemplate.from_template("{history}\nUser: {input}\n")
-llm_chain = LLMChain(
-    prompt=prompt_template,
-    llm=groq_llm,
-    memory=memory,
-)
 
 ctr = 0
 
 while True:
     try:
-        response = llm_chain.run(input=args.prompt)
+        task_prompt = prompt_template.format(
+            history=memory.load_memory_variables({})["history"], input=args.prompt
+        )
+        task_response = groq_llm(task_prompt)
+
+        memory.save_context({"input": args.prompt}, {"output": task_response})
+
+        subgoal_prompt = args.subgoal_prompt.format(task=task_response)
+
+        subgoal_input = prompt_template.format(
+            history=memory.load_memory_variables({})["history"], input=subgoal_prompt
+        )
+        subgoal_response = groq_llm(subgoal_input)
+
+        memory.save_context({"input": subgoal_prompt}, {"output": subgoal_response})
+
         formatted_response = (
-            f"Task #{ctr + 1}\n" f"{'-'*40}\n" f"{response}\n" f"{'='*60}\n\n"
+            f"Task #{ctr + 1}\n"
+            f"{'-'*40}\n"
+            f"{task_response}\n\n"
+            f"Subgoals:\n{subgoal_response}\n"
+            f"{'='*60}\n\n"
         )
 
         with open(args.output_file, "a") as file:
             file.write(formatted_response)
-            print(f"Task Response #{ctr + 1} saved to {args.output_file}.")
-
-        subgoal_prompt = f"What would all the intermediate steps required to {response}?"
-        subgoal_response = llm_chain.run(input=subgoal_prompt)
-        formatted_subgoal_response = (
-            f"Subgoals for Response #{ctr + 1}\n" f"{'-'*40}\n" f"{subgoal_response}\n" f"{'='*60}\n\n"
-        )
-
-        with open(args.output_file, "a") as file:
-            file.write(formatted_subgoal_response)
-            print(f"Subgoal Response #{ctr + 1} saved to {args.output_file}.")
+            print(f"Task and subgoals #{ctr + 1} saved to {args.output_file}.")
 
         ctr += 1
     except Exception as e:
