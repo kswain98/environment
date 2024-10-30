@@ -5,13 +5,11 @@ import logging
 from groq import Groq
 import requests
 
-
 logging.basicConfig(
     filename="error_log.txt",
     level=logging.ERROR,
     format="%(asctime)s %(levelname)s %(message)s",
 )
-
 
 def get_llm_response(client, prompt, model):
     try:
@@ -19,53 +17,30 @@ def get_llm_response(client, prompt, model):
             messages=[{"role": "user", "content": prompt}],
             model=model,
         )
-        rate_limits = {
-            "remaining_requests": chat_completion.headers.get(
-                "x-ratelimit-remaining-requests"
-            ),
-            "remaining_tokens": chat_completion.headers.get(
-                "x-ratelimit-remaining-tokens"
-            ),
-            "retry_after": chat_completion.headers.get("retry-after"),
-        }
-        return chat_completion.choices[0].message.content, rate_limits
+        return chat_completion.choices[0].message.content
     except requests.exceptions.HTTPError as e:
         if e.response.status_code == 429:
-            retry_after = int(e.response.headers.get("retry-after", 10))
+            retry_after = 10
             logging.error(f"Rate limit hit. Retrying after {retry_after} seconds.")
             time.sleep(retry_after)
-            return None, {}
+            return None
         logging.error(f"Error fetching response: {e}")
-        return None, {}
-
+        return None
 
 def main(api_key, prompt, model, interval, output_file):
     client = Groq(api_key=api_key)
 
     while True:
-        response, rate_limits = get_llm_response(client, prompt, model)
+        response = get_llm_response(client, prompt, model)
 
         if response:
             with open(output_file, "a") as file:
                 file.write(f"Prompt: {prompt}\nResponse: {response}\n\n")
             print("Response appended to text file.")
-
-            if (
-                rate_limits.get("remaining_requests")
-                and int(rate_limits["remaining_requests"]) < 10
-            ):
-                print("Warning: Approaching daily request limit.")
-            if (
-                rate_limits.get("remaining_tokens")
-                and int(rate_limits["remaining_tokens"]) < 50
-            ):
-                print("Warning: Approaching token rate limit.")
         else:
             print("No response received. Check error_log.txt for details.")
 
-        retry_after = int(rate_limits.get("retry_after", interval))
-        time.sleep(retry_after)
-
+        time.sleep(interval)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -94,7 +69,6 @@ def parse_arguments():
         help="The file to save responses (default: llm_responses.txt).",
     )
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     args = parse_arguments()
