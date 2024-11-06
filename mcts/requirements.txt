@@ -2,3 +2,5 @@ torch
 torchvision
 torchaudio
 openai
+python-socketio
+python-socketio[client]
