@@ -46,7 +46,7 @@ class MCTS:
         self.graph = self.load_graph_json()
         self.node_map = self.create_node_map()
         self.relation_map = self.create_relation_map()
-        self.relation_list = ["on", "inside", "right of", "left of", "behind", "infront"]
+        self.relation_list = ["supported by", "inside", "right of", "left of", "behind", "infront"]
         self.fixed_action_ids = {
             "stand": 1, 
             "walk": 2, 
@@ -171,11 +171,6 @@ class MCTS:
                 if f"holds agent_{self.agent_id}" in relation:
                     inhand_objects.append(node['id'])
 
-        inhand_objects_opponent = []
-        for node in self.current_state:
-            for relation in node.get('relation', []):
-                if f"holds agent_{3-self.agent_id}" in relation:
-                    inhand_objects_opponent.append(node['id'])
 
         subgoal_space = []
         obsed_subgoal_space = []
@@ -189,14 +184,14 @@ class MCTS:
             obj, relation_type, target = predicate
             
             # Handle different types of predicates
-            if relation_type == 'on':
+            if relation_type == 'supported by':
                 subgoal_type = 'put'
                 matching_nodes = [node for node in self.current_state if node['name'] == obj]
                 target_nodes = [node for node in self.current_state if node['name'] == target]
                 
                 for node in matching_nodes:
                     for target_node in target_nodes:
-                        tmp_predicate = f"on_{node['id']}_{target_node['id']}"
+                        tmp_predicate = f"supported by_{node['id']}_{target_node['id']}"
                         if tmp_predicate not in satisfied.get(predicate, []):
                             subgoal = f"{subgoal_type}_{node['id']}_{target_node['id']}"
                             subgoal_entry = [subgoal, predicate, tmp_predicate]
@@ -323,10 +318,9 @@ class MCTS:
 
         # Map relation types to actions
         action_map = {
-            'on': 'put',
+            'supported by': 'put',
             'inside': 'putIn',
             'holds': 'grab'
-
         }
 
         action = action_map.get(relation_type)
@@ -872,7 +866,7 @@ class MCTS:
             return
 
         if action == 'put':
-            relation_key = (obj_node['name'], 'on', surface_node['name'])
+            relation_key = (obj_node['name'], 'supported by', surface_node['name'])
             satisfied[relation_key] = True
             if relation_key in unsatisfied:
                 unsatisfied[relation_key] -= 1
@@ -1127,9 +1121,218 @@ class MCTS:
             cost_list += find_costs + cost
 
         return action_list, cost_list
-    def open_heuristic(self, agent_id, goal):
-        
+    def turnOn_heuristic(self, agent_id, goal):
+        """Heuristic function for turning on an object."""
+        observations = self.current_state
+        target_id = int(goal.split('_')[-1])
 
+        observed_ids = [node['id'] for node in observations]
+        agent_node = next(node for node in observations if node['id'] == agent_id)
+        target_node = next(node for node in observations if node['id'] == target_id)
+
+        # Check if agent is close to target
+        is_close = any(
+            'close' in relation.lower() and target_node['name'] in relation
+            for relation in agent_node.get('relation', [])
+        )
+
+        # Check if target is already switched on
+        is_on = 'ON' in target_node.get('state', [])
+
+        action_list = []
+        cost_list = []
+
+        if not is_on:
+            target_action = [('switchon', (target_node['name'], target_id), None)]
+            cost = [0.05]
+        else:
+            target_action = []
+            cost = []
+
+        if is_close and target_id in observed_ids:
+            action_list += target_action
+            cost_list += cost
+        else:
+            find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+            action_list += find_actions + target_action
+            cost_list += find_costs + cost
+
+        return action_list, cost_list
+
+def sit_heuristic(self, agent_id, goal):
+    """Heuristic function for sitting on an object."""
+    observations = self.current_state
+    target_id = int(goal.split('_')[-1])
+
+    observed_ids = [node['id'] for node in observations]
+    agent_node = next(node for node in observations if node['id'] == agent_id)
+    target_node = next(node for node in observations if node['id'] == target_id)
+
+    # Check if agent is close to target
+    is_close = any(
+        'close' in relation.lower() and target_node['name'] in relation
+        for relation in agent_node.get('relation', [])
+    )
+
+    # Check if agent is already sitting on the target
+    is_sitting = any(
+        'sit' in relation.lower() and target_node['name'] in relation
+        for relation in agent_node.get('relation', [])
+    )
+
+    action_list = []
+    cost_list = []
+
+    if not is_sitting:
+        target_action = [('sit', (target_node['name'], target_id), None)]
+        cost = [0.05]
+    else:
+        target_action = []
+        cost = []
+
+    if is_close and target_id in observed_ids:
+        action_list += target_action
+        cost_list += cost
+    else:
+        find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+        action_list += find_actions + target_action
+        cost_list += find_costs + cost
+
+    return action_list, cost_list
+
+def put_heuristic(self, agent_id, goal):
+    """Heuristic function for putting an object on another object."""
+    observations = self.current_state
+
+    target_grab_id, target_put_id = [int(x) for x in goal.split('_')[-2:]]
+
+    # Check if object is already placed on target
+    is_placed = False
+    for node in observations:
+        if node['id'] == target_grab_id:
+            for relation in node.get('relation', []):
+                if f"supported by object_{target_put_id}" in relation:
+                    is_placed = True
+                    break
+
+    if is_placed:
+        return [], []
+
+    # Check if object is already held by someone else (not the agent)
+    is_held_by_other = False
+    for node in observations:
+        for relation in node.get('relation', []):
+            if f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation:
+                is_held_by_other = True
+                break
+
+    if is_held_by_other:
+        return None, None
+
+    target_node = next(node for node in observations if node['id'] == target_grab_id)
+    target_node2 = next(node for node in observations if node['id'] == target_put_id)
+
+    # Check if agent is holding the object
+    target_grabbed = any(
+        f"holds agent_{agent_id}" in relation
+        for relation in target_node.get('relation', [])
+    )
+
+    if not target_grabbed:
+        grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
+    else:
+        grab_obj1 = []
+        cost_grab_obj1 = []
+
+    # Need to find where to put the object
+    find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
+    action = [('put', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
+    cost = [0.05]
+    res = grab_obj1 + find_obj2 + action
+    cost_list = cost_grab_obj1 + cost_find_obj2 + cost
+
+    return res, cost_list
+
+def open_heuristic(self, agent_id, goal):
+    """Heuristic function for opening an object."""
+    observations = self.current_state
+    target_id = int(goal.split('_')[-1])
+    target_node = next(node for node in observations if node['id'] == target_id)
+
+    # Check if target is already open
+    is_open = 'OPEN' in target_node.get('state', [])
+    if is_open:
+        return [], []
+
+    # Generate actions
+    find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+    action_open = [('open', (target_node['name'], target_id), None)]
+    cost_open = [0.05]
+    res = find_actions + action_open
+    cost_list = find_costs + cost_open
+
+    return res, cost_list
+
+def putIn_heuristic(self, agent_id, goal):
+    """Heuristic function for putting an object inside another object."""
+    observations = self.current_state
+
+    target_grab_id, target_put_id = [int(x) for x in goal.split('_')[-2:]]
+
+    # Check if object is already placed inside target
+    is_placed = False
+    for node in observations:
+        if node['id'] == target_grab_id:
+            for relation in node.get('relation', []):
+                if f"inside object_{target_put_id}" in relation:
+                    is_placed = True
+                    break
+
+    if is_placed:
+        return [], []
+
+    # Check if object is held by someone else
+    is_held_by_other = any(
+        f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation
+        for node in observations
+        for relation in node.get('relation', [])
+    )
+
+    if is_held_by_other:
+        return None, None
+
+    target_node = next(node for node in observations if node['id'] == target_grab_id)
+    target_node2 = next(node for node in observations if node['id'] == target_put_id)
+
+    # Check if agent is holding the object
+    target_grabbed = any(
+        f"holds agent_{agent_id}" in relation
+        for relation in target_node.get('relation', [])
+    )
+
+    if not target_grabbed:
+        grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
+    else:
+        grab_obj1 = []
+        cost_grab_obj1 = []
+
+    # Need to find the container
+    find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
+
+    target_put_state = target_node2.get('state', [])
+    action_open = [('open', (target_node2['name'], target_put_id), None)]
+    action_put = [('putIn', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
+    cost_open = [0.05]
+    cost_put = [0.05]
+
+    if 'CLOSED' in target_node2.get('state', []) or 'OPEN' not in target_node2.get('state', []):
+        res = grab_obj1 + find_obj2 + action_open + action_put
+        cost_list = cost_grab_obj1 + cost_find_obj2 + cost_open + cost_put
+    else:
+        res = grab_obj1 + find_obj2 + action_put
+        cost_list = cost_grab_obj1 + cost_find_obj2 + cost_put
+
+    return res, cost_list
 
 if __name__ == "__main__":
 
@@ -1155,14 +1358,14 @@ if __name__ == "__main__":
     goal_specification = {
     # Format: (subject, relation_type, target): count_needed
     ('cup', 'inside', 'cabinet'): 1,
-    ('plate', 'on', 'counter'): 1,
+    ('plate', 'supported by', 'counter'): 1,
     ('fridge', 'state', 'CLOSED'): 1,
         ('microwave', 'state', 'OFF'): 1
     }
     satisfied_predicates = {}
     unsatisfied_predicates = {
         ('cup', 'inside', 'cabinet'): 1,
-        ('plate', 'on', 'counter'): 1,
+        ('plate', 'supported by', 'counter'): 1,
         ('fridge', 'state', 'CLOSED'): 1,
         ('microwave', 'state', 'OFF'): 1
     }
@@ -1191,8 +1394,11 @@ if __name__ == "__main__":
         heuristic_dict={
             'find': mcts.find_heuristic,  # Use class method
             'grab': mcts.grab_heuristic,  # Use class method
-            # 'put': put_heuristic,
-            # ... other heuristics
+            'turnOn': mcts.turnOn_heuristic,
+            'sit': mcts.sit_heuristic,
+            'put': mcts.put_heuristic,
+            'open': mcts.open_heuristic,
+            'putIn': mcts.putIn_heuristic
         },
         last_subgoal=None
     )
