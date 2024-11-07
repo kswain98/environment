@@ -13,32 +13,6 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./VirtualEnv /usr/local/bin/VirtualEnv
-COPY ./mcts.py /usr/src/app/mcts.py
-
-
-RUN chmod +x /usr/local/bin/VirtualEnv
-
-WORKDIR /usr/src/app
-
-
-CMD ["/bin/bash", "-c", "/usr/local/bin/VirtualEnv & python3 mcts.py"]
-
-FROM ubuntu:22.04
-
-RUN apt-get update && apt-get install -y \
-    software-properties-common \
-    wget \
-    curl \
-    python3 \
-    python3-pip \
-    libxrandr2 \
-    libxinerama1 \
-    libxcursor1 \
-    libxi6 \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
-
 
 COPY ./VirtualEnv /usr/local/bin/VirtualEnv
 COPY ./mcts.py /usr/src/app/mcts.py
