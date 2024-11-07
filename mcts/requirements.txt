@@ -3,3 +3,4 @@ torchvision
 python-socketio
 python-socketio[client]
 tqdm
+anytree

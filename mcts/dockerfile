@@ -1,4 +1,5 @@
 FROM ubuntu:22.04
+# FROM pytorch/pytorch:2.5.1-cuda12.1-cudnn9-devel
 
 RUN apt-get update && apt-get install -y \
     software-properties-common \
@@ -13,9 +14,10 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     && rm -rf /var/lib/apt/lists/*
 
-
 COPY ./CitySample /usr/local/bin/CitySample
 COPY ./mcts.py /usr/src/app/mcts.py
+COPY ./requirements.txt /usr/src/app/requirements.txt
+COPY ./utils.py /usr/src/app/utils.py
 
 RUN pip3 install -r /usr/src/app/requirements.txt
 
