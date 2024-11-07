@@ -9,12 +9,11 @@ from client import *
 import utils
 
 class MCTS:
-    def __init__(self, env, agent_id, char_index, max_episode_length, num_simulation, max_rollout_step, c_init, c_base, seed=1 , env_name = 'Kitchen'):
+    def __init__(self, agent_id, char_index, max_episode_length, num_simulation, max_rollout_step, c_init, c_base, seed=1 , env_name = 'Kitchen'):
         """
         Initializes the MCTS algorithm with the given parameters.
 
         Args:
-            env: The environment in which the agent operates.
             agent_id (int): Identifier for the agent.
             char_index (int): Character index or related identifier.
             max_episode_length (int): Maximum length of an episode.
@@ -25,7 +24,6 @@ class MCTS:
             seed (int): Random seed for reproducibility.
             env_name (str): Name of the environment.
         """
-        self.env = env
         self.discount = 1.0  # Discount factor for future rewards; consider tuning this parameter
         self.agent_id = agent_id
         self.char_index = char_index
@@ -37,7 +35,7 @@ class MCTS:
         self.seed = seed
         self.heuristic_dict = None
         self.last_opened = None
-        self.verbose = False
+        self.verbose = 1
         self.env_name = env_name
 
         # Set random seeds for reproducibility
@@ -48,7 +46,7 @@ class MCTS:
         self.graph = self.load_graph_json()
         self.node_map = self.create_node_map()
         self.relation_map = self.create_relation_map()
-        self.relation_list = ["supported by", "inside", "right of", "left of", "behind", "infront"]
+        self.relation_list = ["on", "inside", "right of", "left of", "behind", "infront"]
         self.fixed_action_ids = {
             "stand": 1, 
             "walk": 2, 
@@ -99,7 +97,7 @@ class MCTS:
         Returns:
             list: List of node dictionaries from the graph.
         """
-        with open('MCTS/graph.json', 'r') as f:
+        with open('graph.json', 'r') as f:
             return json.load(f)[self.env_name]
 
     def create_node_map(self):
@@ -129,7 +127,7 @@ class MCTS:
                     relation_map[relation_type].append((subject, target))
         return relation_map
 
-    def check_progress(self, state, goal_spec):
+    def check_progress(self, goal_spec):
         """
         Checks progress towards goals based on current state.
 
@@ -141,7 +139,7 @@ class MCTS:
             int: Number of satisfied goal conditions.
         """
         satisfied_count = 0
-        for node in state['nodes']:
+        for node in self.current_state:
             for relation in node.get('relation', []):
                 # Split relation into parts
                 parts = relation.split()
@@ -151,32 +149,160 @@ class MCTS:
                         satisfied_count += 1
         return satisfied_count
 
-    def get_subgoal_space(self, state, satisfied, unsatisfied, verbose=0):
+    def get_subgoal_space(self, satisfied, unsatisfied, verbose=0):
         """
-        Generates possible subgoals based on current state.
-
+        Get subgoal space based on current state and unsatisfied predicates.
+        
         Args:
-            state (dict): Current state of the environment.
-            satisfied (dict): Already satisfied relations.
-            unsatisfied (dict): Unsatisfied relations.
-            verbose (int): Verbosity level.
-
+            satisfied (dict): Dictionary of satisfied predicates
+            unsatisfied (dict): Dictionary of unsatisfied predicates
+            verbose (int): Verbosity level
+            
         Returns:
-            list: List of potential subgoals.
+            list: List of possible subgoals in format [subgoal_action, predicate, tmp_predicate]
         """
-        subgoal_space = []
-        # instead of looking at state['nodes'], look at the graph
-        for node in self.graph:
-            for relation in node["relation"]:
-                parts = relation.split()
-                if len(parts) >= 3:
-                    relation_type = ' '.join(parts[1:-1])
-                    if relation_type not in satisfied and relation_type not in unsatisfied:
-                        subgoal = self.relation_to_subgoal(relation)
-                        if subgoal:
-                            subgoal_space.append([subgoal, relation_type, None])
-        return subgoal_space
+        if not self.current_state:
+            return []
 
+        # Get observable objects and objects being held
+        inhand_objects = []
+        for node in self.current_state:
+            for relation in node.get('relation', []):
+                if f"holds agent_{self.agent_id}" in relation:
+                    inhand_objects.append(node['id'])
+
+        inhand_objects_opponent = []
+        for node in self.current_state:
+            for relation in node.get('relation', []):
+                if f"holds agent_{3-self.agent_id}" in relation:
+                    inhand_objects_opponent.append(node['id'])
+
+        subgoal_space = []
+        obsed_subgoal_space = []
+        overlapped_subgoal_space = []
+
+        # Process each unsatisfied predicate
+        for predicate, count in unsatisfied.items():
+            if not isinstance(predicate, tuple) or len(predicate) != 3:
+                continue
+                
+            obj, relation_type, target = predicate
+            
+            # Handle different types of predicates
+            if relation_type == 'on':
+                subgoal_type = 'put'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                target_nodes = [node for node in self.current_state if node['name'] == target]
+                
+                for node in matching_nodes:
+                    for target_node in target_nodes:
+                        tmp_predicate = f"on_{node['id']}_{target_node['id']}"
+                        if tmp_predicate not in satisfied.get(predicate, []):
+                            subgoal = f"{subgoal_type}_{node['id']}_{target_node['id']}"
+                            subgoal_entry = [subgoal, predicate, tmp_predicate]
+                            
+                            if node['id'] in inhand_objects:
+                                return [subgoal_entry]
+                            subgoal_space.append(subgoal_entry)
+
+            elif relation_type == 'inside':
+                subgoal_type = 'putIn'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                target_nodes = [node for node in self.current_state if node['name'] == target]
+                
+                for node in matching_nodes:
+                    for target_node in target_nodes:
+                        tmp_predicate = f"inside_{node['id']}_{target_node['id']}"
+                        if tmp_predicate not in satisfied.get(predicate, []):
+                            subgoal = f"{subgoal_type}_{node['id']}_{target_node['id']}"
+                            subgoal_entry = [subgoal, predicate, tmp_predicate]
+                            
+                            if node['id'] in inhand_objects:
+                                return [subgoal_entry]
+                            subgoal_space.append(subgoal_entry)
+
+            elif relation_type == 'state':
+                if target == 'ON':
+                    subgoal_type = 'switch on'
+                elif target == 'OFF':
+                    subgoal_type = 'switch off'
+                elif target == 'OPEN':
+                    subgoal_type = 'open'
+                elif target == 'CLOSED':
+                    subgoal_type = 'close'
+                else:
+                    continue
+
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                for node in matching_nodes:
+                    tmp_predicate = f"state_{node['id']}_{target}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{node['id']}"
+                        subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            elif relation_type == 'holds':
+                if int(target) == self.agent_id:
+                    subgoal_type = 'grab'
+                    matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                    for node in matching_nodes:
+                        tmp_predicate = f"holds_{node['id']}_{self.agent_id}"
+                        if tmp_predicate not in satisfied.get(predicate, []):
+                            subgoal = f"{subgoal_type}_{node['id']}"
+                            subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            elif relation_type == 'sit':
+                if int(obj) == self.agent_id:
+                    subgoal_type = 'sit'
+                    target_nodes = [node for node in self.current_state if node['name'] == target]
+                    for node in target_nodes:
+                        tmp_predicate = f"sit_{self.agent_id}_{node['id']}"
+                        if tmp_predicate not in satisfied.get(predicate, []):
+                            subgoal = f"{subgoal_type}_{node['id']}"
+                            subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            # Add additional action types
+            elif relation_type == 'clean':
+                subgoal_type = 'clean'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                for node in matching_nodes:
+                    tmp_predicate = f"clean_{node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{node['id']}"
+                        subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            elif relation_type == 'cook':
+                subgoal_type = 'cook'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                for node in matching_nodes:
+                    tmp_predicate = f"cook_{node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{node['id']}"
+                        subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            elif relation_type == 'drink':
+                subgoal_type = 'drink'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                for node in matching_nodes:
+                    tmp_predicate = f"drink_{node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{node['id']}"
+                        subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+            elif relation_type == 'eat':
+                subgoal_type = 'eat'
+                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                for node in matching_nodes:
+                    tmp_predicate = f"eat_{node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{node['id']}"
+                        subgoal_space.append([subgoal, predicate, tmp_predicate])
+
+        if verbose:
+            print(f"Generated {len(subgoal_space)} subgoals")
+            if subgoal_space:
+                print("Sample subgoals:", subgoal_space[:3])
+
+        return subgoal_space 
     def relation_to_subgoal(self, relation):
         """
         Converts a relation string to a subgoal action.
@@ -197,9 +323,10 @@ class MCTS:
 
         # Map relation types to actions
         action_map = {
-            'supported by': 'put',
+            'on': 'put',
             'inside': 'putIn',
             'holds': 'grab'
+
         }
 
         action = action_map.get(relation_type)
@@ -253,10 +380,10 @@ class MCTS:
             print('Checking subgoals...')
 
         # Unpack current root node's state
-        curr_vh_state_tmp, curr_state_tmp, _, satisfied, unsatisfied, _, actions_parent = curr_root.id[1]
+        curr_state_tmp, _, satisfied, unsatisfied, _, actions_parent = curr_root.id[1]
         
         # Generate subgoals based on the current state
-        subgoals = self.get_subgoal_space(curr_state_tmp, satisfied, unsatisfied, verbose=1)
+        subgoals = self.get_subgoal_space(satisfied, unsatisfied)
         
         if self.verbose:
             print(f'satisfied: {satisfied}')
@@ -265,7 +392,7 @@ class MCTS:
             print(f'last_subgoal: {last_subgoal}')
 
         # Retrieve objects currently held by the agent
-        inhand_objs = self.get_inhand_objects(curr_state_tmp)
+        inhand_objs = self.get_inhand_objects()
         
         # Calculate the number of needed objects based on unsatisfied predicates
         needed_obj_count = self.calculate_needed_objects(unsatisfied, inhand_objs)
@@ -274,25 +401,29 @@ class MCTS:
         remained_to_put = self.calculate_remained_to_put(unsatisfied)
 
         # Determine if a container needs to be closed
-        need_to_close = self.check_need_to_close(curr_state_tmp, remained_to_put)
+        need_to_close = self.check_need_to_close(remained_to_put)
 
         # Handle planning for specific subgoals
         for subgoal in subgoals:
             if subgoal[0] == last_subgoal:
-                plan = self.generate_plan(subgoal, need_to_close, curr_state_tmp)
+                plan = self.generate_plan(subgoal, need_to_close)
                 if self.verbose:
                     print(f'Repeat subgoal plan: {plan}')
                 if plan:
                     return None, plan, [last_subgoal]
 
-        # If the subgoal is related to holding objects, generate a plan accordingly
-        for edge in curr_state_tmp['edges']:
-            if edge['relation_type'].startswith('HOLDS') and self.agent_id in [edge['from_id'], edge['to_id']]:
-                plan = self.generate_hold_plan(last_subgoal, need_to_close, curr_state_tmp)
-                if self.verbose:
-                    print(plan[0] if plan else "No actions generated.")
-                if plan:
-                    return None, plan, [last_subgoal]
+        # Check if agent is holding any objects
+        agent_name = f"agent_{self.agent_id}"
+        holding_object = False
+        for node in self.current_state:
+            for relation in node.get('relation', []):
+                if f"holds {agent_name}" in relation:
+                    holding_object = True
+                    plan = self.generate_hold_plan(last_subgoal, need_to_close)
+                    if self.verbose:
+                        print(plan[0] if plan else "No actions generated.")
+                    if plan:
+                        return None, plan, [last_subgoal]
 
         # Expand the current root node if it's not already expanded
         if not curr_root.is_expanded:
@@ -307,14 +438,14 @@ class MCTS:
                 self.backup(value * discount_factor, node_path)
 
         # Select the next root node based on visited children
-        next_root, plan, subgoals = self.select_best_plan(curr_root, need_to_close, curr_state_tmp)
+        next_root, plan, subgoals = self.select_best_plan(curr_root, need_to_close)
 
         if self.verbose and plan:
             print(plan[0])
 
         return next_root, plan, subgoals
 
-    def get_inhand_objects(self, state):
+    def get_inhand_objects(self):
         """
         Retrieves the list of objects currently held by the agent.
 
@@ -326,7 +457,7 @@ class MCTS:
         """
         held_objects = []
         agent_name = f"agent_{self.agent_id}"
-        for node in state['nodes']:
+        for node in self.current_state:
             for relation in node.get('relation', []):
                 if f"holds {agent_name}" in relation:
                     held_objects.append(node['name'])
@@ -334,10 +465,10 @@ class MCTS:
 
     def calculate_needed_objects(self, unsatisfied, inhand_objs):
         """
-        Calculates the number of needed objects based on unsatisfied predicates.
+        Calculates the number of needed objects based on unsatisfied tuples.
 
         Args:
-            unsatisfied (dict): Dictionary of unsatisfied relations with counts.
+            unsatisfied (dict): Dictionary of unsatisfied predicates in format {(obj, relation, target): count}.
             inhand_objs (list): List of objects currently held by the agent.
 
         Returns:
@@ -345,9 +476,8 @@ class MCTS:
         """
         needed_obj_count = defaultdict(int)
         for predicate, count in unsatisfied.items():
-            elements = predicate.split('_')
-            if elements[0] in ['on', 'inside'] and len(elements) >= 2:
-                obj = elements[1]
+            obj, relation_type, target = predicate
+            if relation_type in ['on', 'inside']:
                 needed_obj_count[obj] += count
                 if obj in inhand_objs:
                     needed_obj_count[obj] -= 1
@@ -358,24 +488,23 @@ class MCTS:
         Determines the number of objects that need to be placed inside containers.
 
         Args:
-            unsatisfied (dict): Dictionary of unsatisfied relations with counts.
+            unsatisfied (dict): Dictionary of unsatisfied predicates in format {(obj, relation, target): count}.
 
         Returns:
             defaultdict: Mapping of container IDs to the number of objects remaining to put.
         """
         remained_to_put = defaultdict(int)
         for predicate, count in unsatisfied.items():
-            elements = predicate.split('_')
-            if elements[0] == 'inside' and len(elements) > 2:
-                try:
-                    container_id = int(elements[2])
+            obj, relation_type, target = predicate
+            if relation_type == 'inside':
+                # Find target node ID from name
+                target_node = next((node for node in self.current_state if node['name'] == target), None)
+                if target_node:
+                    container_id = target_node['id']
                     remained_to_put[container_id] += count
-                except ValueError:
-                    if self.verbose:
-                        print(f"Invalid container ID in predicate: {predicate}")
         return remained_to_put
 
-    def check_need_to_close(self, state, remained_to_put):
+    def check_need_to_close(self, remained_to_put):
         """
         Determines if a container needs to be closed.
 
@@ -387,7 +516,7 @@ class MCTS:
             bool: True if a container needs to be closed.
         """
         if not self.last_opened:
-            for node in state['nodes']:
+            for node in self.current_state:
                 # Check if node is a container that can be opened/closed
                 if (node['name'].lower() in ['fridge', 'kitchencabinets', 'cabinet', 'microwave', 'dishwasher', 'stove'] 
                     and any('OPEN' in state for state in node.get('state', []))):
@@ -395,7 +524,7 @@ class MCTS:
                     break
 
         if self.last_opened and self.last_opened[0].lower() != 'toilet':
-            container_node = next((n for n in state['nodes'] if str(n['id']) == self.last_opened[1]), None)
+            container_node = next((n for n in self.current_state if str(n['id']) == self.last_opened[1]), None)
             if container_node and any('OPEN' in state for state in container_node.get('state', [])):
                 # Check if we still need to put anything in this container
                 container_id = container_node['id']
@@ -408,14 +537,13 @@ class MCTS:
                 self.last_opened = None
         return False
 
-    def generate_plan(self, subgoal, need_to_close, state):
+    def generate_plan(self, subgoal, need_to_close):
         """
         Generates an action plan for a given subgoal.
 
         Args:
             subgoal (list): Subgoal information.
             need_to_close (bool): Whether a container needs to be closed.
-            state (dict): Current state of the environment.
 
         Returns:
             list: List of action strings constituting the plan.
@@ -428,33 +556,41 @@ class MCTS:
             self.agent_id, 
             self.char_index, 
             {},  # 'unsatisfied' is handled separately
-            state, 
+            self.current_state, 
             self.env, 
             subgoal[0]
         )
         if actions:
             plan = [self.get_action_str(action) for action in actions]
-            if need_to_close and (plan[0].startswith('[walk]') or 
-                                  (plan[0].startswith('[open]') and len(plan[0].split(' ')) > 2 and plan[0].split(' ')[2] != self.last_opened[1])):
+            if need_to_close and (
+                plan[0].startswith('walk') or 
+                (plan[0].startswith(f'agent_{self.agent_id} open') and 
+                 len(plan[0].split(' ')) > 3 and 
+                 plan[0].split(' ')[3] != f"object_{self.last_opened[1]}")
+            ):
                 close_action = self.construct_close_action()
                 if close_action:
                     plan.insert(0, close_action)
         else:
             plan = []
         
-        if plan and plan[0].startswith('[open]') and len(plan[0].split(' ')) > 2:
+        if plan and plan[0].startswith(f'agent_{self.agent_id} open') and len(plan[0].split(' ')) > 3:
             elements = plan[0].split(' ')
-            self.last_opened = [elements[1], elements[2]]
+            # Extract object name and ID from "object_<id>"
+            obj_id = elements[3].split('_')[1]  # Get ID from "object_<id>"
+            obj_name = next((node['name'] for node in self.current_state if str(node['id']) == obj_id), None)
+            if obj_name:
+                self.last_opened = [obj_name, obj_id]
+        
         return plan
 
-    def generate_hold_plan(self, last_subgoal, need_to_close, state):
+    def generate_hold_plan(self, last_subgoal, need_to_close):
         """
         Generates an action plan for holding-related subgoals.
 
         Args:
             last_subgoal (str): The last subgoal pursued.
             need_to_close (bool): Whether a container needs to be closed.
-            state (dict): Current state of the environment.
 
         Returns:
             list: List of action strings constituting the hold plan.
@@ -467,23 +603,29 @@ class MCTS:
             self.agent_id, 
             self.char_index, 
             {},  # 'unsatisfied' is handled separately
-            state, 
+            self.current_state, 
             self.env, 
             last_subgoal
         )
         if actions:
             plan = [self.get_action_str(action) for action in actions]
-            if need_to_close and (plan[0].split(' ')[1] == 'walk' or 
-                                  (plan[0].split(' ')[1] == 'open' and len(plan[0].split(' ')) > 2 and plan[0].split(' ')[2] != self.last_opened[1])):
+            if need_to_close and (
+                plan[0].split(' ')[1] == 'walk' or 
+                (plan[0].split(' ')[1] == 'open' and len(plan[0].split(' ')) > 2 and plan[0].split(' ')[2] != self.last_opened[1])
+            ):
                 close_action = self.construct_close_action()
                 if close_action:
                     plan.insert(0, close_action)
         else:
             plan = []
         
-        if plan and plan[0].startswith('[open]') and len(plan[0].split(' ')) > 2:
+        if plan and plan[0].startswith(f'agent_{self.agent_id} open') and len(plan[0].split(' ')) > 3:
             elements = plan[0].split(' ')
-            self.last_opened = [elements[1], elements[2]]
+            # Extract object name and ID from "object_<id>"
+            obj_id = elements[3].split('_')[1]  # Get ID from "object_<id>"
+            obj_name = next((node['name'] for node in self.current_state if str(node['id']) == obj_id), None)
+            if obj_name:
+                self.last_opened = [obj_name, obj_id]
         return plan
 
     def construct_close_action(self):
@@ -527,14 +669,13 @@ class MCTS:
 
         return node_path
 
-    def select_best_plan(self, curr_root, need_to_close, state):
+    def select_best_plan(self, curr_root, need_to_close):
         """
         Selects the best action plan after simulations based on visit counts.
 
         Args:
             curr_root (Node): Current root node of the MCTS tree.
             need_to_close (bool): Whether a container needs to be closed.
-            state (dict): Current state of the environment.
 
         Returns:
             tuple: Next root node, action plan, and list of subgoals.
@@ -552,7 +693,7 @@ class MCTS:
             subgoals.append(next_root.id[0])
 
         if plan:
-            first_action = plan[0].split(' ')[1]  # Changed from [0] to [1]
+            first_action = plan[0].split(' ')[1]  # Get action type from "agent_id action ..."
             if need_to_close and first_action in ['walk', 'open']:
                 close_action = self.construct_close_action()
                 if close_action:
@@ -560,7 +701,10 @@ class MCTS:
 
             if plan[0].split(' ')[1] == 'open' and len(plan[0].split(' ')) > 3:
                 elements = plan[0].split(' ')
-                self.last_opened = [elements[2], elements[3]]  # Changed from [1], [2] to [2], [3]
+                obj_id = elements[3].split('_')[1]  # Get ID from "object_<id>"
+                obj_name = next((node['name'] for node in self.current_state if str(node['id']) == obj_id), None)
+                if obj_name:
+                    self.last_opened = [obj_name, obj_id]
         
         return next_root, plan, subgoals
 
@@ -579,7 +723,7 @@ class MCTS:
         if not self.update_state():
             return 0  # Return neutral value if state update fails
             
-        curr_vh_state, curr_state, goal_spec, satisfied, unsatisfied, num_steps, actions_parent = leaf_node.id[1]
+        curr_state, goal_spec, satisfied, unsatisfied, num_steps, actions_parent = leaf_node.id[1]
         sum_reward = 0
         last_reward = 0
 
@@ -588,8 +732,7 @@ class MCTS:
         unsatisfied = copy.deepcopy(unsatisfied)
 
         # Generate subgoals for rollout
-        subgoals = self.get_subgoal_space(curr_state, satisfied, unsatisfied, verbose=0)
-
+        subgoals = self.get_subgoal_space(curr_state, satisfied, unsatisfied)
         # Shuffle subgoals to introduce randomness
         random.shuffle(subgoals)
 
@@ -713,32 +856,37 @@ class MCTS:
         Updates the satisfied predicates based on the completed subgoal.
 
         Args:
-            satisfied (dict): Dictionary of satisfied relations.
-            unsatisfied (dict): Dictionary of unsatisfied relations.
+            satisfied (dict): Dictionary of satisfied predicates in format {(obj, relation, target): True}.
+            unsatisfied (dict): Dictionary of unsatisfied predicates in format {(obj, relation, target): count}.
             subgoal (str): The subgoal that has been completed.
         """
-        """TODO: Subject to change on new important actions"""
         elements = subgoal.split('_')
         if not elements or len(elements) < 3:
             return
 
         action, obj_id, surface_id = elements[0], elements[1], elements[2]
+        obj_node = self.node_map.get(float(obj_id))
+        surface_node = self.node_map.get(float(surface_id))
+        
+        if not obj_node or not surface_node:
+            return
+
         if action == 'put':
-            obj_node = self.node_map.get(float(obj_id))
-            surface_node = self.node_map.get(float(surface_id))
-            if obj_node and surface_node:
-                relation_key = (obj_node['name'], 'on', surface_node['name'])
-                satisfied[relation_key] = True
-                if relation_key in unsatisfied:
+            relation_key = (obj_node['name'], 'on', surface_node['name'])
+            satisfied[relation_key] = True
+            if relation_key in unsatisfied:
+                unsatisfied[relation_key] -= 1
+                if unsatisfied[relation_key] <= 0:
                     del unsatisfied[relation_key]
+                    
         elif action == 'putIn':
-            obj_node = self.node_map.get(float(obj_id))
-            container_node = self.node_map.get(float(surface_id))
-            if obj_node and container_node:
-                relation_key = (obj_node['name'], 'inside', container_node['name'])
-                satisfied[relation_key] = True
-                if relation_key in unsatisfied:
+            relation_key = (obj_node['name'], 'inside', surface_node['name'])
+            satisfied[relation_key] = True
+            if relation_key in unsatisfied:
+                unsatisfied[relation_key] -= 1
+                if unsatisfied[relation_key] <= 0:
                     del unsatisfied[relation_key]
+                    
         # Add more actions as needed
 
     def expand(self, leaf_node, t):
@@ -773,9 +921,11 @@ class MCTS:
             Node or None: The first expanded child node or None if no children were added.
         """
         leaf_node_values = node.id[1]
-        vh_state, state, goal_spec, satisfied, unsatisfied, steps, actions_parent = leaf_node_values
+        state, goal_spec, satisfied, unsatisfied, steps, actions_parent = leaf_node_values
 
-        subgoals = self.get_subgoal_space(state, satisfied, unsatisfied, verbose=0)
+        # Fix: Remove state parameter from get_subgoal_space call
+        subgoals = self.get_subgoal_space(satisfied, unsatisfied)
+        
         if not subgoals:
             return None
 
@@ -798,7 +948,6 @@ class MCTS:
                 continue
 
             # Apply actions to transition to the next state
-            next_vh_state = vh_state
             actions_str = []
             for action in actions_heuristic:
                 action_str = self.get_action_str(action)
@@ -845,7 +994,15 @@ class MCTS:
         return node
 
     def get_action_str(self, action_tuple):
-        """Convert action tuple to string format for new environment"""
+        """
+        Convert action tuple to string format for new environment.
+        
+        Args:
+            action_tuple (tuple): (action_name, (obj_name, obj_id), additional_args)
+            
+        Returns:
+            str: Formatted action string
+        """
         action_name = action_tuple[0]
         obj_args = [x for x in list(action_tuple)[1:] if x is not None]
         
@@ -860,28 +1017,128 @@ class MCTS:
 # If using AnyNode with extra attributes, ensure to initialize them appropriately.
 # For example:
 # Node(id=(...), num_visited=0, sum_value=0, subgoal_prior=..., is_expanded=False)
-def find_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
-def grab_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
-def put_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
-def cook_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
-def open_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
-def close_heuristics(agent_id, char_index, unsatisfied, state, env, goal):
-    pass
+    def find_heuristic(self, agent_id, goal):
+        """Find heuristic adapted for string-based relations"""
+        observations = self.current_state  # Use self.current_state directly
+
+        id2node = {node['id']: node for node in observations}
+
+        # Parse container relationships from relation strings
+        containerdict = {}
+        for node in observations:
+            for relation in node.get('relation', []):
+                parts = relation.split()
+                if 'inside' in relation:
+                    from_id = node['id']
+                    to_nodes = [n for n in observations if n['name'] == parts[-1]]
+                    if to_nodes:
+                        to_id = to_nodes[0]['id']
+                        containerdict[from_id] = to_id
+
+        target = int(goal.split('_')[-1])
+        observation_ids = [x['id'] for x in observations]
+
+        # Find character's room
+        try:
+            char_node = next(node for node in observations if node['id'] == agent_id)
+            room_relations = [r for r in char_node.get('relation', []) if 'inside' in r]
+            if room_relations:
+                room_name = room_relations[0].split()[-1]
+                room_char = next(n['id'] for n in observations if n['name'] == room_name)
+            else:
+                room_char = None
+        except Exception as e:
+            print(f'Error finding room for character: {e}')
+            return [], []
+
+        action_list = []
+        cost_list = []
+
+        # Follow container chain until target is visible
+        while target not in observation_ids:
+            try:
+                container = containerdict[target]
+            except KeyError:
+                print(f'Could not find container for target {id2node[target]["name"]}')
+                return [], []
+
+            if 'Room' in id2node[container]['name']:  # Assuming rooms have "Room" in name
+                action_list = [('walk', (id2node[target]['name'], target), None)] + action_list
+                cost_list = [0.5] + cost_list
+            elif 'CLOSED' in id2node[container].get('state', []) or ('OPEN' not in id2node[container].get('state', [])):
+                action = ('open', (id2node[container]['name'], container), None)
+                action_list = [action] + action_list
+                cost_list = [0.05] + cost_list
+
+            target = container
+
+        # Check if agent is close to target
+        target_node = id2node[target]
+        char_node = id2node[agent_id]
+        is_close = any(
+            'close' in relation.lower() and target_node['name'] in relation
+            for relation in char_node.get('relation', [])
+        )
+
+        if not is_close:
+            action_list = [('walk', (target_node['name'], target), None)] + action_list
+            cost_list = [1] + cost_list
+
+        return action_list, cost_list
+
+    def grab_heuristic(self, agent_id, goal):
+        """Grab heuristic adapted for string-based relations"""
+        observations = self.current_state
+        target_id = int(goal.split('_')[-1])
+
+        observed_ids = [x['id'] for x in observations]
+
+        # Check if agent is close to target
+        char_node = next(node for node in observations if node['id'] == agent_id)
+        target_node = next(node for node in observations if node['id'] == target_id)
+
+        is_close = any(
+            'close' in relation.lower() and target_node['name'] in relation
+            for relation in char_node.get('relation', [])
+        )
+
+        # Check if object is already grabbed
+        is_grabbed = any(
+            'holds' in relation.lower() and target_node['name'] in relation
+            for relation in char_node.get('relation', [])
+        )
+
+        action_list = []
+        cost_list = []
+
+        if not is_grabbed:
+            target_action = [('grab', (target_node['name'], target_id), None)]
+            cost = [0.05]
+        else:
+            target_action = []
+            cost = []
+
+        if is_close and target_id in observed_ids:
+            action_list += target_action
+            cost_list += cost
+        else:
+            find_actions, find_costs = self.find_heuristic(agent_id, goal)
+            action_list += find_actions + target_action
+            cost_list += find_costs + cost
+
+        return action_list, cost_list
+    def open_heuristic(self, agent_id, goal):
+        
+
 
 if __name__ == "__main__":
 
-    data = {"environment": "KswainEscapeRoom4"}
+    data = {"environment": "WatchAndHelp1"}
     make(data)
     data = {"type": "graph"}
     observation(data)
     '''TODO: change the env to reading the graph.json and updating it using observation function'''
     mcts = MCTS(
-        env=env,
         agent_id=1,
         char_index=0,
         max_episode_length=100,
@@ -889,8 +1146,7 @@ if __name__ == "__main__":
         max_rollout_step=5,
         c_init=1.25,
         c_base=19652,
-        verbose=1,
-        env_name="KswainEscapeRoom4"
+        env_name="WatchAndHelp1",
     )
 
     # Initialize state by getting first observation
@@ -899,14 +1155,14 @@ if __name__ == "__main__":
     goal_specification = {
     # Format: (subject, relation_type, target): count_needed
     ('cup', 'inside', 'cabinet'): 1,
-    ('plate', 'supported by', 'counter'): 1,
+    ('plate', 'on', 'counter'): 1,
     ('fridge', 'state', 'CLOSED'): 1,
         ('microwave', 'state', 'OFF'): 1
     }
     satisfied_predicates = {}
     unsatisfied_predicates = {
         ('cup', 'inside', 'cabinet'): 1,
-        ('plate', 'supported by', 'counter'): 1,
+        ('plate', 'on', 'counter'): 1,
         ('fridge', 'state', 'CLOSED'): 1,
         ('microwave', 'state', 'OFF'): 1
     }
@@ -916,6 +1172,7 @@ if __name__ == "__main__":
         id=('initial', [
             mcts.current_state,           # State as dictionary (same as above since we don't have separate formats)
             goal_specification,           # Goal predicates
+
             satisfied_predicates,         # Currently satisfied predicates
             unsatisfied_predicates,       # Currently unsatisfied predicates
             0,                           # Number of steps taken
@@ -932,9 +1189,9 @@ if __name__ == "__main__":
         curr_root=root,
         t=0,
         heuristic_dict={
-            'find': find_heuristic,
-            'grab': grab_heuristic,
-            'put': put_heuristic,
+            'find': mcts.find_heuristic,  # Use class method
+            'grab': mcts.grab_heuristic,  # Use class method
+            # 'put': put_heuristic,
             # ... other heuristics
         },
         last_subgoal=None
@@ -947,6 +1204,3 @@ if __name__ == "__main__":
     for action in utils.sequence(plan):
         set_action(action)
         mcts.update_state()  # Update state after each action
-
-
-
