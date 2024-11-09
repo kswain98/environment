@@ -47,4 +47,4 @@ def system_agent(data):
 def render(data):
     sio.emit('render', data)
 
-sio.connect('http://localhost:8000')
+sio.connect('http://localhost:5000')
