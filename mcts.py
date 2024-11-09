@@ -7,15 +7,19 @@ from anytree import AnyNode as Node
 from tqdm import tqdm
 from client import *
 import utils
+import wandb
+import time
+import os
+import threading
+from contextlib import contextmanager
 
 class MCTS:
-    def __init__(self, agent_id, char_index, max_episode_length, num_simulation, max_rollout_step, c_init, c_base, seed=1 , env_name = 'Kitchen'):
+    def __init__(self, agent_id, max_episode_length, num_simulation, max_rollout_step, c_init, c_base, seed=1 , env_name = 'Kitchen'):
         """
         Initializes the MCTS algorithm with the given parameters.
 
         Args:
             agent_id (int): Identifier for the agent.
-            char_index (int): Character index or related identifier.
             max_episode_length (int): Maximum length of an episode.
             num_simulation (int): Number of simulations to run per MCTS iteration.
             max_rollout_step (int): Maximum steps during rollout.
@@ -24,9 +28,24 @@ class MCTS:
             seed (int): Random seed for reproducibility.
             env_name (str): Name of the environment.
         """
+        # Initialize wandb
+        wandb.init(
+            project="mcts-planning",
+            config={
+                "agent_id": agent_id,
+                "max_episode_length": max_episode_length,
+                "num_simulation": num_simulation,
+                "max_rollout_step": max_rollout_step,
+                "c_init": c_init,
+                "c_base": c_base,
+                "seed": seed,
+                "env_name": env_name,
+                "discount": 1.0
+            }
+        )
+        
         self.discount = 1.0  # Discount factor for future rewards; consider tuning this parameter
         self.agent_id = agent_id
-        self.char_index = char_index
         self.max_episode_length = max_episode_length
         self.num_simulation = num_simulation
         self.max_rollout_step = max_rollout_step
@@ -46,7 +65,7 @@ class MCTS:
         self.graph = self.load_graph_json()
         self.node_map = self.create_node_map()
         self.relation_map = self.create_relation_map()
-        self.relation_list = ["supported by", "inside", "right of", "left of", "behind", "infront"]
+        self.relation_list = ["on", "inside", "right of", "left of", "behind", "infront"]
         self.fixed_action_ids = {
             "stand": 1, 
             "walk": 2, 
@@ -90,6 +109,9 @@ class MCTS:
         self.current_state = None
         self.last_observation = None
 
+        # Add this at class level (right after class MCTS definition)
+        self.file_lock = threading.Lock()
+
     def load_graph_json(self):
         """
         Loads the graph data from the JSON file.
@@ -122,7 +144,7 @@ class MCTS:
                 parts = relation.split()
                 if len(parts) >= 3:
                     subject = parts[0]
-                    relation_type = ' '.join(parts[1:-1])  # e.g., "supported by", "inside"
+                    relation_type = ' '.join(parts[1:-1])  # e.g., "on", "inside"
                     target = parts[-1]
                     relation_map[relation_type].append((subject, target))
         return relation_map
@@ -171,11 +193,8 @@ class MCTS:
                 if f"holds agent_{self.agent_id}" in relation:
                     inhand_objects.append(node['id'])
 
-
         subgoal_space = []
-        obsed_subgoal_space = []
-        overlapped_subgoal_space = []
-
+        
         # Process each unsatisfied predicate
         for predicate, count in unsatisfied.items():
             if not isinstance(predicate, tuple) or len(predicate) != 3:
@@ -183,38 +202,28 @@ class MCTS:
                 
             obj, relation_type, target = predicate
             
-            # Handle different types of predicates
-            if relation_type == 'supported by':
-                subgoal_type = 'put'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                target_nodes = [node for node in self.current_state if node['name'] == target]
-                
-                for node in matching_nodes:
-                    for target_node in target_nodes:
-                        tmp_predicate = f"supported by_{node['id']}_{target_node['id']}"
-                        if tmp_predicate not in satisfied.get(predicate, []):
-                            subgoal = f"{subgoal_type}_{node['id']}_{target_node['id']}"
-                            subgoal_entry = [subgoal, predicate, tmp_predicate]
-                            
-                            if node['id'] in inhand_objects:
-                                return [subgoal_entry]
-                            subgoal_space.append(subgoal_entry)
+            # Find the first matching object and target instead of all possibilities
+            matching_node = next((node for node in self.current_state 
+                                if obj in node['name'].lower() and 
+                                not any(f"{relation_type} object_" in r for r in node.get('relation', []))), 
+                               None)
+            target_node = next((node for node in self.current_state 
+                              if target in node['name'].lower()), 
+                             None)
+            
+            if matching_node and target_node:
+                if relation_type == 'on':
+                    subgoal_type = 'put'
+                    tmp_predicate = f"on_{matching_node['id']}_{target_node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{matching_node['id']}_{target_node['id']}"
+                        subgoal_entry = [subgoal, predicate, tmp_predicate]
+                        
+                        if matching_node['id'] in inhand_objects:
+                            return [subgoal_entry]
+                        subgoal_space.append(subgoal_entry)
 
-            elif relation_type == 'inside':
-                subgoal_type = 'putIn'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                target_nodes = [node for node in self.current_state if node['name'] == target]
-                
-                for node in matching_nodes:
-                    for target_node in target_nodes:
-                        tmp_predicate = f"inside_{node['id']}_{target_node['id']}"
-                        if tmp_predicate not in satisfied.get(predicate, []):
-                            subgoal = f"{subgoal_type}_{node['id']}_{target_node['id']}"
-                            subgoal_entry = [subgoal, predicate, tmp_predicate]
-                            
-                            if node['id'] in inhand_objects:
-                                return [subgoal_entry]
-                            subgoal_space.append(subgoal_entry)
+                # Similar modifications for other relation types...
 
             elif relation_type == 'state':
                 if target == 'ON':
@@ -228,7 +237,7 @@ class MCTS:
                 else:
                     continue
 
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                matching_nodes = [node for node in self.current_state if obj in node['name'].lower()]
                 for node in matching_nodes:
                     tmp_predicate = f"state_{node['id']}_{target}"
                     if tmp_predicate not in satisfied.get(predicate, []):
@@ -238,7 +247,7 @@ class MCTS:
             elif relation_type == 'holds':
                 if int(target) == self.agent_id:
                     subgoal_type = 'grab'
-                    matching_nodes = [node for node in self.current_state if node['name'] == obj]
+                    matching_nodes = [node for node in self.current_state if obj in node['name'].lower()]
                     for node in matching_nodes:
                         tmp_predicate = f"holds_{node['id']}_{self.agent_id}"
                         if tmp_predicate not in satisfied.get(predicate, []):
@@ -248,50 +257,12 @@ class MCTS:
             elif relation_type == 'sit':
                 if int(obj) == self.agent_id:
                     subgoal_type = 'sit'
-                    target_nodes = [node for node in self.current_state if node['name'] == target]
+                    target_nodes = [node for node in self.current_state if target in node['name'].lower()]
                     for node in target_nodes:
                         tmp_predicate = f"sit_{self.agent_id}_{node['id']}"
                         if tmp_predicate not in satisfied.get(predicate, []):
                             subgoal = f"{subgoal_type}_{node['id']}"
                             subgoal_space.append([subgoal, predicate, tmp_predicate])
-
-            # Add additional action types
-            elif relation_type == 'clean':
-                subgoal_type = 'clean'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                for node in matching_nodes:
-                    tmp_predicate = f"clean_{node['id']}"
-                    if tmp_predicate not in satisfied.get(predicate, []):
-                        subgoal = f"{subgoal_type}_{node['id']}"
-                        subgoal_space.append([subgoal, predicate, tmp_predicate])
-
-            elif relation_type == 'cook':
-                subgoal_type = 'cook'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                for node in matching_nodes:
-                    tmp_predicate = f"cook_{node['id']}"
-                    if tmp_predicate not in satisfied.get(predicate, []):
-                        subgoal = f"{subgoal_type}_{node['id']}"
-                        subgoal_space.append([subgoal, predicate, tmp_predicate])
-
-            elif relation_type == 'drink':
-                subgoal_type = 'drink'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                for node in matching_nodes:
-                    tmp_predicate = f"drink_{node['id']}"
-                    if tmp_predicate not in satisfied.get(predicate, []):
-                        subgoal = f"{subgoal_type}_{node['id']}"
-                        subgoal_space.append([subgoal, predicate, tmp_predicate])
-
-            elif relation_type == 'eat':
-                subgoal_type = 'eat'
-                matching_nodes = [node for node in self.current_state if node['name'] == obj]
-                for node in matching_nodes:
-                    tmp_predicate = f"eat_{node['id']}"
-                    if tmp_predicate not in satisfied.get(predicate, []):
-                        subgoal = f"{subgoal_type}_{node['id']}"
-                        subgoal_space.append([subgoal, predicate, tmp_predicate])
-
         if verbose:
             print(f"Generated {len(subgoal_space)} subgoals")
             if subgoal_space:
@@ -318,9 +289,11 @@ class MCTS:
 
         # Map relation types to actions
         action_map = {
-            'supported by': 'put',
+            'on': 'put',
             'inside': 'putIn',
-            'holds': 'grab'
+            'holds': 'grab',
+            'sit': 'sit',
+            'state': 'switch'
         }
 
         action = action_map.get(relation_type)
@@ -329,27 +302,52 @@ class MCTS:
         return None
 
     def update_state(self):
-        """
-        Updates the current state using the observation function.
-        """
-        observation_request = {"type": "graph"}
-        observation(observation_request)
+        """Updates the current state using the observation function."""
+        max_retries = 5
+        retry_delay = 0.5
         
-        # Wait for and process the observation response
-        # Note: You'll need to implement a way to receive the response
-        # This could be through a callback or waiting for a response
-        try:
-            with open("graph.json", "r") as f:
-                new_state = json.load(f)
-                self.last_observation = new_state
-                self.current_state = new_state[self.env_name]
-                # Update node and relation maps with new state
-                self.node_map = self.create_node_map()
-                self.relation_map = self.create_relation_map()
-        except Exception as e:
-            print(f"Error updating state: {e}")
-            return False
-        return True
+        for attempt in range(max_retries):
+            try:
+                # Request new observation first
+                observation_request = {"type": "graph"}
+                observation(observation_request)
+                time.sleep(retry_delay)  # Wait for observation to be processed
+                
+                # Check if file exists
+                if not os.path.exists("graph.json"):
+                    print(f"Attempt {attempt + 1}: Waiting for graph.json to be created")
+                    continue
+                
+                # Use file lock when reading
+                with self.file_lock:
+                    with open("graph.json", "r") as f:
+                        content = f.read().strip()
+                    
+                    # Parse JSON
+                    try:
+                        new_state = json.loads(content)
+                        if self.env_name in new_state:  # Verify environment exists in state
+                            self.last_observation = new_state
+                            self.current_state = new_state[self.env_name]
+                            self.node_map = self.create_node_map()
+                            self.relation_map = self.create_relation_map()
+                            return True
+                        else:
+                            print(f"Environment {self.env_name} not found in state")
+                            continue
+                    
+                    except json.JSONDecodeError as je:
+                        print(f"Attempt {attempt + 1}: JSON parsing error: {str(je)}")
+                        continue
+                
+            except Exception as e:
+                print(f"Attempt {attempt + 1}: Error in update_state: {str(e)}")
+                if attempt == max_retries - 1:
+                    return False
+                
+                time.sleep(retry_delay)
+        
+        return False
 
     def run(self, curr_root, t, heuristic_dict, last_subgoal):
         """
@@ -399,15 +397,16 @@ class MCTS:
 
         # Handle planning for specific subgoals
         for subgoal in subgoals:
-            if subgoal[0] == last_subgoal:
-                plan = self.generate_plan(subgoal, need_to_close)
-                if self.verbose:
-                    print(f'Repeat subgoal plan: {plan}')
-                if plan:
-                    return None, plan, [last_subgoal]
+            ''' if subgoal[0] == last_subgoal:'''
+            plan = self.generate_plan(subgoal, need_to_close)
+            if self.verbose:
+                print(f'Repeat subgoal plan: {plan}')
+            if plan:
+                return None, plan, [last_subgoal]
 
         # Check if agent is holding any objects
         agent_name = f"agent_{self.agent_id}"
+        print(f"agent_name: {agent_name}")
         holding_object = False
         for node in self.current_state:
             for relation in node.get('relation', []):
@@ -424,13 +423,26 @@ class MCTS:
             curr_root = self.expand(curr_root, t)
 
         # Perform MCTS simulations with progress tracking
+        simulation_rewards = []
         for explore_step in tqdm(range(self.num_simulation), disable=not self.verbose):
             node_path = self.perform_simulation(curr_root, t)
             if node_path:
                 value = self.rollout(node_path[-1], t)
                 discount_factor = self.discount ** node_path[-2].id[1][-2] if len(node_path) > 1 else 1.0
-                self.backup(value * discount_factor, node_path)
+                final_value = value * discount_factor
+                simulation_rewards.append(final_value)
+                self.backup(final_value, node_path)
 
+        # Log simulation metrics
+        wandb.log({
+            "timestep": t,
+            "mean_simulation_reward": np.mean(simulation_rewards) if simulation_rewards else 0,
+            "max_simulation_reward": np.max(simulation_rewards) if simulation_rewards else 0,
+            "min_simulation_reward": np.min(simulation_rewards) if simulation_rewards else 0,
+            "num_simulations_completed": len(simulation_rewards),
+            "tree_depth": len(node_path) if node_path else 0
+        })
+        print(f"Plan so far: {plan}")
         # Select the next root node based on visited children
         next_root, plan, subgoals = self.select_best_plan(curr_root, need_to_close)
 
@@ -546,21 +558,19 @@ class MCTS:
         if not heuristic:
             return []
         
+        # Modified: Pass only agent_id and goal to heuristic functions
         actions, costs = heuristic(
-            self.agent_id, 
-            self.char_index, 
-            {},  # 'unsatisfied' is handled separately
-            self.current_state, 
-            self.env, 
-            subgoal[0]
+            self.agent_id,  
+            subgoal[0]  # Just pass the subgoal string
         )
+        
         if actions:
             plan = [self.get_action_str(action) for action in actions]
             if need_to_close and (
                 plan[0].startswith('walk') or 
                 (plan[0].startswith(f'agent_{self.agent_id} open') and 
-                 len(plan[0].split(' ')) > 3 and 
-                 plan[0].split(' ')[3] != f"object_{self.last_opened[1]}")
+                len(plan[0].split(' ')) > 3 and 
+                plan[0].split(' ')[3] != f"object_{self.last_opened[1]}")
             ):
                 close_action = self.construct_close_action()
                 if close_action:
@@ -570,12 +580,11 @@ class MCTS:
         
         if plan and plan[0].startswith(f'agent_{self.agent_id} open') and len(plan[0].split(' ')) > 3:
             elements = plan[0].split(' ')
-            # Extract object name and ID from "object_<id>"
-            obj_id = elements[3].split('_')[1]  # Get ID from "object_<id>"
+            obj_id = elements[3].split('_')[1]
             obj_name = next((node['name'] for node in self.current_state if str(node['id']) == obj_id), None)
             if obj_name:
                 self.last_opened = [obj_name, obj_id]
-        
+        print(f'plan: {plan}')
         return plan
 
     def generate_hold_plan(self, last_subgoal, need_to_close):
@@ -594,11 +603,9 @@ class MCTS:
             return []
         
         actions, costs = heuristic(
-            self.agent_id, 
-            self.char_index, 
+            self.agent_id,  
             {},  # 'unsatisfied' is handled separately
-            self.current_state, 
-            self.env, 
+            self.current_state,  
             last_subgoal
         )
         if actions:
@@ -713,11 +720,9 @@ class MCTS:
         Returns:
             float: Estimated value of the leaf node.
         """
-        # Update state before rollout
-        if not self.update_state():
-            return 0  # Return neutral value if state update fails
-            
-        curr_state, goal_spec, satisfied, unsatisfied, num_steps, actions_parent = leaf_node.id[1]
+        # Get current state information from leaf node
+        _, goal_spec, satisfied, unsatisfied, num_steps, _ = leaf_node.id[1]
+        
         sum_reward = 0
         last_reward = 0
 
@@ -726,9 +731,11 @@ class MCTS:
         unsatisfied = copy.deepcopy(unsatisfied)
 
         # Generate subgoals for rollout
-        subgoals = self.get_subgoal_space(curr_state, satisfied, unsatisfied)
+        subgoals = self.get_subgoal_space(satisfied, unsatisfied)
         # Shuffle subgoals to introduce randomness
         random.shuffle(subgoals)
+
+        curr_state = copy.deepcopy(self.current_state)  # Work with a copy of the current state
 
         for rollout_step in range(min(len(subgoals), self.max_rollout_step)):
             subgoal = subgoals[rollout_step][0]
@@ -737,32 +744,72 @@ class MCTS:
                 continue
 
             actions, costs = heuristic(
-                self.agent_id, 
-                self.char_index, 
-                unsatisfied, 
-                curr_state, 
-                self.env, 
+                self.agent_id,
                 subgoal
             )
 
             if actions:
                 num_steps += len(actions)
                 total_cost = sum(costs)
+                
+                # Simulate the effects of actions on the state
                 for action in actions:
-                    action_str = self.get_action_str(action)
-                    try:
-                        next_vh_state = self.env.transition(curr_vh_state, {0: action_str})
-                        curr_vh_state = next_vh_state
-                        curr_state = next_vh_state.to_dict()
-                    except Exception as e:
-                        if self.verbose:
-                            print(f"Transition error during rollout: {e}")
-                        break
+                    # Update the simulated state based on action type
+                    action_type = action[0]
+                    if action_type == 'grab':
+                        obj_id = action[1][1]
+                        # Add holds relation
+                        obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
+                        if obj_node:
+                            if 'relation' not in obj_node:
+                                obj_node['relation'] = []
+                            obj_node['relation'].append(f"holds agent_{self.agent_id}")
+                    
+                    elif action_type in ['put', 'putIn']:
+                        obj_id = action[1][1]
+                        target_id = action[2][1]
+                        relation_type = 'on' if action_type == 'put' else 'inside'
+                        
+                        # Remove holds relation and add new position relation
+                        obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
+                        if obj_node:
+                            if 'relation' in obj_node:
+                                obj_node['relation'] = [r for r in obj_node['relation'] 
+                                                      if not r.startswith('holds')]
+                            obj_node['relation'].append(f"{relation_type} object_{target_id}")
+                    
+                    elif action_type in ['open', 'close']:
+                        obj_id = action[1][1]
+                        obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
+                        if obj_node:
+                            new_state = 'OPEN' if action_type == 'open' else 'CLOSED'
+                            if 'state' not in obj_node:
+                                obj_node['state'] = []
+                            obj_node['state'] = [s for s in obj_node['state'] 
+                                               if s not in ['OPEN', 'CLOSED']]
+                            obj_node['state'].append(new_state)
 
-                curr_reward = self.check_progress(curr_state, goal_spec)
+                # Calculate reward based on goal progress
+                curr_reward = self.check_progress(goal_spec)
                 delta_reward = curr_reward - last_reward - total_cost
                 sum_reward += delta_reward
                 last_reward = curr_reward
+
+        # Track metrics during rollout
+        actions_taken = 0
+        total_cost = 0
+        
+        for rollout_step in range(min(len(subgoals), self.max_rollout_step)):
+            # ... existing rollout logic ...
+            actions_taken += len(actions_heuristic)
+            total_cost += sum(costs)
+
+        # Log rollout metrics
+        wandb.log({
+            "rollout_actions_taken": actions_taken,
+            "rollout_total_cost": total_cost,
+            "rollout_final_reward": sum_reward
+        })
 
         return sum_reward
 
@@ -866,7 +913,7 @@ class MCTS:
             return
 
         if action == 'put':
-            relation_key = (obj_node['name'], 'supported by', surface_node['name'])
+            relation_key = (obj_node['name'], 'on', surface_node['name'])
             satisfied[relation_key] = True
             if relation_key in unsatisfied:
                 unsatisfied[relation_key] -= 1
@@ -880,6 +927,7 @@ class MCTS:
                 unsatisfied[relation_key] -= 1
                 if unsatisfied[relation_key] <= 0:
                     del unsatisfied[relation_key]
+        
                     
         # Add more actions as needed
 
@@ -917,7 +965,7 @@ class MCTS:
         leaf_node_values = node.id[1]
         state, goal_spec, satisfied, unsatisfied, steps, actions_parent = leaf_node_values
 
-        # Fix: Remove state parameter from get_subgoal_space call
+        # Generate subgoals based on current state and goals
         subgoals = self.get_subgoal_space(satisfied, unsatisfied)
         
         if not subgoals:
@@ -931,27 +979,60 @@ class MCTS:
                 continue
 
             actions_heuristic, costs = heuristic(
-                self.agent_id, 
-                self.char_index, 
-                unsatisfied, 
-                state, 
-                self.env, 
+                self.agent_id,
                 goal
             )
             if not actions_heuristic:
                 continue
 
-            # Apply actions to transition to the next state
-            actions_str = []
+            # Create a simulated next state by applying actions
+            next_state = copy.deepcopy(self.current_state)
+            
+            # Apply each action's effects to the simulated state
             for action in actions_heuristic:
-                action_str = self.get_action_str(action)
-                actions_str.append(action_str)
-                try:
-                    next_vh_state = self.env.transition(next_vh_state, {0: action_str})
-                except Exception as e:
-                    if self.verbose:
-                        print(f"Transition error during expansion: {e}")
-                    continue
+                action_type = action[0]
+                
+                if action_type == 'grab':
+                    obj_id = action[1][1]
+                    obj_node = next((node for node in next_state if node['id'] == obj_id), None)
+                    if obj_node:
+                        if 'relation' not in obj_node:
+                            obj_node['relation'] = []
+                        obj_node['relation'].append(f"holds agent_{self.agent_id}")
+                
+                elif action_type in ['put', 'putIn']:
+                    obj_id = action[1][1]
+                    target_id = action[2][1]
+                    relation_type = 'on' if action_type == 'put' else 'inside'
+                    
+                    obj_node = next((node for node in next_state if node['id'] == obj_id), None)
+                    if obj_node:
+                        if 'relation' in obj_node:
+                            obj_node['relation'] = [r for r in obj_node['relation'] 
+                                                  if not r.startswith('holds')]
+                        obj_node['relation'].append(f"{relation_type} object_{target_id}")
+                
+                elif action_type in ['open', 'close']:
+                    obj_id = action[1][1]
+                    obj_node = next((node for node in next_state if node['id'] == obj_id), None)
+                    if obj_node:
+                        new_state = 'OPEN' if action_type == 'open' else 'CLOSED'
+                        if 'state' not in obj_node:
+                            obj_node['state'] = []
+                        obj_node['state'] = [s for s in obj_node['state'] 
+                                           if s not in ['OPEN', 'CLOSED']]
+                        obj_node['state'].append(new_state)
+                
+                elif action_type in ['switchon', 'switchoff']:
+                    obj_id = action[1][1]
+                    obj_node = next((node for node in next_state if node['id'] == obj_id), None)
+                    if obj_node:
+                        new_state = 'ON' if action_type == 'switchon' else 'OFF'
+                        if 'state' not in obj_node:
+                            obj_node['state'] = []
+                        obj_node['state'] = [s for s in obj_node['state'] 
+                                           if s not in ['ON', 'OFF']]
+                        obj_node['state'].append(new_state)
 
             goals_expanded += 1
 
@@ -960,22 +1041,27 @@ class MCTS:
             next_unsatisfied = copy.deepcopy(unsatisfied)
 
             if aug_predicate:
+                if predicate not in next_satisfied:
+                    next_satisfied[predicate] = []
                 next_satisfied[predicate].append(aug_predicate)
-                next_unsatisfied[predicate] -= 1
-                if next_unsatisfied[predicate] <= 0:
-                    del next_unsatisfied[predicate]
+                if predicate in next_unsatisfied:
+                    next_unsatisfied[predicate] -= 1
+                    if next_unsatisfied[predicate] <= 0:
+                        del next_unsatisfied[predicate]
 
-            # Create a new child node
+            # Convert actions to strings for the action plan
+            action_strings = [self.get_action_str(action) for action in actions_heuristic]
+
+            # Create child node
             child_node = Node(
                 parent=node,
                 id=(goal, [
-                    next_vh_state, 
-                    next_vh_state.to_dict(), 
-                    goal_spec, 
-                    next_satisfied, 
+                    next_state,
+                    goal_spec,
+                    next_satisfied,
                     next_unsatisfied,
-                    len(actions_heuristic), 
-                    actions_str
+                    steps + len(actions_heuristic),
+                    action_strings
                 ]),
                 num_visited=0,
                 sum_value=0,
@@ -985,6 +1071,7 @@ class MCTS:
         
         if goals_expanded == 0:
             return None
+
         return node
 
     def get_action_str(self, action_tuple):
@@ -1001,8 +1088,9 @@ class MCTS:
         obj_args = [x for x in list(action_tuple)[1:] if x is not None]
         
         # Format depends on action type
-        if action_name in ['walk', 'run']:
-            return f"{action_name} {' '.join(str(x) for x in obj_args)}"
+        if action_name in ['walk', 'run', 'sit']:
+            objects_str = ' '.join([f"object_{x[1]}" for x in obj_args])
+            return f"agent_{self.agent_id} {action_name} to {objects_str}"
         else:
             objects_str = ' '.join([f"object_{x[1]}" for x in obj_args])
             return f"agent_{self.agent_id} {action_name} {objects_str}"
@@ -1029,7 +1117,7 @@ class MCTS:
                         to_id = to_nodes[0]['id']
                         containerdict[from_id] = to_id
 
-        target = int(goal.split('_')[-1])
+        target = int(float(goal.split('_')[-1]))
         observation_ids = [x['id'] for x in observations]
 
         # Find character's room
@@ -1083,7 +1171,7 @@ class MCTS:
     def grab_heuristic(self, agent_id, goal):
         """Grab heuristic adapted for string-based relations"""
         observations = self.current_state
-        target_id = int(goal.split('_')[-1])
+        target_id = int(float(goal.split('_')[-1]))
 
         observed_ids = [x['id'] for x in observations]
 
@@ -1124,7 +1212,7 @@ class MCTS:
     def turnOn_heuristic(self, agent_id, goal):
         """Heuristic function for turning on an object."""
         observations = self.current_state
-        target_id = int(goal.split('_')[-1])
+        target_id = int(float(goal.split('_')[-1]))
 
         observed_ids = [node['id'] for node in observations]
         agent_node = next(node for node in observations if node['id'] == agent_id)
@@ -1159,180 +1247,181 @@ class MCTS:
 
         return action_list, cost_list
 
-def sit_heuristic(self, agent_id, goal):
-    """Heuristic function for sitting on an object."""
-    observations = self.current_state
-    target_id = int(goal.split('_')[-1])
+    def sit_heuristic(self, agent_id, goal):
+        """Heuristic function for sitting on an object."""
+        observations = self.current_state
+        target_id = int(float(goal.split('_')[-1]))
 
-    observed_ids = [node['id'] for node in observations]
-    agent_node = next(node for node in observations if node['id'] == agent_id)
-    target_node = next(node for node in observations if node['id'] == target_id)
+        observed_ids = [node['id'] for node in observations]
+        agent_node = next(node for node in observations if node['id'] == agent_id)
+        target_node = next(node for node in observations if node['id'] == target_id)
 
-    # Check if agent is close to target
-    is_close = any(
-        'close' in relation.lower() and target_node['name'] in relation
-        for relation in agent_node.get('relation', [])
-    )
+        # Check if agent is close to target
+        is_close = any(
+            'close' in relation.lower() and target_node['name'] in relation
+            for relation in agent_node.get('relation', [])
+        )
 
-    # Check if agent is already sitting on the target
-    is_sitting = any(
-        'sit' in relation.lower() and target_node['name'] in relation
-        for relation in agent_node.get('relation', [])
-    )
+        # Check if agent is already sitting on the target
+        is_sitting = any(
+            'sit' in relation.lower() and target_node['name'] in relation
+            for relation in agent_node.get('relation', [])
+        )
 
-    action_list = []
-    cost_list = []
+        action_list = []
+        cost_list = []
 
-    if not is_sitting:
-        target_action = [('sit', (target_node['name'], target_id), None)]
+        if not is_sitting:
+            target_action = [('sit', (target_node['name'], target_id), None)]
+            cost = [0.05]
+        else:
+            target_action = []
+            cost = []
+
+        if is_close and target_id in observed_ids:
+            action_list += target_action
+            cost_list += cost
+        else:
+            find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+            action_list += find_actions + target_action
+            cost_list += find_costs + cost
+
+        return action_list, cost_list
+
+    def put_heuristic(self, agent_id, goal):
+        """Heuristic function for putting an object on another object."""
+        observations = self.current_state
+
+        # Modified line: Convert to float first, then to int
+        target_grab_id, target_put_id = [int(float(x)) for x in goal.split('_')[-2:]]
+
+        # Check if object is already placed on target
+        is_placed = False
+        for node in observations:
+            if node['id'] == target_grab_id:
+                for relation in node.get('relation', []):
+                    if f"on object_{target_put_id}" in relation:
+                        is_placed = True
+                        break
+
+        if is_placed:
+            return [], []
+
+        # Check if object is already held by someone else (not the agent)
+        is_held_by_other = False
+        for node in observations:
+            for relation in node.get('relation', []):
+                if f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation:
+                    is_held_by_other = True
+                    break
+
+        if is_held_by_other:
+            return None, None
+
+        target_node = next(node for node in observations if node['id'] == target_grab_id)
+        target_node2 = next(node for node in observations if node['id'] == target_put_id)
+
+        # Check if agent is holding the object
+        target_grabbed = any(
+            f"holds agent_{agent_id}" in relation
+            for relation in target_node.get('relation', [])
+        )
+
+        if not target_grabbed:
+            grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
+        else:
+            grab_obj1 = []
+            cost_grab_obj1 = []
+
+        # Need to find where to put the object
+        find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
+        action = [('put', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
         cost = [0.05]
-    else:
-        target_action = []
-        cost = []
+        res = grab_obj1 + find_obj2 + action
+        cost_list = cost_grab_obj1 + cost_find_obj2 + cost
 
-    if is_close and target_id in observed_ids:
-        action_list += target_action
-        cost_list += cost
-    else:
+        return res, cost_list
+
+    def open_heuristic(self, agent_id, goal):
+        """Heuristic function for opening an object."""
+        observations = self.current_state
+        target_id = int(float(goal.split('_')[-1]))
+        target_node = next(node for node in observations if node['id'] == target_id)
+
+        # Check if target is already open
+        is_open = 'OPEN' in target_node.get('state', [])
+        if is_open:
+            return [], []
+
+        # Generate actions
         find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
-        action_list += find_actions + target_action
-        cost_list += find_costs + cost
+        action_open = [('open', (target_node['name'], target_id), None)]
+        cost_open = [0.05]
+        res = find_actions + action_open
+        cost_list = find_costs + cost_open
 
-    return action_list, cost_list
+        return res, cost_list
 
-def put_heuristic(self, agent_id, goal):
-    """Heuristic function for putting an object on another object."""
-    observations = self.current_state
+    def putIn_heuristic(self, agent_id, goal):
+        """Heuristic function for putting an object inside another object."""
+        observations = self.current_state
 
-    target_grab_id, target_put_id = [int(x) for x in goal.split('_')[-2:]]
+        target_grab_id, target_put_id = [int(float(x)) for x in goal.split('_')[-2:]]
 
-    # Check if object is already placed on target
-    is_placed = False
-    for node in observations:
-        if node['id'] == target_grab_id:
-            for relation in node.get('relation', []):
-                if f"supported by object_{target_put_id}" in relation:
-                    is_placed = True
-                    break
+        # Check if object is already placed inside target
+        is_placed = False
+        for node in observations:
+            if node['id'] == target_grab_id:
+                for relation in node.get('relation', []):
+                    if f"inside object_{target_put_id}" in relation:
+                        is_placed = True
+                        break
 
-    if is_placed:
-        return [], []
+        if is_placed:
+            return [], []
 
-    # Check if object is already held by someone else (not the agent)
-    is_held_by_other = False
-    for node in observations:
-        for relation in node.get('relation', []):
-            if f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation:
-                is_held_by_other = True
-                break
+        # Check if object is held by someone else
+        is_held_by_other = any(
+            f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation
+            for node in observations
+            for relation in node.get('relation', [])
+        )
 
-    if is_held_by_other:
-        return None, None
+        if is_held_by_other:
+            return None, None
 
-    target_node = next(node for node in observations if node['id'] == target_grab_id)
-    target_node2 = next(node for node in observations if node['id'] == target_put_id)
+        target_node = next(node for node in observations if node['id'] == target_grab_id)
+        target_node2 = next(node for node in observations if node['id'] == target_put_id)
 
-    # Check if agent is holding the object
-    target_grabbed = any(
-        f"holds agent_{agent_id}" in relation
-        for relation in target_node.get('relation', [])
-    )
+        # Check if agent is holding the object
+        target_grabbed = any(
+            f"holds agent_{agent_id}" in relation
+            for relation in target_node.get('relation', [])
+        )
 
-    if not target_grabbed:
-        grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
-    else:
-        grab_obj1 = []
-        cost_grab_obj1 = []
+        if not target_grabbed:
+            grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
+        else:
+            grab_obj1 = []
+            cost_grab_obj1 = []
 
-    # Need to find where to put the object
-    find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
-    action = [('put', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
-    cost = [0.05]
-    res = grab_obj1 + find_obj2 + action
-    cost_list = cost_grab_obj1 + cost_find_obj2 + cost
+        # Need to find the container
+        find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
 
-    return res, cost_list
+        target_put_state = target_node2.get('state', [])
+        action_open = [('open', (target_node2['name'], target_put_id), None)]
+        action_put = [('putIn', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
+        cost_open = [0.05]
+        cost_put = [0.05]
 
-def open_heuristic(self, agent_id, goal):
-    """Heuristic function for opening an object."""
-    observations = self.current_state
-    target_id = int(goal.split('_')[-1])
-    target_node = next(node for node in observations if node['id'] == target_id)
+        if 'CLOSED' in target_node2.get('state', []) or 'OPEN' not in target_node2.get('state', []):
+            res = grab_obj1 + find_obj2 + action_open + action_put
+            cost_list = cost_grab_obj1 + cost_find_obj2 + cost_open + cost_put
+        else:
+            res = grab_obj1 + find_obj2 + action_put
+            cost_list = cost_grab_obj1 + cost_find_obj2 + cost_put
 
-    # Check if target is already open
-    is_open = 'OPEN' in target_node.get('state', [])
-    if is_open:
-        return [], []
-
-    # Generate actions
-    find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
-    action_open = [('open', (target_node['name'], target_id), None)]
-    cost_open = [0.05]
-    res = find_actions + action_open
-    cost_list = find_costs + cost_open
-
-    return res, cost_list
-
-def putIn_heuristic(self, agent_id, goal):
-    """Heuristic function for putting an object inside another object."""
-    observations = self.current_state
-
-    target_grab_id, target_put_id = [int(x) for x in goal.split('_')[-2:]]
-
-    # Check if object is already placed inside target
-    is_placed = False
-    for node in observations:
-        if node['id'] == target_grab_id:
-            for relation in node.get('relation', []):
-                if f"inside object_{target_put_id}" in relation:
-                    is_placed = True
-                    break
-
-    if is_placed:
-        return [], []
-
-    # Check if object is held by someone else
-    is_held_by_other = any(
-        f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation
-        for node in observations
-        for relation in node.get('relation', [])
-    )
-
-    if is_held_by_other:
-        return None, None
-
-    target_node = next(node for node in observations if node['id'] == target_grab_id)
-    target_node2 = next(node for node in observations if node['id'] == target_put_id)
-
-    # Check if agent is holding the object
-    target_grabbed = any(
-        f"holds agent_{agent_id}" in relation
-        for relation in target_node.get('relation', [])
-    )
-
-    if not target_grabbed:
-        grab_obj1, cost_grab_obj1 = self.grab_heuristic(agent_id, f'grab_{target_grab_id}')
-    else:
-        grab_obj1 = []
-        cost_grab_obj1 = []
-
-    # Need to find the container
-    find_obj2, cost_find_obj2 = self.find_heuristic(agent_id, f'find_{target_put_id}')
-
-    target_put_state = target_node2.get('state', [])
-    action_open = [('open', (target_node2['name'], target_put_id), None)]
-    action_put = [('putIn', (target_node['name'], target_grab_id), (target_node2['name'], target_put_id))]
-    cost_open = [0.05]
-    cost_put = [0.05]
-
-    if 'CLOSED' in target_node2.get('state', []) or 'OPEN' not in target_node2.get('state', []):
-        res = grab_obj1 + find_obj2 + action_open + action_put
-        cost_list = cost_grab_obj1 + cost_find_obj2 + cost_open + cost_put
-    else:
-        res = grab_obj1 + find_obj2 + action_put
-        cost_list = cost_grab_obj1 + cost_find_obj2 + cost_put
-
-    return res, cost_list
+        return res, cost_list
 
 if __name__ == "__main__":
 
@@ -1342,8 +1431,7 @@ if __name__ == "__main__":
     observation(data)
     '''TODO: change the env to reading the graph.json and updating it using observation function'''
     mcts = MCTS(
-        agent_id=1,
-        char_index=0,
+        agent_id=0,
         max_episode_length=100,
         num_simulation=1000,
         max_rollout_step=5,
@@ -1353,21 +1441,18 @@ if __name__ == "__main__":
     )
 
     # Initialize state by getting first observation
-    mcts.update_state()
+    if not mcts.update_state():
+        print("Failed to get initial state")
+        exit(1)
+
     # arbitrarily set goal specification, satisfied predicates, and unsatisfied predicates
     goal_specification = {
     # Format: (subject, relation_type, target): count_needed
-    ('cup', 'inside', 'cabinet'): 1,
-    ('plate', 'supported by', 'counter'): 1,
-    ('fridge', 'state', 'CLOSED'): 1,
-        ('microwave', 'state', 'OFF'): 1
+    ('apple', 'on', 'table'): 1
     }
     satisfied_predicates = {}
     unsatisfied_predicates = {
-        ('cup', 'inside', 'cabinet'): 1,
-        ('plate', 'supported by', 'counter'): 1,
-        ('fridge', 'state', 'CLOSED'): 1,
-        ('microwave', 'state', 'OFF'): 1
+       ('apple', 'on', 'table'): 1
     }
 
     # Create root node using current state instead of loading from file
@@ -1375,7 +1460,6 @@ if __name__ == "__main__":
         id=('initial', [
             mcts.current_state,           # State as dictionary (same as above since we don't have separate formats)
             goal_specification,           # Goal predicates
-
             satisfied_predicates,         # Currently satisfied predicates
             unsatisfied_predicates,       # Currently unsatisfied predicates
             0,                           # Number of steps taken
@@ -1385,6 +1469,17 @@ if __name__ == "__main__":
         sum_value=0,
         subgoal_prior=1.0,
         is_expanded=False
+    )
+
+    # Initialize wandb run for the main execution
+    wandb.init(
+        project="mcts-planning",
+        name="main-execution",
+        config={
+            "goal_specification": goal_specification,
+            "max_episode_length": mcts.max_episode_length,
+            "environment": "WatchAndHelp1"
+        }
     )
 
     # Run MCTS with state updates
@@ -1406,7 +1501,36 @@ if __name__ == "__main__":
     print("Planned actions: ", plan)
     print("Subgoals: ", subgoals)
     
-    # Execute actions and update state after each one
-    for action in utils.sequence(plan):
-        set_action(action)
-        mcts.update_state()  # Update state after each action
+    # Track metrics for the actual execution
+    episode_metrics = {
+        "total_actions": len(plan),
+        "achieved_subgoals": len(subgoals),
+        "execution_success": len(plan) > 0
+    }
+    wandb.log(episode_metrics)
+
+    # Execute actions and track progress
+    action_sequence = utils.sequence(plan)
+    for i, action_dict in enumerate(action_sequence):
+        print(f"Executing action {i+1}/{len(action_sequence)}: {action_dict}")
+        
+        # Set action and wait for state update
+        set_action(action_dict)
+        time.sleep(5)  # Increased delay between actions
+        
+        # Update state with retry
+        if not mcts.update_state():
+            print(f"Warning: Failed to update state for action {i+1}")
+        
+        # Log action execution
+        wandb.log({
+            "action_step": i,
+            "action_type": action_dict.get('action', "unknown"),
+            "action_sequence_progress": (i + 1) / len(action_sequence)
+        })
+
+    # Add final delay before finishing
+    time.sleep(0.5)
+    
+    # Finish wandb run
+    wandb.finish()

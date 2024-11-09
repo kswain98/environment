@@ -1,7 +1,9 @@
 import socketio
 import json
+import threading
 
 sio = socketio.Client()
+graph_lock = threading.Lock()
 
 @sio.event
 def connect():
@@ -26,8 +28,9 @@ def message(data):
 
 @sio.event
 def graph(data):
-    with open("graph.json", "w") as f:
-        json.dump(data, f, indent=4)
+    with graph_lock:
+        with open("graph.json", "w") as f:
+            json.dump(data, f, indent=4)
 
 def make(data):
     sio.emit('make', data)
@@ -36,7 +39,8 @@ def reset(data):
     sio.emit('reset', data)
 
 def observation(data):
-    sio.emit('observation', data)
+    with graph_lock:
+        sio.emit('observation', data)
 
 def set_action(data):
     sio.emit('set_action', data)
