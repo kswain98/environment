@@ -376,6 +376,7 @@ class MCTS:
         
         # Generate subgoals based on the current state
         subgoals = self.get_subgoal_space(satisfied, unsatisfied)
+        print(f"subgoals: {subgoals}")
         
         if self.verbose:
             print(f'satisfied: {satisfied}')
@@ -396,6 +397,7 @@ class MCTS:
         need_to_close = self.check_need_to_close(remained_to_put)
 
         # Handle planning for specific subgoals
+        plan = []
         for subgoal in subgoals:
             ''' if subgoal[0] == last_subgoal:'''
             plan = self.generate_plan(subgoal, need_to_close)
@@ -442,7 +444,6 @@ class MCTS:
             "num_simulations_completed": len(simulation_rewards),
             "tree_depth": len(node_path) if node_path else 0
         })
-        print(f"Plan so far: {plan}")
         # Select the next root node based on visited children
         next_root, plan, subgoals = self.select_best_plan(curr_root, need_to_close)
 
