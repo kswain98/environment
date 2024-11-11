@@ -224,6 +224,13 @@ class MCTS:
                         subgoal_space.append(subgoal_entry)
 
                 # Similar modifications for other relation types...
+                elif relation_type == 'inside':
+                    subgoal_type = 'putIn'
+                    tmp_predicate = f"inside_{matching_node['id']}_{target_node['id']}"
+                    if tmp_predicate not in satisfied.get(predicate, []):
+                        subgoal = f"{subgoal_type}_{matching_node['id']}_{target_node['id']}"
+                        subgoal_entry = [subgoal, predicate, tmp_predicate]
+                        subgoal_space.append(subgoal_entry)
 
             elif relation_type == 'state':
                 if target == 'ON':
@@ -311,7 +318,6 @@ class MCTS:
                 # Request new observation first
                 observation_request = {"type": "graph"}
                 observation(observation_request)
-                time.sleep(retry_delay)  # Wait for observation to be processed
                 
                 # Check if file exists
                 if not os.path.exists("graph.json"):
@@ -345,8 +351,6 @@ class MCTS:
                 if attempt == max_retries - 1:
                     return False
                 
-                time.sleep(retry_delay)
-        
         return False
 
     def run(self, curr_root, t, heuristic_dict, last_subgoal):
@@ -736,12 +740,18 @@ class MCTS:
         # Shuffle subgoals to introduce randomness
         random.shuffle(subgoals)
 
-        curr_state = copy.deepcopy(self.current_state)  # Work with a copy of the current state
+        curr_state = copy.deepcopy(self.current_state)
 
         for rollout_step in range(min(len(subgoals), self.max_rollout_step)):
             subgoal = subgoals[rollout_step][0]
-            heuristic = self.heuristic_dict.get(subgoal.split('_')[0])
+            # Add debug print to see what subgoal type we're getting
+            subgoal_type = subgoal.split('_')[0]
+            print(f"Subgoal type: {subgoal_type}")  # Debug print
+            
+            # Get the appropriate heuristic function
+            heuristic = self.heuristic_dict.get(subgoal_type)
             if not heuristic:
+                print(f"Warning: No heuristic found for subgoal type: {subgoal_type}")  # Debug print
                 continue
 
             actions, costs = heuristic(
@@ -802,6 +812,10 @@ class MCTS:
         
         for rollout_step in range(min(len(subgoals), self.max_rollout_step)):
             # ... existing rollout logic ...
+            actions_heuristic, costs = heuristic(
+                self.agent_id,
+                subgoal
+            )
             actions_taken += len(actions_heuristic)
             total_cost += sum(costs)
 
@@ -1168,7 +1182,7 @@ class MCTS:
             cost_list = [1] + cost_list
 
         return action_list, cost_list
-
+    
     def grab_heuristic(self, agent_id, goal):
         """Grab heuristic adapted for string-based relations"""
         observations = self.current_state
@@ -1221,7 +1235,7 @@ class MCTS:
 
         # Check if agent is close to target
         is_close = any(
-            'close' in relation.lower() and target_node['name'] in relation
+            'in arms reach' in relation.lower() and target_node['name'] in relation
             for relation in agent_node.get('relation', [])
         )
 
@@ -1247,7 +1261,40 @@ class MCTS:
             cost_list += find_costs + cost
 
         return action_list, cost_list
+    def turnOff_heuristic(self, agent_id, goal):
+        """Heuristic function for turning off an object."""
+        observations = self.current_state
+        target_id = int(float(goal.split('_')[-1]))
 
+        observed_ids = [node['id'] for node in observations]
+        agent_node = next(node for node in observations if node['id'] == agent_id)
+        target_node = next(node for node in observations if node['id'] == target_id)
+
+        is_close = any(
+            'in arms reach' in relation.lower() and target_node['name'] in relation
+            for relation in agent_node.get('relation', [])
+        )
+
+        is_off = 'OFF' in target_node.get('state', [])
+
+        action_list = []
+        cost_list = []  
+        if not is_off:
+            target_action = [('switchoff', (target_node['name'], target_id), None)]
+            cost = [0.05]
+        else:
+            target_action = []
+            cost = []
+        if is_close and target_id in observed_ids:
+            action_list += target_action
+            cost_list += cost
+        else:
+            find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+            action_list += find_actions + target_action
+            cost_list += find_costs + cost
+
+        return action_list, cost_list
+    
     def sit_heuristic(self, agent_id, goal):
         """Heuristic function for sitting on an object."""
         observations = self.current_state
@@ -1299,9 +1346,12 @@ class MCTS:
         # Check if object is already placed on target
         is_placed = False
         for node in observations:
+            if node['id'] == target_put_id:
+                target_put_name = node['name']
+        for node in observations:
             if node['id'] == target_grab_id:
                 for relation in node.get('relation', []):
-                    if f"on object_{target_put_id}" in relation:
+                    if f"on {target_put_name}" in relation:
                         is_placed = True
                         break
 
@@ -1424,6 +1474,26 @@ class MCTS:
 
         return res, cost_list
 
+    def close_heuristic(self, agent_id, goal):
+        """Heuristic function for closing an object."""
+        observations = self.current_state
+        target_id = int(float(goal.split('_')[-1]))
+        target_node = next(node for node in observations if node['id'] == target_id)
+
+        # Check if target is already closed
+        is_closed = 'CLOSED' in target_node.get('state', [])
+        if is_closed:
+            return [], []
+
+        # Generate actions
+        find_actions, find_costs = self.find_heuristic(agent_id, f'find_{target_id}')
+        action_close = [('close', (target_node['name'], target_id), None)]
+        cost_close = [0.05]
+        res = find_actions + action_close
+        cost_list = find_costs + cost_close
+
+        return res, cost_list
+
 if __name__ == "__main__":
 
     data = {"environment": "WatchAndHelp1"}
@@ -1449,11 +1519,17 @@ if __name__ == "__main__":
     # arbitrarily set goal specification, satisfied predicates, and unsatisfied predicates
     goal_specification = {
     # Format: (subject, relation_type, target): count_needed
-    ('apple', 'on', 'table'): 1
+    #('apple', 'on', 'table'): 1,
+    #('microwave', 'state', 'ON'): 1,
+    #('plate', 'inside', 'microwave'): 1
+    ('microwave', 'state', 'CLOSED'): 1,
     }
     satisfied_predicates = {}
     unsatisfied_predicates = {
-       ('apple', 'on', 'table'): 1
+       #('apple', 'on', 'table'): 1,
+       #('microwave', 'state', 'ON'): 1,
+       #('plate', 'inside', 'microwave'): 1,
+       ('microwave', 'state', 'CLOSED'): 1
     }
 
     # Create root node using current state instead of loading from file
@@ -1490,11 +1566,12 @@ if __name__ == "__main__":
         heuristic_dict={
             'find': mcts.find_heuristic,  # Use class method
             'grab': mcts.grab_heuristic,  # Use class method
-            'turnOn': mcts.turnOn_heuristic,
+            'switch on': mcts.turnOn_heuristic,  # Changed from 'turnOn' to 'switch on'
             'sit': mcts.sit_heuristic,
             'put': mcts.put_heuristic,
             'open': mcts.open_heuristic,
-            'putIn': mcts.putIn_heuristic
+            'putIn': mcts.putIn_heuristic,
+            'close': mcts.close_heuristic  # Add this line
         },
         last_subgoal=None
     )
@@ -1517,7 +1594,6 @@ if __name__ == "__main__":
         
         # Set action and wait for state update
         set_action(action_dict)
-        time.sleep(5)  # Increased delay between actions
         
         # Update state with retry
         if not mcts.update_state():
@@ -1531,7 +1607,6 @@ if __name__ == "__main__":
         })
 
     # Add final delay before finishing
-    time.sleep(0.5)
     
     # Finish wandb run
     wandb.finish()

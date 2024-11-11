@@ -1,0 +1,1611 @@
+{
+  "logs_agent_43_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_108_put_dishwasher_0": {
+    "goal_specification": {
+      "('wine', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wine', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_103_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_71_read_book_0": {
+    "goal_specification": {
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_50_read_book_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_119_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_130_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_42_put_fridge_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_91_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1
+    }
+  },
+  "logs_agent_162_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_141_put_dishwasher_0": {
+    "goal_specification": {
+      "('apple', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('apple', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_61_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_88_read_book_0": {
+    "goal_specification": {
+      "('juice', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_51_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_87_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_70_read_book_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_127_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_97_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1
+    }
+  },
+  "logs_agent_152_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_147_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_136_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_41_put_fridge_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_60_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_89_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_105_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_163_read_book_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_102_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_63_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_46_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_109_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_113_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_160_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_73_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_47_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_120_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_52_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_140_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_90_put_dishwasher_0": {
+    "goal_specification": {
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_151_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_161_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_137_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_146_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_96_put_dishwasher_0": {
+    "goal_specification": {
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_62_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_126_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_44_put_fridge_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_150_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_115_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_85_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_45_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_104_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_53_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_72_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_98_put_dishwasher_0": {
+    "goal_specification": {
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_148_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_123_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_49_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_64_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_139_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_132_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_158_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_143_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_167_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_93_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_74_read_book_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_83_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1
+    }
+  },
+  "logs_agent_48_put_fridge_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cupcake', 'inside', 'fridge')": 1,
+      "('juice', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1
+    }
+  },
+  "logs_agent_110_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('coffeepot', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_156_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_169_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_166_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_65_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_107_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_157_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_145_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_95_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1
+    }
+  },
+  "logs_agent_168_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_134_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('wine', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_82_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_54_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_75_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_125_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_92_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_142_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_133_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_154_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_138_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'inside', 'fridge')": 1,
+      "('pancake', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_57_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_122_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_81_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_68_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_165_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_111_put_dishwasher_0": {
+    "goal_specification": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('pudding', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_78_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_59_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_66_read_book_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_100_put_dishwasher_0": {
+    "goal_specification": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cupcake', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_56_read_book_0": {
+    "goal_specification": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_80_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_69_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_77_read_book_0": {
+    "goal_specification": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('waterglass', 'on', 'kitchentable')": 1,
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('wine', 'on', 'coffeetable')": 1,
+      "('pudding', 'on', 'coffeetable')": 1,
+      "('apple', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_155_read_book_0": {
+    "goal_specification": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1,
+      "('wine', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_124_put_dishwasher_0": {
+    "goal_specification": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('poundcake', 'inside', 'fridge')": 1,
+      "('pudding', 'inside', 'fridge')": 1,
+      "('apple', 'inside', 'fridge')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_67_read_book_0": {
+    "goal_specification": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('plate', 'on', 'kitchentable')": 1,
+      "('wineglass', 'on', 'kitchentable')": 1,
+      "('cupcake', 'on', 'coffeetable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_79_read_book_0": {
+    "goal_specification": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('cutleryfork', 'on', 'kitchentable')": 1,
+      "('juice', 'on', 'coffeetable')": 1
+    }
+  },
+  "logs_agent_135_put_dishwasher_0": {
+    "goal_specification": {
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pudding', 'inside', 'fridge')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('waterglass', 'inside', 'dishwasher')": 1,
+      "('cutleryfork', 'inside', 'dishwasher')": 1
+    }
+  },
+  "logs_agent_94_put_dishwasher_0": {
+    "goal_specification": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    },
+    "satisfied_predicates": {},
+    "unsatisfied_predicates": {
+      "('pancake', 'on', 'kitchentable')": 1,
+      "('poundcake', 'on', 'kitchentable')": 1,
+      "('apple', 'on', 'kitchentable')": 1,
+      "('plate', 'inside', 'dishwasher')": 1,
+      "('wineglass', 'inside', 'dishwasher')": 1
+    }
+  }
+}
