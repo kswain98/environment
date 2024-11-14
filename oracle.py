@@ -5,6 +5,7 @@ from client import *
 import wandb
 from belief import Belief
 import utils
+import time
 class Oracle:
     def __init__(self, max_episode_length=100, env_name="WatchAndHelp1"):
         """
@@ -354,6 +355,7 @@ if __name__ == "__main__":
             
             # Set action and wait for state update
             set_action(action_dict)
+            time.sleep(5)
             
             # Update state
             oracle.update_graph()

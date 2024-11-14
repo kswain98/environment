@@ -2,19 +2,14 @@
 fixed_action_ids = {
     "walk": 0,
     "run": 1,
-    "grab": 2,
-    "place": 3,
-    "open": 4,
-    "close": 5,
-    "lookat": 6,
-    "switch_on": 7,
-    "switch_off": 8,
-    "sit": 9,
-    "interact": 10,
-    "step_forward": 11,
-    "step_backwards": 12,
-    "turn_left": 13,
-    "turn_right": 14,
+    "walk forward": 2,
+    "walk backward": 3,
+    "walk right": 4,
+    "walk left": 5,
+    "grab": 6,
+    "grab from table": 7,
+    "put": 8,
+    "put on table": 9
 }
 
 fixed_relation_ids = {"on": 1, "under": 2, "inside": 3, "next to": 4}

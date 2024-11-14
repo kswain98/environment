@@ -154,21 +154,33 @@ class MCTS:
         Checks progress towards goals based on current state.
 
         Args:
-            state (dict): Current state of the environment.
-            goal_spec (list): List of goal specifications.
+            goal_spec (dict): Dictionary of goal specifications in format {(subject, relation_type, target): count}.
 
         Returns:
             int: Number of satisfied goal conditions.
         """
         satisfied_count = 0
-        for node in self.current_state:
-            for relation in node.get('relation', []):
-                # Split relation into parts
-                parts = relation.split()
-                if len(parts) >= 3:
-                    relation_type = ' '.join(parts[1:-1])
-                    if relation_type in goal_spec:
+        
+        for (subject, relation_type, target), count in goal_spec.items():
+            # Handle state-based goals
+            if relation_type == 'state':
+                for node in self.current_state:
+                    if subject.lower() in node['name'].lower() and target.lower() in node['name'].lower():
                         satisfied_count += 1
+                        break
+            # Handle relation-based goals
+            else:
+                for node in self.current_state:
+                    if subject.lower() in node['name'].lower():
+                        for relation in node.get('relation', []):
+                            parts = relation.split()
+                            # Check if relation matches the goal
+                            if (len(parts) >= 3 and
+                                relation_type == ' '.join(parts[1:-1]) and
+                                target.lower() in parts[-1].lower()):
+                                satisfied_count += 1
+                                break
+
         return satisfied_count
 
     def get_subgoal_space(self, satisfied, unsatisfied, verbose=0):
@@ -231,7 +243,6 @@ class MCTS:
                         subgoal = f"{subgoal_type}_{matching_node['id']}_{target_node['id']}"
                         subgoal_entry = [subgoal, predicate, tmp_predicate]
                         subgoal_space.append(subgoal_entry)
-
             elif relation_type == 'state':
                 if target == 'ON':
                     subgoal_type = 'switch on'
@@ -321,7 +332,6 @@ class MCTS:
                 
                 # Check if file exists
                 if not os.path.exists("graph.json"):
-                    print(f"Attempt {attempt + 1}: Waiting for graph.json to be created")
                     continue
                 
                 # Use file lock when reading
@@ -329,7 +339,7 @@ class MCTS:
                     with open("graph.json", "r") as f:
                         content = f.read().strip()
                     
-                    # Parse JSON
+                    # Parse JSON silently - remove error output
                     try:
                         new_state = json.loads(content)
                         if self.env_name in new_state:  # Verify environment exists in state
@@ -339,32 +349,20 @@ class MCTS:
                             self.relation_map = self.create_relation_map()
                             return True
                         else:
-                            print(f"Environment {self.env_name} not found in state")
                             continue
                     
-                    except json.JSONDecodeError as je:
-                        print(f"Attempt {attempt + 1}: JSON parsing error: {str(je)}")
+                    except json.JSONDecodeError:
                         continue
-                
-            except Exception as e:
-                print(f"Attempt {attempt + 1}: Error in update_state: {str(e)}")
+            
+            except Exception:
                 if attempt == max_retries - 1:
                     return False
-                
+            
         return False
 
     def run(self, curr_root, t, heuristic_dict, last_subgoal):
         """
         Executes the main MCTS algorithm, performing simulations and selecting the best action sequence.
-
-        Args:
-            curr_root (Node): Current root node of the MCTS tree.
-            t (int): Current timestep.
-            heuristic_dict (dict): Dictionary of heuristic functions for subgoals.
-            last_subgoal (str): The last subgoal that was pursued.
-
-        Returns:
-            tuple: Next root node, action plan, and list of subgoals.
         """
         # Update state before running MCTS
         if not self.update_state():
@@ -400,15 +398,22 @@ class MCTS:
         # Determine if a container needs to be closed
         need_to_close = self.check_need_to_close(remained_to_put)
 
-        # Handle planning for specific subgoals
-        plan = []
+        # Initialize complete plan and all subgoals
+        complete_plan = []
+        all_subgoals = []
+
+        # Handle planning for all subgoals
         for subgoal in subgoals:
-            ''' if subgoal[0] == last_subgoal:'''
+            # Generate plan for current subgoal
             plan = self.generate_plan(subgoal, need_to_close)
-            if self.verbose:
-                print(f'Repeat subgoal plan: {plan}')
             if plan:
-                return None, plan, [last_subgoal]
+                complete_plan.extend(plan)
+                all_subgoals.append(subgoal[0])  # Add the subgoal identifier
+                continue
+
+        # If we have a complete plan, return it
+        if complete_plan:
+            return None, complete_plan, all_subgoals
 
         # Check if agent is holding any objects
         agent_name = f"agent_{self.agent_id}"
@@ -419,12 +424,10 @@ class MCTS:
                 if f"holds {agent_name}" in relation:
                     holding_object = True
                     plan = self.generate_hold_plan(last_subgoal, need_to_close)
-                    if self.verbose:
-                        print(plan[0] if plan else "No actions generated.")
                     if plan:
                         return None, plan, [last_subgoal]
 
-        # Expand the current root node if it's not already expanded
+        # If no direct plans were found, perform MCTS simulations
         if not curr_root.is_expanded:
             curr_root = self.expand(curr_root, t)
 
@@ -448,6 +451,7 @@ class MCTS:
             "num_simulations_completed": len(simulation_rewards),
             "tree_depth": len(node_path) if node_path else 0
         })
+
         # Select the next root node based on visited children
         next_root, plan, subgoals = self.select_best_plan(curr_root, need_to_close)
 
@@ -1493,7 +1497,16 @@ class MCTS:
         cost_list = find_costs + cost_close
 
         return res, cost_list
-
+    def check_goal_reached(self, goal, count):
+        # goal is in the form of ('object', 'relation', 'target')
+        sucesss_count = 0
+        for node in self.current_state:
+            if goal[0] in node['name'].lower():
+                if goal[1] == 'state' and goal[2] in node['state']:
+                    sucesss_count += 1
+                elif f"{goal[0]} {goal[1]} {goal[2]}" in node['relation']:
+                    sucesss_count += 1
+        return sucesss_count >= count
 if __name__ == "__main__":
 
     data = {"environment": "WatchAndHelp1"}
@@ -1519,17 +1532,17 @@ if __name__ == "__main__":
     # arbitrarily set goal specification, satisfied predicates, and unsatisfied predicates
     goal_specification = {
     # Format: (subject, relation_type, target): count_needed
-    #('apple', 'on', 'table'): 1,
+    ('apple', 'on', 'table'): 1,
     #('microwave', 'state', 'ON'): 1,
-    #('plate', 'inside', 'microwave'): 1
-    ('microwave', 'state', 'CLOSED'): 1,
+    ('plate', 'inside', 'microwave'): 1
+    #('microwave', 'state', 'CLOSED'): 1,
     }
     satisfied_predicates = {}
     unsatisfied_predicates = {
-       #('apple', 'on', 'table'): 1,
+       ('apple', 'on', 'table'): 1,
        #('microwave', 'state', 'ON'): 1,
-       #('plate', 'inside', 'microwave'): 1,
-       ('microwave', 'state', 'CLOSED'): 1
+       ('plate', 'inside', 'microwave'): 1,
+       #('microwave', 'state', 'CLOSED'): 1
     }
 
     # Create root node using current state instead of loading from file
@@ -1590,14 +1603,20 @@ if __name__ == "__main__":
     # Execute actions and track progress
     action_sequence = utils.sequence(plan)
     for i, action_dict in enumerate(action_sequence):
-        print(f"Executing action {i+1}/{len(action_sequence)}: {action_dict}")
+        action_str = f"Action {i+1}/{len(action_sequence)}: {action_dict.get('action', 'unknown')} - "
+        if 'task' in action_dict:
+            task_ids = action_dict['task']
+            action_str += f"Task IDs: {task_ids}"
+        print(action_str)
         
         # Set action and wait for state update
         set_action(action_dict)
         
-        # Update state with retry
-        if not mcts.update_state():
-            print(f"Warning: Failed to update state for action {i+1}")
+        # Add delay between actions
+        time.sleep(10)
+        
+        # Update state with retry (silently)
+        mcts.update_state()
         
         # Log action execution
         wandb.log({
@@ -1607,6 +1626,19 @@ if __name__ == "__main__":
         })
 
     # Add final delay before finishing
-    
+    # check if goal is reached
+    success = 0
+    for goal, count in goal_specification.items():
+        if mcts.check_goal_reached(goal, count):
+            success += 1
+    if success == len(goal_specification):
+        print("All goals reached")
+    else:
+        print(f"{success} goals are reached out of {len(goal_specification)}")
+    success_rate = success / len(goal_specification)
+    wandb.log({"success goals": success})
+    wandb.log({"total goals": len(goal_specification)})
+    wandb.log({"success_rate": success_rate})
+        
     # Finish wandb run
     wandb.finish()
