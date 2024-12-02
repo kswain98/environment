@@ -1,15 +1,15 @@
 # Define the fixed IDs for actions and relations
 fixed_action_ids = {
-    "walk": 0,
+    "walk": 1,
     "run": 1,
     "walk forward": 2,
     "walk backward": 3,
     "walk right": 4,
     "walk left": 5,
     "grab": 6,
-    "grab from table": 7,
+    "putIn": 7,
     "put": 8,
-    "put on table": 9
+    "open": 9
 }
 
 fixed_relation_ids = {"on": 1, "under": 2, "inside": 3, "next to": 4}

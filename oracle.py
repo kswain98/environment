@@ -295,6 +295,53 @@ class Oracle:
         
         return graph
 
+    def execute_task(self, goal_specification):
+        """
+        Execute a task with the given goal specification.
+        
+        Args:
+            goal_specification (dict): Dictionary of goals in format {(subject, relation_type, target): count}
+        
+        Returns:
+            dict: Final execution metrics
+        """
+        # Get initial state and plan
+        initial_graph = self.update_graph()
+        if not initial_graph:
+            raise RuntimeError("Failed to get initial state")
+
+        action, info = self.get_action(initial_graph, goal_specification)
+        
+        # Track metrics
+        metrics = {
+            "total_actions": len(info['plan']) if info['plan'] else 0,
+            "achieved_subgoals": len(info['subgoals']) if info['subgoals'] else 0,
+            "execution_success": info['plan'] is not None and len(info['plan']) > 0
+        }
+        
+        # Execute plan
+        if info['plan']:
+            action_sequence = utils.sequence(info['plan'])
+            for i, action_dict in enumerate(action_sequence):
+                # Execute action and wait for update
+                set_action(action_dict)
+                time.sleep(5)
+                self.update_graph()
+                
+                # Check if goal is reached
+                reward, done, info = self._compute_reward(self.current_state, goal_specification)
+                if done:
+                    break
+            
+            # Update final metrics
+            metrics.update({
+                "final_reward": reward,
+                "steps_taken": i + 1,
+                "goal_achieved": done
+            })
+        
+        return metrics
+
 if __name__ == "__main__":
     # Initialize environment
     data = {"environment": "WatchAndHelp1"}
@@ -302,83 +349,14 @@ if __name__ == "__main__":
     data = {"type": "graph"}
     observation(data)
 
-    # Initialize Oracle agent
-    oracle = Oracle(
-        max_episode_length=100,
-        env_name="WatchAndHelp1"
-    )
-
-    # Initialize wandb run for the main execution
-    wandb.init(
-        project="oracle-planning",
-        name="main-execution",
-        config={
-            "max_episode_length": oracle.max_episode_length,
-            "environment": "WatchAndHelp1"
-        }
-    )
-
-    # Set goal specification
-    goal_specification = {
-        # Format: (subject, relation_type, target): count_needed
-        ('apple', 'on', 'table'): 1,
-        #('microwave', 'state', 'ON'): 1,
-        #('plate', 'inside', 'microwave'): 1
-        #('microwave', 'state', 'CLOSED'): 1,
-    }
-
-    # Get initial state
-    initial_graph = oracle.update_graph()
-    if not initial_graph:
-        print("Failed to get initial state")
-        exit(1)
-
-    # Get plan from Oracle
-    action, info = oracle.get_action(initial_graph, goal_specification)
+    # Initialize Oracle and run task
+    oracle = Oracle(max_episode_length=100, env_name="WatchAndHelp1")
+    goal_specification = {('apple', 'on', 'table'): 1}
     
-    print("Planned actions: ", info['plan'])
-    print("Subgoals: ", info['subgoals'])
+    # Optional: Initialize wandb
+    wandb.init(project="oracle-planning", name="main-execution")
     
-    # Track metrics for the execution
-    episode_metrics = {
-        "total_actions": len(info['plan']) if info['plan'] else 0,
-        "achieved_subgoals": len(info['subgoals']) if info['subgoals'] else 0,
-        "execution_success": info['plan'] is not None and len(info['plan']) > 0
-    }
-    wandb.log(episode_metrics)
-
-    # Execute actions and track progress
-    if info['plan']:
-        action_sequence = utils.sequence(info['plan'])
-        for i, action_dict in enumerate(action_sequence):
-            print(f"Executing action {i+1}/{len(action_sequence)}: {action_dict}")
-            
-            # Set action and wait for state update
-            set_action(action_dict)
-            time.sleep(5)
-            
-            # Update state
-            oracle.update_graph()
-            
-            # Log action execution
-            wandb.log({
-                "action_step": i,
-                "action_type": action_dict.get('action', "unknown"),
-                "action_sequence_progress": (i + 1) / len(action_sequence)
-            })
-
-            # Check if goal is reached
-            reward, done, info = oracle._compute_reward(oracle.current_state, goal_specification)
-            if done:
-                print(f"Goal reached after {i+1} steps!")
-                break
-
-        # Log final metrics
-        wandb.log({
-            "final_reward": reward,
-            "steps_taken": i + 1,
-            "goal_achieved": done
-        })
-
-    # Finish wandb run
+    # Execute task and log metrics
+    metrics = oracle.execute_task(goal_specification)
+    wandb.log(metrics)
     wandb.finish()

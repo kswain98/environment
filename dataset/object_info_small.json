@@ -19,6 +19,7 @@
                          "sofa"],
     "objects_grab": [
                      "apple",
+                     "milk",
                      "book",
                      "coffeepot",
                      "cupcake",
