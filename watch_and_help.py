@@ -83,10 +83,10 @@ class Belief():
             node_relations = node.get('relation', [])
 
             belief_states = self.node_beliefs.get(node_id, {})
-            for state in ['ON', 'OFF', 'OPEN', 'CLOSED']:
+            for state in ['on', 'off', 'open', 'closed']:
                 if state in node_state:
                     belief_states[state] = 1.0
-                    opposite_state = 'OFF' if state == 'ON' else 'ON' if state == 'OFF' else 'CLOSED' if state == 'OPEN' else 'OPEN'
+                    opposite_state = 'off' if state == 'on' else 'on' if state == 'off' else 'closed' if state == 'open' else 'open'
                     belief_states[opposite_state] = 0.0
             self.node_beliefs[node_id] = belief_states
 
@@ -112,7 +112,7 @@ class Belief():
             belief_states = self.node_beliefs.get(node_id, {})
             new_state = []
 
-            for state in ['ON', 'OFF', 'OPEN', 'CLOSED']:
+            for state in ['on', 'off', 'open', 'closed']:
                 if state in belief_states:
                     prob = belief_states[state]
                     if random.random() < prob:
@@ -149,9 +149,9 @@ class Belief():
 
     def update_to_prior(self):
         for node_name in self.relation_belief:
-            self.relation_belief[node_name]['INSIDE'][1] = self.update(
-                self.relation_belief[node_name]['INSIDE'][1], 
-                self.first_belief[node_name]['INSIDE'][1]
+            self.relation_belief[node_name]['inside'][1] = self.update(
+                self.relation_belief[node_name]['inside'][1], 
+                self.first_belief[node_name]['inside'][1]
             )
 
     def update_graph_from_gt_graph(self, gt_graph):
@@ -162,33 +162,44 @@ class Belief():
             print(f"Unexpected gt_graph type: {type(gt_graph)}")
             return
         
-        id2node = {int(x['id']): x for x in gt_graph}
+        id2node = {int(float(x['id'])): x for x in gt_graph}
         inside = {}
         grabbed_object = []
         id_updated = []
 
+        # First find the character and check what they're holding
+        character_node = next((node for node in gt_graph if 'BP_ThirdPersonCharacter' in node['name']), None)
+        if character_node:
+            for relation_str in character_node.get('relation', []):
+                if 'holding' in relation_str.lower():
+                    # Format is "Right hand holding BP_Object" or "Left hand holding BP_Object"
+                    parts = relation_str.split()
+                    if len(parts) > 2 and parts[2] == "holding":
+                        held_obj_name = ' '.join(parts[3:])
+                        held_obj = next((node for node in gt_graph if node['name'] == held_obj_name), None)
+                        if held_obj:
+                            grabbed_object.append(int(float(held_obj['id'])))
+
+        # Then process regular relations
         for node in gt_graph:
             for relation_str in node.get('relation', []):
                 parts = relation_str.split()
                 if len(parts) >= 3:
-                    from_id = node['id']
-                    relation_type = parts[1].upper()
+                    from_id = int(float(node['id']))
+                    relation_type = parts[1].lower()
                     target_name = ' '.join(parts[2:])
                     target_node = next((n for n in gt_graph if n['name'] == target_name), None)
                     
-                    if target_node:
-                        to_id = target_node['id']
-                        if relation_type in ['HOLDS_LH', 'HOLDS_RH']:
-                            grabbed_object.append(to_id)
-                        if relation_type == 'INSIDE':
-                            if from_id in inside:
-                                print('Already inside', id2node[from_id]['class_name'],
-                                      id2node[inside[from_id]]['class_name'],
-                                      id2node[to_id]['class_name'])
-                                raise Exception
-                            inside[from_id] = to_id
+                    if target_node and relation_type == 'inside':
+                        to_id = int(float(target_node['id']))
+                        if from_id in inside:
+                            print('Already inside', id2node[from_id]['name'],
+                                  id2node[inside[from_id]]['name'],
+                                  id2node[to_id]['name'])
+                            raise Exception
+                        inside[from_id] = to_id
 
-        visible_ids = [x['id'] for x in gt_graph]
+        visible_ids = [int(float(x['id'])) for x in gt_graph]
         
         for id_node in self.relation_belief.keys():
             id_updated.append(id_node)
@@ -200,15 +211,15 @@ class Belief():
                     inside_obj = inside[id_node]
                     if inside_obj in self.container_index_belief_dict:
                         index_inside = self.container_index_belief_dict[inside_obj]
-                        self.relation_belief[id_node]['INSIDE'][1][:] = self.low_prob
-                        self.relation_belief[id_node]['INSIDE'][1][index_inside] = 1.
+                        self.relation_belief[id_node]['inside'][1][:] = self.low_prob
+                        self.relation_belief[id_node]['inside'][1][index_inside] = 1.
 
         for id_node in self.container_ids:
-            if id_node in visible_ids and 'OPEN' in id2node[id_node]['state']:
+            if id_node in visible_ids and 'open' in id2node[id_node].get('state', []):
                 for id_node_child in self.relation_belief.keys():
                     if id_node_child not in inside.keys() or inside[id_node_child] != id_node:
                         ids_known_info[0].append(self.container_index_belief_dict[id_node])
-                        self.relation_belief[id_node_child]['INSIDE'][1][self.container_index_belief_dict[id_node]] = self.low_prob
+                        self.relation_belief[id_node_child]['inside'][1][self.container_index_belief_dict[id_node]] = self.low_prob
 
         mask_obj = np.ones(len(self.container_ids))
         if len(ids_known_info[0]):
@@ -216,8 +227,8 @@ class Belief():
         mask_obj = (mask_obj == 1)
 
         for id_node in self.relation_belief.keys():
-            if np.max(self.relation_belief[id_node]['INSIDE'][1]) == self.low_prob:
-                self.relation_belief[id_node]['INSIDE'][1] = self.first_belief[id_node]['INSIDE'][1]
+            if np.max(self.relation_belief[id_node]['inside'][1]) == self.low_prob:
+                self.relation_belief[id_node]['inside'][1] = self.first_belief[id_node]['inside'][1]
 
 # Random_agent class
 class Random_agent:
@@ -302,7 +313,7 @@ class Random_agent:
             content = json.load(f)
         
         self.sample_belief(obs)
-        observation({"type": "graph"})
+        observation({"type": "full"})
 
         possible_actions = ['walktowards', 'grab', 'put', 'open']
         action_name = random.choice(possible_actions)
@@ -385,7 +396,7 @@ class Random_agent:
         grabbed_objects = []
         for node in graph:
             for relation in node.get('relation', []):
-                if any(f"holds {hand}" in relation.lower() for hand in ["agent_0", "left hand", "right hand"]):
+                if any(f"holding {hand}" in relation.lower() for hand in ["agent_0", "left hand", "right hand"]):
                     grabbed_objects.append(node['id'])
 
         if action == 'grab':
@@ -455,7 +466,7 @@ class Random_agent:
         return action_dict[action]
 
     def load_graph_json(self):
-        observation({"type": "graph"})
+        observation({"type": "full"})
         with open('graph.json', 'r') as f:
             data = json.load(f)
             return data[self.env_name]
@@ -505,7 +516,7 @@ class Random_agent:
             set_action(action)
             time.sleep(5)
             print("Action taken")
-            observation({"type": "graph"})
+            observation({"type": "full"})
             if self.check_goal_reached(goal_spec):
                 print(f"Goal reached in {i} steps")
                 break
@@ -549,7 +560,7 @@ class Oracle:
         self.belief = Belief(self.current_state, agent_id=0, seed=0)
     
     def update_graph(self):
-        data = {"type": "graph"}
+        data = {"type": "full"}
         observation(data)
         with open("graph.json", "r") as f:
             self.current_state = json.load(f)[self.env_name]
@@ -627,8 +638,22 @@ class Oracle:
         plan = []
         subgoal = None
         
+        # Find agent node
+        agent_node = next((n for n in graph if 'BP_ThirdPersonCharacter' in n['name']), None)
+        
         if relation_type == 'on':
-            if not any('holds' in r for r in subject_node.get('relation', [])):
+            # Check if agent is holding the subject object in either hand
+            is_holding_subject = False
+            if agent_node:
+                is_holding_subject = any("holding" in r for r in agent_node.get('relation', []))
+            
+            if is_holding_subject:
+                plan = [
+                    f"agent_0 walk to object_{int(target_node['id'])}",
+                    f"agent_0 put object_{int(subject_node['id'])} object_{int(target_node['id'])}"
+                ]
+                subgoal = f"put_{subject}_{target}"
+            elif not any('holding' in r for r in subject_node.get('relation', [])):
                 plan = [
                     f"agent_0 walk to object_{int(subject_node['id'])}",
                     f"agent_0 grab object_{int(subject_node['id'])}"
@@ -640,7 +665,7 @@ class Oracle:
                     f"agent_0 put object_{int(subject_node['id'])} object_{int(target_node['id'])}"
                 ]
                 subgoal = f"put_{subject}_{target}"
-                
+        
         elif relation_type == 'inside':
             if 'closed' in target_node.get('state', []):
                 plan = [
@@ -648,7 +673,7 @@ class Oracle:
                     f"agent_0 open object_{int(target_node['id'])}"
                 ]
                 subgoal = f"open_{target}"
-            elif not any('holds' in r for r in subject_node.get('relation', [])):
+            elif not any('holding' in r for r in subject_node.get('relation', [])):
                 plan = [
                     f"agent_0 walk to object_{int(subject_node['id'])}",
                     f"agent_0 grab object_{int(subject_node['id'])}"
@@ -674,7 +699,7 @@ class Oracle:
                     f"agent_0 switchoff object_{int(subject_node['id'])}"
                 ]
                 subgoal = f"switch off_{subject}"
-
+        print(f"subgoal: {subgoal}")
         action = plan[0] if plan else None
         return action, {
             'plan': plan,
@@ -782,36 +807,44 @@ class Oracle:
         for goal_idx, goal_spec in enumerate(goal_specifications):
             print(f"\nExecuting goal {goal_idx + 1}/{len(goal_specifications)}: {goal_spec}")
             
-            action_str, info = self.get_action(initial_graph, goal_spec)
-            
-            # Update metrics for this goal
-            goal_metrics = {
-                "actions": len(info['plan']) if info['plan'] else 0,
-                "subgoals": len(info['subgoals']) if info['subgoals'] else 0,
-                "success": info['plan'] is not None and len(info['plan']) > 0
-            }
-            
-            metrics["total_actions"] += goal_metrics["actions"]
-            metrics["achieved_subgoals"] += goal_metrics["subgoals"]
-            
-            while not info['done']: 
-                if info['plan']:
-                    action_sequence = utils.sequence(info['plan'])
-                    for i, action_dict in enumerate(action_sequence):
-                        self.update_graph()
-                        print(f"Executing action {i+1}/{len(action_sequence)}: {action_dict}")
-                        set_action(action_dict)
-                        time.sleep(5)
-                        num_steps += 1  
-                        reward, done, action_info = self._compute_reward(self.current_state, goal_spec)
-                        
-                        if num_steps >= self.max_episode_length:
-                            info['done'] = True
-                        if self.check_goal_reached(goal_spec):  # Changed to self.check_goal_reached
-                            metrics["goals_achieved"] += 1
-                            print(f"Goal {goal_idx + 1} achieved!")
-                            break
-            
+            while True:
+                # Get a new observation and plan
+                self.update_graph()
+                action_str, info = self.get_action(self.current_state, goal_spec)
+                
+                # Update metrics for this goal
+                goal_metrics = {
+                    "actions": len(info['plan']) if info['plan'] else 0,
+                    "subgoals": len(info['subgoals']) if info['subgoals'] else 0,
+                    "success": info['plan'] is not None and len(info['plan']) > 0
+                }
+                
+                metrics["total_actions"] += goal_metrics["actions"]
+                metrics["achieved_subgoals"] += goal_metrics["subgoals"]
+                
+                if not info['plan']:
+                    break
+                
+                action_sequence = utils.sequence(info['plan'])
+                for i, action_dict in enumerate(action_sequence):
+                    self.update_graph()
+                    print(f"Executing action {i+1}/{len(action_sequence)}: {action_dict}")
+                    set_action(action_dict)
+                    time.sleep(5)
+                    num_steps += 1  
+                    reward, done, action_info = self._compute_reward(self.current_state, goal_spec)
+                    
+                    if num_steps >= self.max_episode_length:
+                        info['done'] = True
+                        break
+                    if self.check_goal_reached(goal_spec):
+                        metrics["goals_achieved"] += 1
+                        print(f"Goal {goal_idx + 1} achieved!")
+                        break
+                
+                if info['done'] or self.check_goal_reached(goal_spec):
+                    break
+
                 # Update metrics for this goal attempt
                 goal_metrics.update({
                     "reward": reward,
@@ -1010,9 +1043,9 @@ class MCTS:
         inhand_objects = []
         for node in self.current_state:
             for relation in node.get('relation', []):
-                if f"holds agent_{self.agent_id}" in relation:
-                    inhand_objects.append(node['id'])
-
+                if f"holding" in relation:
+                    inhand_obj = relation.split()[-1]
+                    inhand_objects.append(inhand_obj)
         subgoal_space = []
         
         # Process each unsatisfied predicate
@@ -1070,12 +1103,12 @@ class MCTS:
                         subgoal = f"{subgoal_type}_{node['id']}"
                         subgoal_space.append([subgoal, predicate, tmp_predicate])
 
-            elif relation_type == 'holds':
+            elif relation_type == 'holding':
                 if int(target) == self.agent_id:
                     subgoal_type = 'grab'
                     matching_nodes = [node for node in self.current_state if obj in node['name'].lower()]
                     for node in matching_nodes:
-                        tmp_predicate = f"holds_{node['id']}_{self.agent_id}"
+                        tmp_predicate = f"holding_{node['id']}_{self.agent_id}"
                         if tmp_predicate not in satisfied.get(predicate, []):
                             subgoal = f"{subgoal_type}_{node['id']}"
                             subgoal_space.append([subgoal, predicate, tmp_predicate])
@@ -1117,7 +1150,7 @@ class MCTS:
         action_map = {
             'on': 'put',
             'inside': 'putIn',
-            'holds': 'grab',
+            'holding': 'grab',
             'sit': 'sit',
             'state': 'switch'
         }
@@ -1229,7 +1262,7 @@ class MCTS:
         holding_object = False
         for node in self.current_state:
             for relation in node.get('relation', []):
-                if f"holds {agent_name}" in relation:
+                if f"holding" in relation:
                     holding_object = True
                     plan = self.generate_hold_plan(last_subgoal, need_to_close)
                     if plan:
@@ -1282,8 +1315,9 @@ class MCTS:
         agent_name = f"agent_{self.agent_id}"
         for node in self.current_state:
             for relation in node.get('relation', []):
-                if f"holds {agent_name}" in relation:
-                    held_objects.append(node['name'])
+                if f"holding" in relation:
+                    # the format is Right Hand holding object_1, Left Hand Empty etc.
+                    held_objects = [obj for obj in relation.split() if obj.startswith('BP_')]
         return held_objects
 
     def calculate_needed_objects(self, unsatisfied, inhand_objs):
@@ -1581,35 +1615,36 @@ class MCTS:
                     action_type = action[0]
                     if action_type == 'grab':
                         obj_id = action[1][1]
-                        # Add holds relation
+                        # Add holding relation
                         obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
+                        character_node = next((node for node in curr_state if node['name'] == f"BP_ThirdPersonCharacter0"), None)
                         if obj_node:
                             if 'relation' not in obj_node:
                                 obj_node['relation'] = []
-                            obj_node['relation'].append(f"holds agent_{self.agent_id}")
+                            character_node['relation'].append(f"Right Hand holding {obj_node['name']}")
                     
                     elif action_type in ['put', 'putIn']:
                         obj_id = action[1][1]
                         target_id = action[2][1]
                         relation_type = 'on' if action_type == 'put' else 'inside'
                         
-                        # Remove holds relation and add new position relation
+                        # Remove holding relation and add new position relation
                         obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
                         if obj_node:
                             if 'relation' in obj_node:
                                 obj_node['relation'] = [r for r in obj_node['relation'] 
-                                                      if not r.startswith('holds')]
+                                                      if not r.startswith('holding')]
                             obj_node['relation'].append(f"{relation_type} object_{target_id}")
                     
                     elif action_type in ['open', 'close']:
                         obj_id = action[1][1]
                         obj_node = next((node for node in curr_state if node['id'] == obj_id), None)
                         if obj_node:
-                            new_state = 'OPEN' if action_type == 'open' else 'CLOSED'
+                            new_state = 'open' if action_type == 'open' else 'closed'
                             if 'state' not in obj_node:
                                 obj_node['state'] = []
                             obj_node['state'] = [s for s in obj_node['state'] 
-                                               if s not in ['OPEN', 'CLOSED']]
+                                               if s not in ['open', 'closed']]
                             obj_node['state'].append(new_state)
 
                 # Calculate reward based on goal progress
@@ -1825,7 +1860,7 @@ class MCTS:
                     if obj_node:
                         if 'relation' not in obj_node:
                             obj_node['relation'] = []
-                        obj_node['relation'].append(f"holds agent_{self.agent_id}")
+                        obj_node['relation'].append(f"holding agent_{self.agent_id}")
                 
                 elif action_type in ['put', 'putIn']:
                     obj_id = action[1][1]
@@ -1836,7 +1871,7 @@ class MCTS:
                     if obj_node:
                         if 'relation' in obj_node:
                             obj_node['relation'] = [r for r in obj_node['relation'] 
-                                                  if not r.startswith('holds')]
+                                                  if not r.startswith('holding')]
                         obj_node['relation'].append(f"{relation_type} object_{target_id}")
                 
                 elif action_type in ['open', 'close']:
@@ -2013,7 +2048,7 @@ class MCTS:
 
         # Check if object is already grabbed
         is_grabbed = any(
-            'holds' in relation.lower() and target_node['name'] in relation
+            'holding' in relation.lower() and target_node['name'] in relation
             for relation in char_node.get('relation', [])
         )
 
@@ -2174,7 +2209,7 @@ class MCTS:
         is_held_by_other = False
         for node in observations:
             for relation in node.get('relation', []):
-                if f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation:
+                if f"holding" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation:
                     is_held_by_other = True
                     break
 
@@ -2186,7 +2221,7 @@ class MCTS:
 
         # Check if agent is holding the object
         target_grabbed = any(
-            f"holds agent_{agent_id}" in relation
+            f"holding agent_{agent_id}" in relation
             for relation in target_node.get('relation', [])
         )
 
@@ -2245,7 +2280,7 @@ class MCTS:
 
         # Check if object is held by someone else
         is_held_by_other = any(
-            f"holds" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation
+            f"holding" in relation and node['id'] == target_grab_id and f"agent_{agent_id}" not in relation
             for node in observations
             for relation in node.get('relation', [])
         )
@@ -2258,7 +2293,7 @@ class MCTS:
 
         # Check if agent is holding the object
         target_grabbed = any(
-            f"holds agent_{agent_id}" in relation
+            f"holding agent_{agent_id}" in relation
             for relation in target_node.get('relation', [])
         )
 
@@ -2406,24 +2441,20 @@ class MCTS:
         return success_rate
 
 
+if __name__ == "__main__":  
+    goal_spec = {
+        # Format: (subject, relation_type, target): count_needed
+    #('apple', 'on', 'table'): 1,
+        ('milk', 'on', 'table'): 1,
+    }
+    env_name = 'WatchAndHelp1'
 
-# if __name__ == "__main__":
-
-#         ## 1. Random Agent
-
-#     goal_spec = {
-#         # Format: (subject, relation_type, target): count_needed
-#         #('apple', 'on', 'table'): 1,
-#         ('milk', 'on', 'table'): 1,
-#     }
-#     env_name = 'WatchAndHelp1'
-
-#     agent = Random_agent(agent_id=0, char_index=0, max_episode_length=100, num_simulation=1000, max_rollout_steps=5, c_init=1.25, c_base=19652, recursive=False, num_samples=1, num_processes=1, comm=None, logging=False, logging_graphs=False, seed=None, env_name=env_name)
-#     graph = agent.load_graph_json()
-#     filtered_graph = clean_graph(graph, goal_spec, None)
-#     #print("Filtered graph nodes:", [node['name'] for node in filtered_graph])
-#     for goal_tuple in goal_spec.keys():
-#         print(f"Goal: {goal_tuple}")
-#         # Create a single-goal specification dictionary
-#         single_goal_spec = {goal_tuple: goal_spec[goal_tuple]}
-#         agent.run(single_goal_spec)
+    agent = Random_agent(agent_id=0, char_index=0, max_episode_length=100, num_simulation=1000, max_rollout_steps=5, c_init=1.25, c_base=19652, recursive=False, num_samples=1, num_processes=1, comm=None, logging=False, logging_graphs=False, seed=None, env_name=env_name)
+    graph = agent.load_graph_json()
+    filtered_graph = clean_graph(graph, goal_spec, None)
+    #print("Filtered graph nodes:", [node['name'] for node in filtered_graph])
+    for goal_tuple in goal_spec.keys():
+        print(f"Goal: {goal_tuple}")
+        # Create a single-goal specification dictionary
+        single_goal_spec = {goal_tuple: goal_spec[goal_tuple]}
+        agent.run(single_goal_spec)

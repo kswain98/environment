@@ -20,6 +20,8 @@ def message(data):
             message = json.load(f)
     except FileNotFoundError:
         message = []
+    except json.JSONDecodeError as e:
+        message = []
 
     message.append(data)
     
