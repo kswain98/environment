@@ -2417,7 +2417,13 @@ class MCTS:
                     print(f"Action {i+1}/{len(action_sequence)}: {action_dict.get('task', 'unknown')}")
                 
                 set_action(action_dict)
-                time.sleep(4)  # Wait for action to complete
+                # Adjust sleep times based on action type
+                sleep_time = 3.5
+                if action_dict.get('task', [0])[0] == 6:  # Grab action
+                    sleep_time = 7.2
+                elif action_dict.get('task', [0])[0] == 1:  # Put action
+                    sleep_time = 2.5
+                time.sleep(sleep_time)
                 self.update_state()
 
         # Check goal completion
@@ -2448,7 +2454,7 @@ if __name__ == "__main__":
         ('milk', 'on', 'table'): 1,
     }
     env_name = 'WatchAndHelp1'
-
+    
     agent = Random_agent(agent_id=0, char_index=0, max_episode_length=100, num_simulation=1000, max_rollout_steps=5, c_init=1.25, c_base=19652, recursive=False, num_samples=1, num_processes=1, comm=None, logging=False, logging_graphs=False, seed=None, env_name=env_name)
     graph = agent.load_graph_json()
     filtered_graph = clean_graph(graph, goal_spec, None)
