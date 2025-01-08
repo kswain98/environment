@@ -1058,7 +1058,7 @@ class MCTS:
             # Find the first matching object and target instead of all possibilities
             matching_node = next((node for node in self.current_state 
                                 if obj in node['name'].lower() and 
-                                not any(f"{relation_type} object_" in r for r in node.get('relation', []))), 
+                                not any(f"{relation_type} {target}" in r for r in node.get('relation', []))), 
                                None)
             target_node = next((node for node in self.current_state 
                               if target in node['name'].lower()), 
@@ -1085,13 +1085,13 @@ class MCTS:
                         subgoal_entry = [subgoal, predicate, tmp_predicate]
                         subgoal_space.append(subgoal_entry)
             elif relation_type == 'state':
-                if target == 'ON':
+                if target == 'on':
                     subgoal_type = 'switch on'
-                elif target == 'OFF':
+                elif target == 'off':
                     subgoal_type = 'switch off'
-                elif target == 'OPEN':
+                elif target == 'open':
                     subgoal_type = 'open'
-                elif target == 'CLOSED':
+                elif target == 'closed':
                     subgoal_type = 'close'
                 else:
                     continue
@@ -2418,7 +2418,7 @@ class MCTS:
                 
                 set_action(action_dict)
                 # Adjust sleep times based on action type
-                sleep_time = 3.5
+                sleep_time = 4
                 if action_dict.get('task', [0])[0] == 6:  # Grab action
                     sleep_time = 7.2
                 elif action_dict.get('task', [0])[0] == 1:  # Put action
@@ -2448,19 +2448,31 @@ class MCTS:
 
 
 if __name__ == "__main__":  
-    goal_spec = {
-        # Format: (subject, relation_type, target): count_needed
-    #('apple', 'on', 'table'): 1,
+   
+    # Initialize wandb
+    wandb.init(
+        project="mcts-planning",
+        name="main-execution",
+        config={"environment": "WatchAndHelp1"}
+    )
+
+    # Initialize MCTS
+    mcts = MCTS(
+        agent_id=0,
+        max_episode_length=100,
+        num_simulation=1000,
+        max_rollout_step=5,
+        c_init=1.25,
+        c_base=19652,
+        env_name="WatchAndHelp1",
+    )
+
+    # Define goals and run task
+    goal_specification = {
         ('milk', 'on', 'table'): 1,
+        ('apple', 'on', 'table2'): 1,
     }
-    env_name = 'WatchAndHelp1'
-    
-    agent = Random_agent(agent_id=0, char_index=0, max_episode_length=100, num_simulation=1000, max_rollout_steps=5, c_init=1.25, c_base=19652, recursive=False, num_samples=1, num_processes=1, comm=None, logging=False, logging_graphs=False, seed=None, env_name=env_name)
-    graph = agent.load_graph_json()
-    filtered_graph = clean_graph(graph, goal_spec, None)
-    #print("Filtered graph nodes:", [node['name'] for node in filtered_graph])
-    for goal_tuple in goal_spec.keys():
-        print(f"Goal: {goal_tuple}")
-        # Create a single-goal specification dictionary
-        single_goal_spec = {goal_tuple: goal_spec[goal_tuple]}
-        agent.run(single_goal_spec)
+
+    success_rate = mcts.run_mcts_task(goal_specification)
+
+    wandb.finish()

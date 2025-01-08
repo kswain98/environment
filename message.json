@@ -1,446 +1,88 @@
 [
     {
-        "message": "make",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,326,0,0]}",
         "success": true
     },
     {
-        "message": "make",
+        "set_action": "{\"agent_index\":[0],\"task\":[6,326,0,0]}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "reset",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "reset",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
         "success": true
     },
     {
-        "message": "reset",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "make",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "set_action": "{\"agent_index\":[0],\"task\":[8,326,300,0]}",
         "success": true
     },
     {
-        "message": "observation",
+        "set_action": "{\"agent_index\":[0],\"task\":[8,326,300,0]}",
         "success": true
     },
     {
-        "message": "make",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,335,0,0]}",
         "success": true
     },
     {
-        "message": "make",
+        "set_action": "{\"agent_index\":[0],\"task\":[6,335,0,0]}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "make",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,305,0,0]}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "message": "observation",
+        "set_action": "{\"agent_index\":[0],\"task\":[8,335,305,0]}",
         "success": true
     },
     {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "make",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "observation",
-        "success": true
-    },
-    {
-        "message": "set_action",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     }
-]]
+]success": true
+    }
+]

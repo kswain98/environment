@@ -1,14 +1,15 @@
 import pickle
-import pandas as pd
-import openai
-import random
-from ast import literal_eval
-from sentence_transformers import SentenceTransformer
-from sentence_transformers.util import cos_sim
-from virtualhome.simulation.simulation_utils import task_to_string
+# import pandas as pd
+# import openai
+# import random
+# from ast import literal_eval
+# from sentence_transformers import SentenceTransformer
+# from sentence_transformers.util import cos_sim
+# from virtualhome.simulation.simulation_utils import task_to_string
+from watch_and_help import *
 
 # NOTE: Add your OpenAI API key here
-openai.api_key = ""
+# openai.api_key = ""
 
 ACT_TO_STR = {
     'OpenObject': "Open",
@@ -22,12 +23,13 @@ ACT_TO_STR = {
 }
 
 class LLM_HLP_Generator:
-    def __init__(self, knn_data_path, emb_model_name='paraphrase-MiniLM-L6-v2', debug=False):
-        self.sentence_embedder = SentenceTransformer(emb_model_name)
-        from transformers import GPT2Tokenizer
-        self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-        self.knn_set = pd.read_pickle(knn_data_path)
-        self.debug = debug
+    def __init__(self, knn_data_path= None, emb_model_name='paraphrase-MiniLM-L6-v2', debug=False, env_name="WatchAndHelp1"):
+        # self.sentence_embedder = SentenceTransformer(emb_model_name)
+        # from transformers import GPT2Tokenizer
+        # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        # self.knn_set = pd.read_pickle(knn_data_path)
+        # self.debug = debug
+        pass
 
     def knn_retrieval(self, curr_task, k):
         traj_emb = self.sentence_embedder.encode(curr_task["task_instr"])
@@ -131,6 +133,27 @@ class LLM_HLP_Generator:
         for action, obj in plan:
             formatted_plan.append(f"[{action}] <{obj}>")
         return formatted_plan
+    def execute(self, curr_task):
+        # Initialize MCTS
+        mcts = MCTS(
+            agent_id=0,
+            max_episode_length=100,
+            num_simulation=1000,
+            max_rollout_step=5,
+            c_init=1.25,
+            c_base=19652,
+            env_name="WatchAndHelp1",
+        )
+
+        # Define goals and run task
+        goal_specification = {
+           ('milk', 'on', 'table'): 1,
+        ('apple', 'on', 'table2'): 1,
+        ('remotecontrol', 'on', 'tabledining'): 1,
+        }
+
+        success_rate = mcts.run_mcts_task(goal_specification)
+        return success_rate
 
 if __name__ == '__main__':
     curr_task = {
