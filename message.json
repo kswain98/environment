@@ -1,10 +1,14 @@
 [
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[1,326,0,0]}",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[6,326,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
         "success": true
     },
     {
@@ -20,6 +24,26 @@
         "success": true
     },
     {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,1]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
         "observation": "{\"type\":\"full\"}",
         "success": true
     },
@@ -28,15 +52,27 @@
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[8,326,300,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[8,326,300,0]}",
+        "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
         "success": true
     },
     {
         "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,335,0,0]}",
         "success": true
     },
     {
@@ -52,7 +88,7 @@
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[6,335,0,0]}",
+        "set_action": "{\"agent_index\":[1],\"task\":[1,335,0,0]}",
         "success": true
     },
     {
@@ -64,7 +100,11 @@
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[1,305,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,335,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
         "success": true
     },
     {
@@ -76,13 +116,123 @@
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[8,335,305,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
         "success": true
     },
     {
         "observation": "{\"type\":\"full\"}",
         "success": true
-    }
-]success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[8,335,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,1]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,335,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,1]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[1,335,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,335,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[8,0,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
+        "success": true
     }
 ]

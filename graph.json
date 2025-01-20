@@ -20,8 +20,8 @@
             "relation": [
                 "Brush1 on Rugs-Rectangle-5000x5000-1",
                 "Brush1 right of Wall_400x413",
-                "Brush1 left of Wall_400x417",
-                "Brush1 behind Wall_400x400",
+                "Brush1 left of BP_ThirdPersonCharacter0",
+                "Brush1 behind BP_ThirdPersonCharacter0",
                 "Brush1 infront Wall_400x403"
             ],
             "state": [],
@@ -308,9 +308,8 @@
             "id": 23.0,
             "name": "SpotLight4",
             "relation": [
-                "SpotLight4 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight4 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight4 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight4 on BP_ThirdPersonCharacter0",
+                "SpotLight4 inside BP_ThirdPersonCharacter0",
                 "SpotLight4 behind Wall_400x400",
                 "SpotLight4 infront Wall_400x410"
             ],
@@ -325,9 +324,8 @@
             "id": 24.0,
             "name": "SpotLight6",
             "relation": [
-                "SpotLight6 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight6 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight6 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight6 on BP_ThirdPersonCharacter0",
+                "SpotLight6 inside BP_ThirdPersonCharacter0",
                 "SpotLight6 behind Wall_400x426",
                 "SpotLight6 infront Wall_400x410"
             ],
@@ -342,9 +340,8 @@
             "id": 25.0,
             "name": "SpotLight5",
             "relation": [
-                "SpotLight5 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight5 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight5 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight5 on BP_ThirdPersonCharacter0",
+                "SpotLight5 inside BP_ThirdPersonCharacter0",
                 "SpotLight5 behind Wall_400x418",
                 "SpotLight5 infront Wall_400x409"
             ],
@@ -375,9 +372,8 @@
             "id": 27.0,
             "name": "SpotLight8",
             "relation": [
-                "SpotLight8 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight8 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight8 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight8 on BP_ThirdPersonCharacter0",
+                "SpotLight8 inside BP_ThirdPersonCharacter0",
                 "SpotLight8 behind Wall_400x400",
                 "SpotLight8 infront Wall_400x410"
             ],
@@ -392,9 +388,8 @@
             "id": 28.0,
             "name": "SpotLight9",
             "relation": [
-                "SpotLight9 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight9 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight9 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight9 on BP_ThirdPersonCharacter0",
+                "SpotLight9 inside BP_ThirdPersonCharacter0",
                 "SpotLight9 behind Wall_400x426",
                 "SpotLight9 infront Wall_400x410"
             ],
@@ -409,9 +404,8 @@
             "id": 29.0,
             "name": "SpotLight10",
             "relation": [
-                "SpotLight10 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight10 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight10 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight10 on BP_ThirdPersonCharacter0",
+                "SpotLight10 inside BP_ThirdPersonCharacter0",
                 "SpotLight10 behind Wall_400x418",
                 "SpotLight10 infront Wall_400x409"
             ],
@@ -426,9 +420,8 @@
             "id": 30.0,
             "name": "SpotLight11",
             "relation": [
-                "SpotLight11 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight11 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight11 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight11 on BP_ThirdPersonCharacter0",
+                "SpotLight11 inside BP_ThirdPersonCharacter0",
                 "SpotLight11 behind Wall_400x418",
                 "SpotLight11 infront Wall_400x409"
             ],
@@ -443,9 +436,8 @@
             "id": 31.0,
             "name": "SpotLight12",
             "relation": [
-                "SpotLight12 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight12 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight12 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight12 on BP_ThirdPersonCharacter0",
+                "SpotLight12 inside BP_ThirdPersonCharacter0",
                 "SpotLight12 behind Wall_400x400",
                 "SpotLight12 infront Wall_400x410"
             ],
@@ -460,9 +452,8 @@
             "id": 32.0,
             "name": "SpotLight13",
             "relation": [
-                "SpotLight13 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight13 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight13 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight13 on BP_ThirdPersonCharacter0",
+                "SpotLight13 inside BP_ThirdPersonCharacter0",
                 "SpotLight13 behind Wall_400x426",
                 "SpotLight13 infront Wall_400x410"
             ],
@@ -1313,9 +1304,8 @@
             "id": 95.0,
             "name": "SpotLight30",
             "relation": [
-                "SpotLight30 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight30 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight30 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight30 on BP_ThirdPersonCharacter0",
+                "SpotLight30 inside BP_ThirdPersonCharacter0",
                 "SpotLight30 behind Wall_400x422",
                 "SpotLight30 infront Wall_400x411"
             ],
@@ -1630,9 +1620,8 @@
             "id": 119.0,
             "name": "SpotLight38",
             "relation": [
-                "SpotLight38 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight38 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight38 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight38 on BP_ThirdPersonCharacter0",
+                "SpotLight38 inside BP_ThirdPersonCharacter0",
                 "SpotLight38 behind Wall_400x411",
                 "SpotLight38 infront Wall_400x429"
             ],
@@ -1737,9 +1726,8 @@
             "id": 126.0,
             "name": "SpotLight44",
             "relation": [
-                "SpotLight44 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight44 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight44 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight44 on BP_ThirdPersonCharacter0",
+                "SpotLight44 inside BP_ThirdPersonCharacter0",
                 "SpotLight44 behind Wall_400x444",
                 "SpotLight44 infront Wall_400x431"
             ],
@@ -1754,9 +1742,8 @@
             "id": 127.0,
             "name": "SpotLight45",
             "relation": [
-                "SpotLight45 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight45 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight45 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight45 on BP_ThirdPersonCharacter0",
+                "SpotLight45 inside BP_ThirdPersonCharacter0",
                 "SpotLight45 behind Wall_400x444",
                 "SpotLight45 infront Wall_400x431"
             ],
@@ -1787,9 +1774,8 @@
             "id": 129.0,
             "name": "SpotLight47",
             "relation": [
-                "SpotLight47 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight47 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight47 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight47 on BP_ThirdPersonCharacter0",
+                "SpotLight47 inside BP_ThirdPersonCharacter0",
                 "SpotLight47 behind Wall_400x443",
                 "SpotLight47 infront Wall_400x430"
             ],
@@ -1804,9 +1790,8 @@
             "id": 130.0,
             "name": "SpotLight48",
             "relation": [
-                "SpotLight48 under Rugs-Rectangle-5000x5000-1",
-                "SpotLight48 right of Rugs-Rectangle-5000x5000-1",
-                "SpotLight48 left of Rugs-Rectangle-5000x5000-1",
+                "SpotLight48 on BP_ThirdPersonCharacter0",
+                "SpotLight48 inside BP_ThirdPersonCharacter0",
                 "SpotLight48 behind Wall_400x443",
                 "SpotLight48 infront Wall_400x430"
             ],
@@ -2543,7 +2528,7 @@
                 "PlayerStart right of Wall_400x462",
                 "PlayerStart left of Wall_400x406",
                 "PlayerStart behind Wall_400x444",
-                "PlayerStart infront BP_ThirdPersonCharacter0"
+                "PlayerStart infront Wall_400x431"
             ],
             "state": [],
             "transform": [
@@ -3039,7 +3024,10 @@
         {
             "id": 234.0,
             "name": "BP_TV05",
-            "relation": [],
+            "relation": [
+                "BP_TV05 on Sideboard-Jeremy5",
+                "BP_TV05 inside Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-1005.000 Y=445.000 Z=65.000",
@@ -3050,10 +3038,7 @@
         {
             "id": 235.0,
             "name": "BP_TV6",
-            "relation": [
-                "BP_TV6 on Sideboard-Vertigo1",
-                "BP_TV6 inside Sideboard-Vertigo1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=90.000 Y=440.000 Z=70.000",
@@ -3068,7 +3053,7 @@
                 "RectLight on Wall_400x412",
                 "RectLight inside Wall_400x412",
                 "RectLight behind BP_KitchenBuilder",
-                "RectLight infront Wall_400x444"
+                "RectLight infront BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3084,7 +3069,7 @@
                 "RectLight2 on Wall_400x412",
                 "RectLight2 inside Wall_400x412",
                 "RectLight2 behind BP_KitchenBuilder",
-                "RectLight2 infront BP_ThirdPersonCharacter"
+                "RectLight2 infront BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3100,7 +3085,7 @@
                 "RectLight3 on Wall_400x412",
                 "RectLight3 inside Wall_400x412",
                 "RectLight3 behind BP_KitchenBuilder",
-                "RectLight3 infront BP_ThirdPersonCharacter"
+                "RectLight3 infront BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3490,10 +3475,7 @@
         {
             "id": 269.0,
             "name": "BP_Plate2",
-            "relation": [
-                "BP_Plate2 on BP_Table1",
-                "BP_Plate2 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-964.000 Y=-69.000 Z=75.000",
@@ -3504,10 +3486,7 @@
         {
             "id": 270.0,
             "name": "BP_Fork01",
-            "relation": [
-                "BP_Fork01 on BP_Table1",
-                "BP_Fork01 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-954.000 Y=-51.000 Z=75.303",
@@ -3518,10 +3497,7 @@
         {
             "id": 271.0,
             "name": "BP_GlassWhiskey01",
-            "relation": [
-                "BP_GlassWhiskey01 on BP_Table1",
-                "BP_GlassWhiskey01 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-981.000 Y=-84.000 Z=75.266",
@@ -3554,10 +3530,7 @@
         {
             "id": 274.0,
             "name": "BP_Knife01",
-            "relation": [
-                "BP_Knife01 on BP_Table1",
-                "BP_Knife01 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-953.000 Y=-87.000 Z=75.328",
@@ -3568,10 +3541,7 @@
         {
             "id": 275.0,
             "name": "BP_Spoon01",
-            "relation": [
-                "BP_Spoon01 on BP_Table1",
-                "BP_Spoon01 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-954.000 Y=-47.000 Z=75.146",
@@ -3582,10 +3552,7 @@
         {
             "id": 276.0,
             "name": "BP_Plate3",
-            "relation": [
-                "BP_Plate3 on BP_Table1",
-                "BP_Plate3 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-964.000 Y=15.000 Z=75.000",
@@ -3596,10 +3563,7 @@
         {
             "id": 277.0,
             "name": "BP_Fork2",
-            "relation": [
-                "BP_Fork2 on BP_Table1",
-                "BP_Fork2 inside BP_Table1"
-            ],
+            "relation": [],
             "state": [],
             "transform": [
                 "X=-954.000 Y=33.000 Z=75.303",
@@ -3723,8 +3687,8 @@
             "id": 286.0,
             "name": "BP_Plate5",
             "relation": [
-                "BP_Plate5 on BP_Table1",
-                "BP_Plate5 inside BP_Table1"
+                "BP_Plate5 on BP_ThirdPersonCharacter1",
+                "BP_Plate5 inside BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3737,8 +3701,8 @@
             "id": 287.0,
             "name": "BP_Fork4",
             "relation": [
-                "BP_Fork4 on BP_Table1",
-                "BP_Fork4 inside BP_Table1"
+                "BP_Fork4 on BP_ThirdPersonCharacter1",
+                "BP_Fork4 inside BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3779,8 +3743,8 @@
             "id": 290.0,
             "name": "BP_Spoon4",
             "relation": [
-                "BP_Spoon4 on BP_Table1",
-                "BP_Spoon4 inside BP_Table1"
+                "BP_Spoon4 on BP_ThirdPersonCharacter1",
+                "BP_Spoon4 inside BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -3797,7 +3761,7 @@
                 "NavModifierVolume inside BP_KitchenBuilder",
                 "NavModifierVolume right of BP_Microwave_01",
                 "NavModifierVolume left of BP_Stove_A",
-                "NavModifierVolume infront BP_ThirdPersonCharacter"
+                "NavModifierVolume infront BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
@@ -4280,37 +4244,15 @@
         },
         {
             "id": 326.0,
-            "name": "BP_Milk",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-952.663 Y=-25.830 Z=75.299",
-                "P=0.000000 Y=0.000000 R=-0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 327.0,
-            "name": "API",
-            "relation": [
-                "API on Rugs-Rectangle-5000x5000-1",
-                "API inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-250.000 Y=-105.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 328.0,
             "name": "BP_dish_washer_2",
             "relation": [
                 "BP_dish_washer_2 on Floor_400x512",
                 "BP_dish_washer_2 inside Floor_400x512"
             ],
-            "state": [],
+            "state": [
+                "Closed",
+                "Switched On"
+            ],
             "transform": [
                 "X=-1165.000 Y=-352.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
@@ -4318,7 +4260,7 @@
             ]
         },
         {
-            "id": 329.0,
+            "id": 327.0,
             "name": "BP_dryer_01",
             "relation": [],
             "state": [],
@@ -4329,7 +4271,7 @@
             ]
         },
         {
-            "id": 330.0,
+            "id": 328.0,
             "name": "BP_Microwave_01",
             "relation": [],
             "state": [],
@@ -4340,7 +4282,7 @@
             ]
         },
         {
-            "id": 331.0,
+            "id": 329.0,
             "name": "BP_washing_machine",
             "relation": [
                 "BP_washing_machine on Floor_400x430",
@@ -4354,7 +4296,7 @@
             ]
         },
         {
-            "id": 332.0,
+            "id": 330.0,
             "name": "BP_Bidet",
             "relation": [],
             "state": [],
@@ -4365,7 +4307,7 @@
             ]
         },
         {
-            "id": 333.0,
+            "id": 331.0,
             "name": "BP_smart_trash_bin_01",
             "relation": [
                 "BP_smart_trash_bin_01 on Floor_400x516",
@@ -4379,7 +4321,7 @@
             ]
         },
         {
-            "id": 334.0,
+            "id": 332.0,
             "name": "BP_refrigerator_2",
             "relation": [
                 "BP_refrigerator_2 on Floor_400x518",
@@ -4393,49 +4335,49 @@
             ]
         },
         {
-            "id": 335.0,
+            "id": 333.0,
             "name": "BP_Apple",
             "relation": [
-                "BP_Apple on BP_ThirdPersonCharacter0",
-                "BP_Apple inside BP_ThirdPersonCharacter0"
+                "BP_Apple on Floor_400x552",
+                "BP_Apple inside Floor_400x552"
             ],
             "state": [],
             "transform": [
-                "X=-1284.745 Y=652.346 Z=82.820",
-                "P=74.548368 Y=-58.041176 R=32.944391",
+                "X=-990.000 Y=540.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 334.0,
+            "name": "API",
+            "relation": [
+                "API on Floor_400x497",
+                "API inside Floor_400x497"
+            ],
+            "state": [],
+            "transform": [
+                "X=-500.000 Y=420.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 335.0,
+            "name": "BP_Milk",
+            "relation": [
+                "BP_Milk on Floor_400x400",
+                "BP_Milk inside Floor_400x400"
+            ],
+            "state": [],
+            "transform": [
+                "X=0.000 Y=0.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 336.0,
-            "name": "MassRepresentationSubsystemVisualizer",
-            "relation": [
-                "MassRepresentationSubsystemVisualizer on Floor_400x400",
-                "MassRepresentationSubsystemVisualizer inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 337.0,
-            "name": "MassCrowdRepresentationSubsystemVisualizer",
-            "relation": [
-                "MassCrowdRepresentationSubsystemVisualizer on Floor_400x400",
-                "MassCrowdRepresentationSubsystemVisualizer inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 338.0,
             "name": "DefaultPhysicsVolume0",
             "relation": [
                 "DefaultPhysicsVolume0 on Floor_400x400",
@@ -4449,7 +4391,7 @@
             ]
         },
         {
-            "id": 339.0,
+            "id": 337.0,
             "name": "GameplayDebuggerPlayerManager0",
             "relation": [
                 "GameplayDebuggerPlayerManager0 on Floor_400x400",
@@ -4463,7 +4405,7 @@
             ]
         },
         {
-            "id": 340.0,
+            "id": 338.0,
             "name": "Actor",
             "relation": [
                 "Actor on Floor_400x400",
@@ -4477,7 +4419,7 @@
             ]
         },
         {
-            "id": 341.0,
+            "id": 339.0,
             "name": "BP_ThirdPersonGameMode0",
             "relation": [
                 "BP_ThirdPersonGameMode0 on Floor_400x400",
@@ -4491,21 +4433,7 @@
             ]
         },
         {
-            "id": 342.0,
-            "name": "SmartObjectSubsystemRenderingActor0",
-            "relation": [
-                "SmartObjectSubsystemRenderingActor0 on Floor_400x400",
-                "SmartObjectSubsystemRenderingActor0 inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 343.0,
+            "id": 340.0,
             "name": "GameSession0",
             "relation": [
                 "GameSession0 on Floor_400x400",
@@ -4519,7 +4447,7 @@
             ]
         },
         {
-            "id": 344.0,
+            "id": 341.0,
             "name": "ParticleEventManager0",
             "relation": [
                 "ParticleEventManager0 on Floor_400x400",
@@ -4533,7 +4461,7 @@
             ]
         },
         {
-            "id": 345.0,
+            "id": 342.0,
             "name": "GameNetworkManager0",
             "relation": [
                 "GameNetworkManager0 on Floor_400x400",
@@ -4547,35 +4475,7 @@
             ]
         },
         {
-            "id": 346.0,
-            "name": "AIController0",
-            "relation": [
-                "AIController0 on BP_ThirdPersonCharacter",
-                "AIController0 inside BP_ThirdPersonCharacter"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1030.000 Y=170.000 Z=90.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 347.0,
-            "name": "BP_ThirdPersonCharacter",
-            "relation": [
-                "Left hand empty",
-                "Right hand empty"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1030.000 Y=170.000 Z=92.575",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 348.0,
+            "id": 343.0,
             "name": "GameStateBase0",
             "relation": [
                 "GameStateBase0 on Floor_400x400",
@@ -4589,7 +4489,7 @@
             ]
         },
         {
-            "id": 349.0,
+            "id": 344.0,
             "name": "AbstractNavData",
             "relation": [
                 "AbstractNavData on Floor_400x400",
@@ -4603,14 +4503,14 @@
             ]
         },
         {
-            "id": 350.0,
+            "id": 345.0,
             "name": "BP_ThirdPersonPlayerController0",
             "relation": [
                 "BP_ThirdPersonPlayerController0 on Floor_400x555",
                 "BP_ThirdPersonPlayerController0 right of Wall_400x462",
                 "BP_ThirdPersonPlayerController0 left of Wall_400x406",
                 "BP_ThirdPersonPlayerController0 behind Wall_400x444",
-                "BP_ThirdPersonPlayerController0 infront BP_ThirdPersonCharacter0"
+                "BP_ThirdPersonPlayerController0 infront Wall_400x431"
             ],
             "state": [],
             "transform": [
@@ -4620,7 +4520,7 @@
             ]
         },
         {
-            "id": 351.0,
+            "id": 346.0,
             "name": "PlayerState0",
             "relation": [
                 "PlayerState0 on Floor_400x400",
@@ -4634,21 +4534,24 @@
             ]
         },
         {
-            "id": 352.0,
+            "id": 347.0,
             "name": "PlayerCameraManager0",
             "relation": [
-                "PlayerCameraManager0 on BP_ThirdPersonCharacter0",
-                "PlayerCameraManager0 inside BP_ThirdPersonCharacter0"
+                "PlayerCameraManager0 on Rugs-Rectangle-5000x5000-1",
+                "PlayerCameraManager0 right of Wall_400x413",
+                "PlayerCameraManager0 left of BP_ThirdPersonCharacter0",
+                "PlayerCameraManager0 behind Wall_400x423",
+                "PlayerCameraManager0 infront Wall_400x428"
             ],
             "state": [],
             "transform": [
-                "X=-1343.555 Y=670.278 Z=101.051",
+                "X=-431.901 Y=19.381 Z=101.067",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 353.0,
+            "id": 348.0,
             "name": "HUD0",
             "relation": [
                 "HUD0 on Floor_400x400",
@@ -4662,13 +4565,101 @@
             ]
         },
         {
-            "id": 354.0,
+            "id": 349.0,
             "name": "BP_ThirdPersonCharacter0",
-            "relation": [],
+            "relation": [
+                "BP_ThirdPersonCharacter0 Close To BP_ThirdPersonCharacter0",
+                "BP_ThirdPersonCharacter0 Close To BP_Milk",
+                "BP_ThirdPersonCharacter0 Close To BP_Milk",
+                "Left hand empty",
+                "Right hand holding BP_Milk"
+            ],
             "state": [],
             "transform": [
-                "X=-1265.022 Y=670.278 Z=92.559",
-                "P=0.000000 Y=100.053635 R=0.000000",
+                "X=-31.901 Y=19.381 Z=92.575",
+                "P=0.000000 Y=-31.262238 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 350.0,
+            "name": "BP_ThirdPersonPlayerController1",
+            "relation": [
+                "BP_ThirdPersonPlayerController1 on Floor_400x555",
+                "BP_ThirdPersonPlayerController1 right of Wall_400x462",
+                "BP_ThirdPersonPlayerController1 left of Wall_400x406",
+                "BP_ThirdPersonPlayerController1 behind Wall_400x444",
+                "BP_ThirdPersonPlayerController1 infront Wall_400x431"
+            ],
+            "state": [],
+            "transform": [
+                "X=-1240.781 Y=525.275 Z=92.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 351.0,
+            "name": "PlayerState1",
+            "relation": [
+                "PlayerState1 on Floor_400x400",
+                "PlayerState1 inside Floor_400x400"
+            ],
+            "state": [],
+            "transform": [
+                "X=0.000 Y=0.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=0.000 Y=0.000 Z=0.000"
+            ]
+        },
+        {
+            "id": 352.0,
+            "name": "PlayerCameraManager1",
+            "relation": [
+                "PlayerCameraManager1 on Floor_400x501",
+                "PlayerCameraManager1 right of Wall_400x464",
+                "PlayerCameraManager1 left of BP_ThirdPersonCharacter1",
+                "PlayerCameraManager1 behind Wall_400x427",
+                "PlayerCameraManager1 infront Wall_400x444"
+            ],
+            "state": [],
+            "transform": [
+                "X=-1377.887 Y=-150.794 Z=101.067",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 353.0,
+            "name": "HUD1",
+            "relation": [
+                "HUD1 on Floor_400x400",
+                "HUD1 inside Floor_400x400"
+            ],
+            "state": [],
+            "transform": [
+                "X=0.000 Y=0.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=0.000 Y=0.000 Z=0.000"
+            ]
+        },
+        {
+            "id": 354.0,
+            "name": "BP_ThirdPersonCharacter1",
+            "relation": [
+                "BP_ThirdPersonCharacter1 Close To BP_ThirdPersonCharacter1",
+                "BP_ThirdPersonCharacter1 Close To BP_Chair",
+                "BP_ThirdPersonCharacter1 Close To BP_Table1",
+                "BP_ThirdPersonCharacter1 Close To BP_Plate5",
+                "BP_ThirdPersonCharacter1 Close To BP_Fork4",
+                "BP_ThirdPersonCharacter1 Close To BP_Spoon4",
+                "Left hand empty",
+                "Right hand holding BP_Milk"
+            ],
+            "state": [],
+            "transform": [
+                "X=-1072.587 Y=-150.794 Z=92.575",
+                "P=0.000000 Y=41.730118 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
@@ -4688,16 +4679,16 @@
         },
         {
             "id": 356.0,
-            "name": "NetworkPredictionReplicatedManager0",
+            "name": "GameplayDebuggerCategoryReplicator1",
             "relation": [
-                "NetworkPredictionReplicatedManager0 on Floor_400x400",
-                "NetworkPredictionReplicatedManager0 inside Floor_400x400"
+                "GameplayDebuggerCategoryReplicator1 on Wall_400x408",
+                "GameplayDebuggerCategoryReplicator1 inside Wall_400x408"
             ],
             "state": [],
             "transform": [
                 "X=0.000 Y=0.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.000 Y=0.000 Z=0.000"
+                "X=1.000 Y=1.000 Z=1.000"
             ]
         }
     ]

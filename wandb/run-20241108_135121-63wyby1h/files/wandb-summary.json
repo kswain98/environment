@@ -1,1 +1,0 @@
-{"mean_simulation_reward":0,"timestep":0,"_wandb":{"runtime":2},"execution_success":false,"_timestamp":1.7310918847756808e+09,"rollout_actions_taken":0,"num_simulations_completed":1000,"min_simulation_reward":0,"total_actions":0,"rollout_total_cost":0,"max_simulation_reward":0,"_runtime":2.7824268,"rollout_final_reward":0,"achieved_subgoals":1,"tree_depth":3,"_step":1001}

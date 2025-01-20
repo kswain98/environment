@@ -5,175 +5,281 @@ from llm import OpenAIBot
 from utils import sequence
 from client import *
 import time
+import openai
 
-class LLMWatchAndHelp:
-    """LLM-based agent for Watch and Help environment"""
+class Agent:
+    """Base class for LLM-based agents in Watch and Help environment"""
     
     def __init__(
         self,
         agent_id: int,
-        api_key: str = None,
-        api_option: str = "other",
-        model: str = "gpt-4",
+        agent_name: str,
+        api_key: str,
+        api_option: str = "openai",
+        model: str = "gpt-4o",
         base_url: str = "localhost:5000",
         max_steps: int = 20,
         debug: bool = False
     ):
         self.agent_id = agent_id
+        self.agent_name = agent_name
         self.max_steps = max_steps
         self.debug = debug
+        self.current_state = self.get_observation()
         
-        # Initialize LLM
+        # Initialize two LLMs - one for Alice and one for Bob
         if api_option == "openai":
-            self.llm = OpenAIBot(model=model, use_openai=True, api_key=api_key)
+            self.alice_llm = OpenAIBot(model=model, use_openai=True, api_key=api_key, llm_config={'max_token': 2048})
+            self.bob_llm = OpenAIBot(model=model, use_openai=True, api_key=api_key, llm_config={'max_token': 2048})
         else:
-            self.llm = OpenAIBot(base_url=base_url, model=model, llm_config={'max_token': 2048})
+            self.alice_llm = OpenAIBot(base_url=base_url, model=model, llm_config={'max_token': 2048})
+            self.bob_llm = OpenAIBot(base_url=base_url, model=model, llm_config={'max_token': 2048})
             
         # Load object info
         dir_path = os.path.dirname(os.path.realpath(__file__))
         with open(f'{dir_path}/dataset/object_info_small.json', 'r') as f:
             self.object_info = json.load(f)
-        # System prompt for the LLM
-        self.system_prompt = self._create_system_prompt()
-        
-    def _create_system_prompt(self) -> str:
-        """Creates the system prompt for the LLM"""
-        allowed_actions = ['walk to', 'grab', 'put', 'putin', 'open', 'close']
-        
-        prompt = f"""You are an AI assistant helping to complete household tasks. You can control an agent with ID {self.agent_id} 
-using the following actions: {', '.join(allowed_actions)}.
-
-For each action, use the format:
-agent_{self.agent_id} <action> object_<id>
-
-For example:
-- agent_{self.agent_id} walk to object_1
-- agent_{self.agent_id} grab object_2
-- agent_{self.agent_id} put object_2 object_3
-
-Important rules:
-1. The agent must be next to an object to interact with it
-2. The agent can only hold one object at a time
-3. To put an object somewhere, the agent must be holding it first
-4. Containers must be opened before putting objects inside
-
-When given a goal, break it down into steps and execute them one at a time.
-Analyze the environment after each action to confirm it worked as expected.
-
-Please respond with only the next action to take, no additional explanation needed."""
-
-        return prompt
+            
+        self.alice_system_prompt = self._create_alice_prompt()
+        self.bob_system_prompt = self._create_bob_prompt()
 
     def get_observation(self) -> Dict:
         """Gets the current environment observation"""
         observation({"type": "full"})
         with open('graph.json', 'r') as f:
             data = json.load(f)
-        return data['WatchAndHelp1']  # Using default environment name
+        self.current_state = data['WatchAndHelp1']
+        return self.current_state
 
     def execute_action(self, action: str) -> None:
         """Executes a single action in the environment"""
         if self.debug:
-            print(f"Executing action: {action}")
+            print(f"{self.agent_name} executing: {action}")
+        
+        action = action.replace('.0', '')
         action_sequence = sequence([action])
         for action_dict in action_sequence:
             set_action(action_dict)
-            time.sleep(5)  # Wait for action to complete
+            if 'grab' in action :
+                time.sleep(5)
+            else:
+                time.sleep(2)
+
+
+    def format_observation(self, obs: List[Dict], goal_spec: Dict) -> Dict:
+        """Formats the observation for both agents"""
+        subject, relation, target = list(goal_spec.keys())[0]
+        
+        # Find nodes for all relevant objects and agents
+        subject_node = next((node for node in obs if subject.lower() in node['name'].lower()), None)
+        target_node = next((node for node in obs if target.lower() in node['name'].lower()), None)
+        alice_node = next((node for node in obs if 'BP_ThirdPersonCharacter0' in node['name']), None)
+        bob_node = next((node for node in obs if 'BP_ThirdPersonCharacter1' in node['name']), None)
+        
+        # Handle missing nodes
+        if not all([subject_node, target_node, alice_node, bob_node]):
+            missing = []
+            if not subject_node: missing.append(f"subject ({subject})")
+            if not target_node: missing.append(f"target ({target})")
+            if not alice_node: missing.append("Alice (agent0)")
+            if not bob_node: missing.append("Bob (agent1)")
+            raise ValueError(f"Missing objects in observation: {', '.join(missing)}")
+        
+        formatted = {
+            'target': {
+                'name': target_node['name'],
+                'id': target_node['id'],
+                'position': target_node['transform'][0],
+                'relations': target_node.get('relation', []),
+                'state': target_node['state']
+            },
+            'subject': {
+                'name': subject_node['name'],
+                'id': subject_node['id'],
+                'position': subject_node['transform'][0],
+                'relations': subject_node.get('relation', []),
+                'state': subject_node['state']
+            },
+            'alice': {
+                'name': alice_node['name'],
+                'id': alice_node['id'],
+                'position': alice_node['transform'][0],
+                'relations': alice_node.get('relation', []),
+                'state': alice_node['state']
+            },
+            'bob': {
+                'name': bob_node['name'],
+                'id': bob_node['id'],
+                'position': bob_node['transform'][0],
+                'relations': bob_node.get('relation', []),
+                'state': bob_node['state']
+            }
+        }
+
+        # Create prompt string
+        formatted['prompt'] = f"""Current state:
+Target: {target_node['name']} (id: {target_node['id']}) at {target_node['transform'][0]} relations: {', '.join(target_node.get('relation', []))} state: {target_node['state']}
+Subject: {subject_node['name']} (id: {subject_node['id']}) at {subject_node['transform'][0]} relations: {', '.join(subject_node.get('relation', []))} state: {subject_node['state']}
+Alice: {alice_node['name']} (id: {alice_node['id']}) at {alice_node['transform'][0]} relations: {', '.join(alice_node.get('relation', []))} state: {alice_node['state']}
+Bob: {bob_node['name']} (id: {bob_node['id']}) at {bob_node['transform'][0]} relations: {', '.join(bob_node.get('relation', []))} state: {bob_node['state']}"""
+
+        return formatted
 
     def check_goal_reached(self, goal_spec: Dict) -> bool:
-        """Checks if the goal has been reached"""
-        current_state = self.get_observation()
+        """Checks if the current goal has been reached"""
+        obs = self.get_observation()
         
-        for (subject, relation_type, target), count in goal_spec.items():
-            found = 0
-            for node in current_state:
-                if subject.lower() in node['name'].lower():
-                    if relation_type == 'state':
-                        if target in node['state']:
-                            found += 1
-                    else:
-                        for relation in node.get('relation', []):
-                            if f"{relation_type} {target}" in relation:
-                                found += 1
-            if found < count:
+        for (subject, relation, target), _ in goal_spec.items():
+            # Find the relevant nodes
+            subject_node = next((node for node in obs if subject.lower() in node['name'].lower()), None)
+            target_node = next((node for node in obs if target.lower() in node['name'].lower()), None)
+            
+            if not subject_node or not target_node:
                 return False
+            
+            # Check if the relation exists in the relations array
+            relations = subject_node.get('relation', [])
+            expected_relation = f"{subject_node['name']} {relation} {target_node['name']}"
+            
+            if expected_relation not in relations:
+                return False
+                
         return True
 
-    def format_observation(self, obs: List[Dict]) -> str:
-        """Formats the observation for the LLM"""
-        formatted = "Current environment state:\n"
-        for node in obs:
-            formatted += f"Object {node['id']}: {node['name']}\n"
-            if 'state' in node:
-                formatted += f"  State: {', '.join(node['state'])}\n"
-            if 'relation' in node:
-                formatted += f"  Relations: {', '.join(node['relation'])}\n"
-        return formatted
-
     def format_goal(self, goal_spec: Dict) -> str:
-        """Formats the goal specification for the LLM"""
-        formatted = "Goal:\n"
-        for (subject, relation_type, target), count in goal_spec.items():
-            formatted += f"Place {count}x {subject} {relation_type} {target}\n"
-        return formatted
+        """Formats the goal specification into a string"""
+        goal_str = "Goal:\n"
+        for (subject, relation, target), _ in goal_spec.items():
+            goal_str += f"Place {subject} {relation} {target}\n"
+        return goal_str
+
+    def _create_alice_prompt(self) -> str:
+        allowed_actions = ['walk to', 'grab', 'put', 'putin', 'open', 'close']
+        return f"""You are Alice, the primary AI assistant completing household tasks. You control agent_0 
+using these actions: {', '.join(allowed_actions)}. 
+Use format: agent_0 <action> object_<id>
+
+Rules:
+1. Don't repeat "walk to" if already near target (distance < 2.0)
+2. Can only hold one object at a time
+3. Must grab before putting
+4. Open containers before putting things inside
+5. Use "put" for 'on' relations, "putin" for 'inside' relations, but only {allowed_actions} are allowed
+6. Object IDs must be integers
+
+When given a goal:
+- Break it down into steps
+- Execute one step at a time
+- Verify each action's success
+- Coordinate with Bob (Agent1) who will help you
+
+Respond with only the next action, no explanation needed."""
+
+    def _create_bob_prompt(self) -> str:
+        allowed_actions = ['walk to', 'grab', 'put', 'putin', 'open', 'close']
+        return f"""You are Bob, a helper AI assistant collaborating with Alice (Agent0) to complete tasks efficiently. 
+You control agent_1 using these actions: {', '.join(allowed_actions)}.
+Use format: agent_1 <action> object_<id>
+
+Collaboration Rules:
+1. Observe Alice's actions and infer her objective
+2. Choose complementary tasks - don't target the same object as Alice
+3. If Alice is handling one goal object, focus on another
+4. Coordinate movements to avoid collisions (maintain distance > 2.0)
+5. Help if Alice seems stuck
+6. Prioritize tasks furthest from Alice's position
+
+Core Rules:
+1. Don't repeat "walk to" if already near target (distance < 2.0)
+2. Can only hold one object at a time
+3. Must grab before putting
+4. Open containers before putting things inside
+5. Use "put" for 'on' relations, "putin" for 'inside' relations
+6. Object IDs must be integers
+
+Respond with only the next action, no explanation needed."""
 
     def run(self, goal_spec: Dict) -> float:
-        """
-        Runs the LLM planner to achieve the specified goal
-        
-        Args:
-            goal_spec: Dictionary mapping (subject, relation_type, target) to count
-            
-        Returns:
-            float: 1.0 if goal achieved, 0.0 otherwise
-        """
+        """Runs both agents simultaneously to achieve goals"""
         steps_taken = 0
         
         while steps_taken < self.max_steps:
-            # Get current observation
             obs = self.get_observation()
+            formatted_obs = self.format_observation(obs, goal_spec)
             
-            # Check if goal is reached
             if self.check_goal_reached(goal_spec):
                 if self.debug:
                     print(f"Goal reached in {steps_taken} steps!")
                 return 1.0
-                
-            # Format current state and goal for LLM
-            prompt = self.format_observation(obs) + "\n" + self.format_goal(goal_spec)
             
-            # Get next action from LLM
-            _, response = self.llm(prompt, sys_msg=self.system_prompt)
+            prompt = formatted_obs['prompt'] + "\n" + self.format_goal(goal_spec)
             
-            # Extract and execute action
-            action = response.strip()
-            if not action.startswith(f"agent_{self.agent_id}"):
+            # Get actions from both agents simultaneously
+            _, alice_response = self.alice_llm(prompt, sys_msg=self.alice_system_prompt)
+            _, bob_response = self.bob_llm(prompt, sys_msg=self.bob_system_prompt)
+            
+            # Execute Alice's action
+            alice_action = alice_response.strip()
+            if alice_action.startswith("agent_0"):
                 if self.debug:
-                    print(f"Invalid action format: {action}")
-                continue
-                
-            self.execute_action(action)
+                    print(f"Alice executing: {alice_action}")
+                self.execute_action(alice_action)
+            
+            # Execute Bob's action
+            bob_action = bob_response.strip()
+            if bob_action.startswith("agent_1"):
+                if self.debug:
+                    print(f"Bob executing: {bob_action}")
+                self.execute_action(bob_action)
+            
             steps_taken += 1
+            time.sleep(1)  # Small delay between iterations
             
         if self.debug:
             print("Max steps reached without achieving goal")
         return 0.0
 
-def main():
-    # Example usage
-    agent = LLMWatchAndHelp(
-        agent_id=0,
-        api_key="your-api-key",  # If using OpenAI
-        api_option="other",  # or "openai"
-        model="gpt-4",
-        debug=True
+def run_experiment(goal_specs, api_key, api_option="openai", model="gpt-4o", debug=False):
+    """Runs the collaborative agents to achieve goals"""
+    # Initialize single agent that controls both Alice and Bob
+    agent = Agent(
+        agent_id=0,  # Main agent ID
+        agent_name="Coordinator",
+        api_key=api_key,
+        api_option=api_option,
+        model=model,
+        debug=debug
     )
     
-    # Example goal: put a book inside a cabinet
-    goal_spec = {("book", "inside", "cabinet"): 1}
+    # Standardize goal_specs format
+    if isinstance(goal_specs, tuple):
+        goal_specs = {goal_specs: 1}
+    elif isinstance(goal_specs, dict):
+        goal_specs = {tuple(k) if isinstance(k, tuple) else k: v for k, v in goal_specs.items()}
     
-    success = agent.run(goal_spec)
+    # Run both agents together
+    success = agent.run(goal_specs)
+    
     print(f"Task completed successfully: {success}")
+    return success
 
 if __name__ == "__main__":
-    main() 
+    # add a new agent
+
+    data = {
+        "environment": "WatchAndHelp1", 
+    }
+
+    make(data)
+    set_action({'agent_index': [1], 'task': [6, 326, 0, 0]})
+
+    goal_spec = {
+        ('milk', 'on', 'table'): 1,
+        ('apple', 'on', 'table2'): 1,
+    }
+    
+    run_experiment(
+        goal_specs=goal_spec,
+        api_key="",
+        debug=True
+    ) 
