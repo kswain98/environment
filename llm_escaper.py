@@ -20,7 +20,7 @@ import json
 
 from llm import OpenAIBot
 from utils import fixed_action_ids, sequence
-from client import *
+from interface.client import *
 
 import gradio as gr
 

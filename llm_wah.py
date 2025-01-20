@@ -3,7 +3,7 @@ import json
 import os
 from llm import OpenAIBot
 from utils import sequence
-from client import *
+from interface.client import *
 import time
 import openai
 
