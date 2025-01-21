@@ -234,5 +234,167 @@
     {
         "set_action": "{\"agent_index\":[1],\"task\":[1,301,0,0]}",
         "success": true
+    },
+    {
+        "make": "{\"environment\":\"EscapeRoom1\"}",
+        "success": true
+    },
+    {
+        "make": "{\"environment\":\"WatchandHelp1\"}",
+        "success": true
+    },
+    {
+        "make": "{\"environment\":\"WatchandHelp1\"}",
+        "success": true
+    },
+    {
+        "make": "{\"environment\":\"WatchAndHelp1\"}",
+        "success": true
+    },
+    {
+        "make": "{\"environment\":\"WatchAndHelp1\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "make": "{\"environment\":\"EscapeRoom1\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    }
+]success": true
     }
 ]

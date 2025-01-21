@@ -1,11 +1,10 @@
 {
-    "WatchAndHelp1": [
+    "EscapeRoom1": [
         {
             "id": 0.0,
-            "name": "WorldSettings1",
+            "name": "WorldSettings",
             "relation": [
-                "WorldSettings1 on Floor_400x400",
-                "WorldSettings1 inside Floor_400x400"
+                "WorldSettings1 inside "
             ],
             "state": [],
             "transform": [
@@ -16,13 +15,9 @@
         },
         {
             "id": 1.0,
-            "name": "Brush1",
+            "name": "Brush",
             "relation": [
-                "Brush1 on Rugs-Rectangle-5000x5000-1",
-                "Brush1 right of Wall_400x413",
-                "Brush1 left of BP_ThirdPersonCharacter0",
-                "Brush1 behind BP_ThirdPersonCharacter0",
-                "Brush1 infront Wall_400x403"
+                "Brush1 inside "
             ],
             "state": [],
             "transform": [
@@ -33,1132 +28,9 @@
         },
         {
             "id": 2.0,
-            "name": "Wall_400x400",
+            "name": "Floor_x",
             "relation": [
-                "Wall_400x400 on Wall_400x401",
-                "Wall_400x400 inside Wall_400x401"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=-400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 3.0,
-            "name": "Floor_400x400",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 4.0,
-            "name": "Floor_400x401",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 5.0,
-            "name": "Floor_400x402",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 6.0,
-            "name": "Floor_400x403",
-            "relation": [
-                "Floor_400x403 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x403 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 7.0,
-            "name": "Floor_400x406",
-            "relation": [
-                "Floor_400x406 on Floor_400x400",
-                "Floor_400x406 inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 8.0,
-            "name": "Floor_400x407",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 9.0,
-            "name": "Floor_400x408",
-            "relation": [
-                "Floor_400x408 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x408 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 10.0,
-            "name": "Floor_400x409",
-            "relation": [
-                "Floor_400x409 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x409 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 11.0,
-            "name": "Floor_400x413",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 12.0,
-            "name": "Floor_400x415",
-            "relation": [
-                "Floor_400x415 on Floor_400x402",
-                "Floor_400x415 inside Floor_400x402"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 13.0,
-            "name": "Floor_400x419",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 14.0,
-            "name": "Floor_400x421",
-            "relation": [
-                "Floor_400x421 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x421 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 15.0,
-            "name": "Floor_400x424",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 16.0,
-            "name": "Floor_400x426",
-            "relation": [
-                "Floor_400x426 on Wall_400x400",
-                "Floor_400x426 inside Wall_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 17.0,
-            "name": "Floor_400x430",
-            "relation": [
-                "Floor_400x430 on Wall_400x401",
-                "Floor_400x430 inside Wall_400x401"
-            ],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 18.0,
-            "name": "Floor_400x432",
-            "relation": [
-                "Floor_400x432 on Wall_400x426",
-                "Floor_400x432 inside Wall_400x426"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 19.0,
-            "name": "SpotLight2",
-            "relation": [
-                "SpotLight2 on Wall_400x419",
-                "SpotLight2 inside Wall_400x419",
-                "SpotLight2 behind Wall_400x401"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 20.0,
-            "name": "Wall_400x401",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=-400.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 21.0,
-            "name": "Wall_400x403",
-            "relation": [
-                "Wall_400x403 on Wall_400x409",
-                "Wall_400x403 inside Wall_400x409"
-            ],
-            "state": [],
-            "transform": [
-                "X=150.000 Y=400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 22.0,
-            "name": "SpotLight3",
-            "relation": [
-                "SpotLight3 on Wall_400x416",
-                "SpotLight3 inside Wall_400x416",
-                "SpotLight3 behind Wall_400x401",
-                "SpotLight3 infront Wall_400x419"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 23.0,
-            "name": "SpotLight4",
-            "relation": [
-                "SpotLight4 on BP_ThirdPersonCharacter0",
-                "SpotLight4 inside BP_ThirdPersonCharacter0",
-                "SpotLight4 behind Wall_400x400",
-                "SpotLight4 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 24.0,
-            "name": "SpotLight6",
-            "relation": [
-                "SpotLight6 on BP_ThirdPersonCharacter0",
-                "SpotLight6 inside BP_ThirdPersonCharacter0",
-                "SpotLight6 behind Wall_400x426",
-                "SpotLight6 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 25.0,
-            "name": "SpotLight5",
-            "relation": [
-                "SpotLight5 on BP_ThirdPersonCharacter0",
-                "SpotLight5 inside BP_ThirdPersonCharacter0",
-                "SpotLight5 behind Wall_400x418",
-                "SpotLight5 infront Wall_400x409"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 26.0,
-            "name": "SpotLight7",
-            "relation": [
-                "SpotLight7 on Wall_400x417",
-                "SpotLight7 inside Wall_400x417",
-                "SpotLight7 behind Wall_400x418",
-                "SpotLight7 infront Wall_400x409"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 27.0,
-            "name": "SpotLight8",
-            "relation": [
-                "SpotLight8 on BP_ThirdPersonCharacter0",
-                "SpotLight8 inside BP_ThirdPersonCharacter0",
-                "SpotLight8 behind Wall_400x400",
-                "SpotLight8 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 28.0,
-            "name": "SpotLight9",
-            "relation": [
-                "SpotLight9 on BP_ThirdPersonCharacter0",
-                "SpotLight9 inside BP_ThirdPersonCharacter0",
-                "SpotLight9 behind Wall_400x426",
-                "SpotLight9 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 29.0,
-            "name": "SpotLight10",
-            "relation": [
-                "SpotLight10 on BP_ThirdPersonCharacter0",
-                "SpotLight10 inside BP_ThirdPersonCharacter0",
-                "SpotLight10 behind Wall_400x418",
-                "SpotLight10 infront Wall_400x409"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 30.0,
-            "name": "SpotLight11",
-            "relation": [
-                "SpotLight11 on BP_ThirdPersonCharacter0",
-                "SpotLight11 inside BP_ThirdPersonCharacter0",
-                "SpotLight11 behind Wall_400x418",
-                "SpotLight11 infront Wall_400x409"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 31.0,
-            "name": "SpotLight12",
-            "relation": [
-                "SpotLight12 on BP_ThirdPersonCharacter0",
-                "SpotLight12 inside BP_ThirdPersonCharacter0",
-                "SpotLight12 behind Wall_400x400",
-                "SpotLight12 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 32.0,
-            "name": "SpotLight13",
-            "relation": [
-                "SpotLight13 on BP_ThirdPersonCharacter0",
-                "SpotLight13 inside BP_ThirdPersonCharacter0",
-                "SpotLight13 behind Wall_400x426",
-                "SpotLight13 infront Wall_400x410"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 33.0,
-            "name": "Floor_400x412",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=800.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 34.0,
-            "name": "Floor_400x414",
-            "relation": [
-                "Floor_400x414 on Rugs-Rectangle-5000x5000-2",
-                "Floor_400x414 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=600.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 35.0,
-            "name": "Floor_400x416",
-            "relation": [
-                "Floor_400x416 on Rugs-Rectangle-5000x5000-2",
-                "Floor_400x416 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=800.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 36.0,
-            "name": "Floor_400x418",
-            "relation": [
-                "Floor_400x418 on Rugs-Rectangle-5000x5000-2",
-                "Floor_400x418 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=600.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 37.0,
-            "name": "Floor_400x420",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=800.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 38.0,
-            "name": "Floor_400x422",
-            "relation": [
-                "Floor_400x422 on Rugs-Rectangle-5000x5000-2",
-                "Floor_400x422 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=600.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 39.0,
-            "name": "Floor_400x440",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=800.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 40.0,
-            "name": "Floor_400x441",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=600.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 41.0,
-            "name": "Floor_400x446",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=1000.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 42.0,
-            "name": "Floor_400x447",
-            "relation": [
-                "Floor_400x447 on Rugs-Rectangle-5000x5000-2",
-                "Floor_400x447 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=1000.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 43.0,
-            "name": "Floor_400x448",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=1000.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 44.0,
-            "name": "Floor_400x450",
-            "relation": [
-                "Floor_400x450 on Floor_400x440",
-                "Floor_400x450 inside Floor_400x440"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=1000.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 45.0,
-            "name": "Floor_400x452",
-            "relation": [
-                "Floor_400x452 on Wall_400x403",
-                "Floor_400x452 inside Wall_400x403"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 46.0,
-            "name": "Floor_400x453",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 47.0,
-            "name": "Floor_400x454",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=200.000 Y=400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 48.0,
-            "name": "Floor_400x456",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 49.0,
-            "name": "SpotLight14",
-            "relation": [
-                "SpotLight14 on Wall_400x409",
-                "SpotLight14 inside Wall_400x409",
-                "SpotLight14 infront Wall_400x425"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=494.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 50.0,
-            "name": "Wall_400x424",
-            "relation": [
-                "Wall_400x424 on Wall_400x425",
-                "Wall_400x424 inside Wall_400x425"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=1200.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 51.0,
-            "name": "Wall_400x425",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=1200.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 52.0,
-            "name": "SpotLight15",
-            "relation": [
-                "SpotLight15 on Wall_400x403",
-                "SpotLight15 inside Wall_400x403",
-                "SpotLight15 behind Wall_400x409",
-                "SpotLight15 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=494.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 53.0,
-            "name": "SpotLight16",
-            "relation": [
-                "SpotLight16 on Wall_400x403",
-                "SpotLight16 inside Wall_400x403",
-                "SpotLight16 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=494.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 54.0,
-            "name": "SpotLight17",
-            "relation": [
-                "SpotLight17 on Wall_400x410",
-                "SpotLight17 inside Wall_400x410",
-                "SpotLight17 infront Wall_400x428"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=494.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 55.0,
-            "name": "SpotLight18",
-            "relation": [
-                "SpotLight18 on BP_TV6",
-                "SpotLight18 inside BP_TV6",
-                "SpotLight18 behind Wall_400x409",
-                "SpotLight18 infront Wall_400x425"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=1094.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 56.0,
-            "name": "SpotLight19",
-            "relation": [
-                "SpotLight19 on BP_TV6",
-                "SpotLight19 inside BP_TV6",
-                "SpotLight19 behind Wall_400x409",
-                "SpotLight19 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=1094.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 57.0,
-            "name": "SpotLight20",
-            "relation": [
-                "SpotLight20 on Wall_400x403",
-                "SpotLight20 inside Wall_400x403",
-                "SpotLight20 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=1094.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 58.0,
-            "name": "SpotLight21",
-            "relation": [
-                "SpotLight21 on Wall_400x410",
-                "SpotLight21 inside Wall_400x410",
-                "SpotLight21 right of Wall_400x403",
-                "SpotLight21 left of Wall_400x403",
-                "SpotLight21 infront Wall_400x428"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=1094.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 59.0,
-            "name": "SpotLight22",
-            "relation": [
-                "SpotLight22 on Wall_400x409",
-                "SpotLight22 inside Wall_400x409",
-                "SpotLight22 infront Wall_400x425"
-            ],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=794.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 60.0,
-            "name": "SpotLight23",
-            "relation": [
-                "SpotLight23 on Wall_400x403",
-                "SpotLight23 inside Wall_400x403",
-                "SpotLight23 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=794.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 61.0,
-            "name": "SpotLight24",
-            "relation": [
-                "SpotLight24 on Wall_400x403",
-                "SpotLight24 inside Wall_400x403",
-                "SpotLight24 infront Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=794.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 62.0,
-            "name": "SpotLight25",
-            "relation": [
-                "SpotLight25 on Wall_400x410",
-                "SpotLight25 inside Wall_400x410",
-                "SpotLight25 infront Wall_400x428"
-            ],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=794.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 63.0,
-            "name": "Sofa-Blazer-Sectional-213",
-            "relation": [
-                "Sofa-Blazer-Sectional-213 on Rugs-Rectangle-5000x5000-2",
-                "Sofa-Blazer-Sectional-213 inside Rugs-Rectangle-5000x5000-2"
-            ],
-            "state": [],
-            "transform": [
-                "X=214.077 Y=719.657 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 64.0,
-            "name": "Sofa-Blazer-Ottoman-143",
-            "relation": [
-                "Sofa-Blazer-Ottoman-143 on Floor_400x420",
-                "Sofa-Blazer-Ottoman-143 inside Floor_400x420"
-            ],
-            "state": [],
-            "transform": [
-                "X=213.077 Y=897.657 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 65.0,
-            "name": "Sofa-Blazer-Sectional-178",
-            "relation": [
-                "Sofa-Blazer-Sectional-178 on Floor_400x448",
-                "Sofa-Blazer-Sectional-178 inside Floor_400x448"
-            ],
-            "state": [],
-            "transform": [
-                "X=206.077 Y=1023.657 Z=0.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 66.0,
-            "name": "Sofa-Blazer-Sectional-214",
-            "relation": [
-                "Sofa-Blazer-Sectional-214 on Floor_400x446",
-                "Sofa-Blazer-Sectional-214 inside Floor_400x446"
-            ],
-            "state": [],
-            "transform": [
-                "X=12.077 Y=1023.657 Z=0.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=-1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 67.0,
-            "name": "Sofa-Blazer-Cushions-Corner-5",
-            "relation": [
-                "Sofa-Blazer-Cushions-Corner-5 on Sofa-Blazer-Sectional-213",
-                "Sofa-Blazer-Cushions-Corner-5 inside Sofa-Blazer-Sectional-213"
-            ],
-            "state": [],
-            "transform": [
-                "X=227.077 Y=662.657 Z=38.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 68.0,
-            "name": "Sofa-Blazer-Cushions-Corner-6",
-            "relation": [
-                "Sofa-Blazer-Cushions-Corner-6 on Sofa-Blazer-Sectional-178",
-                "Sofa-Blazer-Cushions-Corner-6 inside Sofa-Blazer-Sectional-178"
-            ],
-            "state": [],
-            "transform": [
-                "X=241.077 Y=1033.657 Z=39.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 69.0,
-            "name": "Sofa-Blazer-Cushions-4",
-            "relation": [
-                "Sofa-Blazer-Cushions-4 on Sofa-Blazer-Sectional-214",
-                "Sofa-Blazer-Cushions-4 inside Sofa-Blazer-Sectional-214"
-            ],
-            "state": [],
-            "transform": [
-                "X=70.077 Y=1037.657 Z=39.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 70.0,
-            "name": "Sofa-Blazer-Cushions-Corner-7",
-            "relation": [
-                "Sofa-Blazer-Cushions-Corner-7 on Sofa-Blazer-Sectional-214",
-                "Sofa-Blazer-Cushions-Corner-7 inside Sofa-Blazer-Sectional-214"
-            ],
-            "state": [],
-            "transform": [
-                "X=-43.923 Y=1033.657 Z=39.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=-1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 71.0,
-            "name": "Rugs-Rectangle-5000x5000-2",
-            "relation": [
-                "Rugs-Rectangle-5000x5000-2 on Floor_400x412",
-                "Rugs-Rectangle-5000x5000-2 inside Floor_400x412"
-            ],
-            "state": [],
-            "transform": [
-                "X=17.000 Y=816.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.200 Y=1.200 Z=0.250"
-            ]
-        },
-        {
-            "id": 72.0,
-            "name": "Wall_400x421",
-            "relation": [
-                "Wall_400x421 on Floor_400x510",
-                "Wall_400x421 inside Floor_400x510"
-            ],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=-400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 73.0,
-            "name": "Floor_400x492",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1000.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 74.0,
-            "name": "Floor_400x493",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1000.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 75.0,
-            "name": "Floor_400x494",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1200.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 76.0,
-            "name": "Floor_400x495",
-            "relation": [
-                "Floor_400x495 on Rugs-Rectangle-5000x5000-3",
-                "Floor_400x495 inside Rugs-Rectangle-5000x5000-3"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1200.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 77.0,
-            "name": "Floor_400x498",
-            "relation": [
-                "Floor_400x498 on Floor_400x492",
-                "Floor_400x498 inside Floor_400x492"
-            ],
-            "state": [],
-            "transform": [
-                "X=-800.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 78.0,
-            "name": "Floor_400x499",
-            "relation": [
-                "Floor_400x499 on Floor_400x493",
-                "Floor_400x499 inside Floor_400x493"
-            ],
-            "state": [],
-            "transform": [
-                "X=-800.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 79.0,
-            "name": "Floor_400x500",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 80.0,
-            "name": "Floor_400x501",
-            "relation": [
-                "Floor_400x501 on Wall_400x464",
-                "Floor_400x501 inside Wall_400x464"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=-200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 81.0,
-            "name": "Floor_400x504",
-            "relation": [
-                "Floor_400x504 on Floor_400x492",
-                "Floor_400x504 inside Floor_400x492"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1000.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 82.0,
-            "name": "Floor_400x505",
-            "relation": [
-                "Floor_400x505 on Floor_400x494",
-                "Floor_400x505 inside Floor_400x494"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1200.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 83.0,
-            "name": "Floor_400x507",
-            "relation": [
-                "Floor_400x507 on Floor_400x492",
-                "Floor_400x507 inside Floor_400x492"
-            ],
-            "state": [],
-            "transform": [
-                "X=-800.000 Y=200.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 84.0,
-            "name": "Floor_400x508",
-            "relation": [
-                "Floor_400x508 on Wall_400x463",
-                "Floor_400x508 inside Wall_400x463"
+                "Floor_400x508 inside Floor_400x508"
             ],
             "state": [],
             "transform": [
@@ -1168,83 +40,11 @@
             ]
         },
         {
-            "id": 85.0,
-            "name": "Floor_400x510",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1000.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 86.0,
-            "name": "Floor_400x512",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1200.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 87.0,
-            "name": "Floor_400x516",
+            "id": 3.0,
+            "name": "Wall_x",
             "relation": [
-                "Floor_400x516 on Floor_400x510",
-                "Floor_400x516 inside Floor_400x510"
+                "Wall_400x443 inside Wall_400x411"
             ],
-            "state": [],
-            "transform": [
-                "X=-800.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 88.0,
-            "name": "Floor_400x518",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=-400.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.500 Z=1.000"
-            ]
-        },
-        {
-            "id": 89.0,
-            "name": "SpotLight26",
-            "relation": [
-                "SpotLight26 on Wall_400x412",
-                "SpotLight26 inside Wall_400x412",
-                "SpotLight26 behind Wall_400x422",
-                "SpotLight26 infront Wall_400x411"
-            ],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 90.0,
-            "name": "Wall_400x422",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=-400.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 91.0,
-            "name": "Wall_400x443",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-850.000 Y=400.000 Z=0.000",
@@ -1253,185 +53,11 @@
             ]
         },
         {
-            "id": 92.0,
-            "name": "SpotLight27",
+            "id": 4.0,
+            "name": "Floor_x",
             "relation": [
-                "SpotLight27 on Wall_400x412",
-                "SpotLight27 inside Wall_400x412",
-                "SpotLight27 behind Wall_400x421",
-                "SpotLight27 infront Wall_400x443"
+                "Floor_400x540 inside Floor_400x540"
             ],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 93.0,
-            "name": "SpotLight28",
-            "relation": [
-                "SpotLight28 on Wall_400x412",
-                "SpotLight28 inside Wall_400x412",
-                "SpotLight28 behind Wall_400x421",
-                "SpotLight28 infront Wall_400x443"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 94.0,
-            "name": "SpotLight29",
-            "relation": [
-                "SpotLight29 on Wall_400x412",
-                "SpotLight29 inside Wall_400x412",
-                "SpotLight29 behind Wall_400x427",
-                "SpotLight29 infront Wall_400x444"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=-300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 95.0,
-            "name": "SpotLight30",
-            "relation": [
-                "SpotLight30 on BP_ThirdPersonCharacter0",
-                "SpotLight30 inside BP_ThirdPersonCharacter0",
-                "SpotLight30 behind Wall_400x422",
-                "SpotLight30 infront Wall_400x411"
-            ],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 96.0,
-            "name": "SpotLight31",
-            "relation": [
-                "SpotLight31 on Wall_400x413",
-                "SpotLight31 inside Wall_400x413",
-                "SpotLight31 behind Wall_400x421",
-                "SpotLight31 infront Wall_400x443"
-            ],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 97.0,
-            "name": "SpotLight32",
-            "relation": [
-                "SpotLight32 on Wall_400x413",
-                "SpotLight32 inside Wall_400x413",
-                "SpotLight32 behind Wall_400x427",
-                "SpotLight32 infront Wall_400x444"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 98.0,
-            "name": "SpotLight33",
-            "relation": [
-                "SpotLight33 on Wall_400x413",
-                "SpotLight33 inside Wall_400x413",
-                "SpotLight33 behind Wall_400x427",
-                "SpotLight33 infront Wall_400x444"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=300.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 99.0,
-            "name": "SpotLight34",
-            "relation": [
-                "SpotLight34 on Wall_400x413",
-                "SpotLight34 inside Wall_400x413",
-                "SpotLight34 behind Wall_400x422",
-                "SpotLight34 infront Wall_400x411"
-            ],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 100.0,
-            "name": "SpotLight35",
-            "relation": [
-                "SpotLight35 on Wall_400x413",
-                "SpotLight35 inside Wall_400x413",
-                "SpotLight35 behind Wall_400x421",
-                "SpotLight35 infront Wall_400x443"
-            ],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 101.0,
-            "name": "SpotLight36",
-            "relation": [
-                "SpotLight36 on Wall_400x413",
-                "SpotLight36 inside Wall_400x413",
-                "SpotLight36 behind Wall_400x421",
-                "SpotLight36 infront Wall_400x443"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 102.0,
-            "name": "SpotLight37",
-            "relation": [
-                "SpotLight37 on Wall_400x413",
-                "SpotLight37 inside Wall_400x413",
-                "SpotLight37 behind Wall_400x427",
-                "SpotLight37 infront Wall_400x444"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=0.000 Z=295.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 103.0,
-            "name": "Floor_400x540",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-1000.000 Y=800.000 Z=0.000",
@@ -1440,9 +66,11 @@
             ]
         },
         {
-            "id": 104.0,
-            "name": "Floor_400x541",
-            "relation": [],
+            "id": 5.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x541 inside Floor_400x541"
+            ],
             "state": [],
             "transform": [
                 "X=-1000.000 Y=600.000 Z=0.000",
@@ -1451,9 +79,11 @@
             ]
         },
         {
-            "id": 105.0,
-            "name": "Floor_400x542",
-            "relation": [],
+            "id": 6.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x542 inside Floor_400x542"
+            ],
             "state": [],
             "transform": [
                 "X=-1200.000 Y=800.000 Z=0.000",
@@ -1462,9 +92,11 @@
             ]
         },
         {
-            "id": 106.0,
-            "name": "Floor_400x543",
-            "relation": [],
+            "id": 7.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x543 inside Floor_400x543"
+            ],
             "state": [],
             "transform": [
                 "X=-1200.000 Y=600.000 Z=0.000",
@@ -1473,11 +105,10 @@
             ]
         },
         {
-            "id": 107.0,
-            "name": "Floor_400x544",
+            "id": 8.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x544 on Floor_400x540",
-                "Floor_400x544 inside Floor_400x540"
+                "Floor_400x544 inside Floor_400x544"
             ],
             "state": [],
             "transform": [
@@ -1487,11 +118,10 @@
             ]
         },
         {
-            "id": 108.0,
-            "name": "Floor_400x545",
+            "id": 9.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x545 on Floor_400x541",
-                "Floor_400x545 inside Floor_400x541"
+                "Floor_400x545 inside Floor_400x545"
             ],
             "state": [],
             "transform": [
@@ -1501,9 +131,11 @@
             ]
         },
         {
-            "id": 109.0,
-            "name": "Floor_400x546",
-            "relation": [],
+            "id": 10.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x546 inside Wall_400x461"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=800.000 Z=0.000",
@@ -1512,9 +144,11 @@
             ]
         },
         {
-            "id": 110.0,
-            "name": "Floor_400x547",
-            "relation": [],
+            "id": 11.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x547 inside Floor_400x547"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=600.000 Z=0.000",
@@ -1523,9 +157,11 @@
             ]
         },
         {
-            "id": 111.0,
-            "name": "Floor_400x548",
-            "relation": [],
+            "id": 12.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x548 inside Floor_400x548"
+            ],
             "state": [],
             "transform": [
                 "X=-1000.000 Y=1000.000 Z=0.000",
@@ -1534,9 +170,11 @@
             ]
         },
         {
-            "id": 112.0,
-            "name": "Floor_400x549",
-            "relation": [],
+            "id": 13.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x549 inside Floor_400x549"
+            ],
             "state": [],
             "transform": [
                 "X=-1200.000 Y=1000.000 Z=0.000",
@@ -1545,9 +183,11 @@
             ]
         },
         {
-            "id": 113.0,
-            "name": "Floor_400x550",
-            "relation": [],
+            "id": 14.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x550 inside Floor_400x548"
+            ],
             "state": [],
             "transform": [
                 "X=-800.000 Y=1000.000 Z=0.000",
@@ -1556,9 +196,11 @@
             ]
         },
         {
-            "id": 114.0,
-            "name": "Floor_400x551",
-            "relation": [],
+            "id": 15.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x551 inside Floor_400x551"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=1000.000 Z=0.000",
@@ -1567,11 +209,10 @@
             ]
         },
         {
-            "id": 115.0,
-            "name": "Floor_400x552",
+            "id": 16.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x552 on Wall_400x443",
-                "Floor_400x552 inside Wall_400x443"
+                "Floor_400x552 inside Floor_400x552"
             ],
             "state": [],
             "transform": [
@@ -1581,9 +222,11 @@
             ]
         },
         {
-            "id": 116.0,
-            "name": "Floor_400x553",
-            "relation": [],
+            "id": 17.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x553 inside Floor_400x553"
+            ],
             "state": [],
             "transform": [
                 "X=-1200.000 Y=400.000 Z=0.000",
@@ -1592,10 +235,9 @@
             ]
         },
         {
-            "id": 117.0,
-            "name": "Floor_400x554",
+            "id": 18.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x554 on Wall_400x411",
                 "Floor_400x554 inside Wall_400x411"
             ],
             "state": [],
@@ -1606,9 +248,11 @@
             ]
         },
         {
-            "id": 118.0,
-            "name": "Floor_400x555",
-            "relation": [],
+            "id": 19.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x555 inside Floor_400x508"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=400.000 Z=0.000",
@@ -1617,13 +261,10 @@
             ]
         },
         {
-            "id": 119.0,
-            "name": "SpotLight38",
+            "id": 20.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight38 on BP_ThirdPersonCharacter0",
-                "SpotLight38 inside BP_ThirdPersonCharacter0",
-                "SpotLight38 behind Wall_400x411",
-                "SpotLight38 infront Wall_400x429"
+                "SpotLight38 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -1633,9 +274,11 @@
             ]
         },
         {
-            "id": 120.0,
-            "name": "Wall_400x461",
-            "relation": [],
+            "id": 21.0,
+            "name": "Wall_x",
+            "relation": [
+                "Wall_400x461 inside Wall_400x461"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=650.000 Z=300.000",
@@ -1644,13 +287,10 @@
             ]
         },
         {
-            "id": 121.0,
-            "name": "SpotLight39",
+            "id": 22.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight39 on Wall_400x411",
-                "SpotLight39 inside Wall_400x411",
-                "SpotLight39 behind Wall_400x443",
-                "SpotLight39 infront Wall_400x430"
+                "SpotLight39 inside Wall_400x411"
             ],
             "state": [],
             "transform": [
@@ -1660,12 +300,10 @@
             ]
         },
         {
-            "id": 122.0,
-            "name": "SpotLight40",
+            "id": 23.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight40 on Wall_400x443",
-                "SpotLight40 inside Wall_400x443",
-                "SpotLight40 infront Wall_400x430"
+                "SpotLight40 inside Wall_400x443"
             ],
             "state": [],
             "transform": [
@@ -1675,13 +313,10 @@
             ]
         },
         {
-            "id": 123.0,
-            "name": "SpotLight41",
+            "id": 24.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight41 on Wall_400x443",
-                "SpotLight41 inside Wall_400x443",
-                "SpotLight41 behind Wall_400x444",
-                "SpotLight41 infront Wall_400x431"
+                "SpotLight41 inside Wall_400x443"
             ],
             "state": [],
             "transform": [
@@ -1691,13 +326,10 @@
             ]
         },
         {
-            "id": 124.0,
-            "name": "SpotLight42",
+            "id": 25.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight42 on SM_R3_Wardrobe2",
-                "SpotLight42 inside SM_R3_Wardrobe2",
-                "SpotLight42 behind Wall_400x411",
-                "SpotLight42 infront Wall_400x429"
+                "SpotLight42 inside SM_R3_Wardrobe2"
             ],
             "state": [],
             "transform": [
@@ -1707,13 +339,10 @@
             ]
         },
         {
-            "id": 125.0,
-            "name": "SpotLight43",
+            "id": 26.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight43 on Wall_400x415",
-                "SpotLight43 inside Wall_400x415",
-                "SpotLight43 behind Wall_400x443",
-                "SpotLight43 infront Wall_400x430"
+                "SpotLight43 inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
@@ -1723,13 +352,10 @@
             ]
         },
         {
-            "id": 126.0,
-            "name": "SpotLight44",
+            "id": 27.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight44 on BP_ThirdPersonCharacter0",
-                "SpotLight44 inside BP_ThirdPersonCharacter0",
-                "SpotLight44 behind Wall_400x444",
-                "SpotLight44 infront Wall_400x431"
+                "SpotLight44 inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
@@ -1739,13 +365,10 @@
             ]
         },
         {
-            "id": 127.0,
-            "name": "SpotLight45",
+            "id": 28.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight45 on BP_ThirdPersonCharacter0",
-                "SpotLight45 inside BP_ThirdPersonCharacter0",
-                "SpotLight45 behind Wall_400x444",
-                "SpotLight45 infront Wall_400x431"
+                "SpotLight45 inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
@@ -1755,13 +378,10 @@
             ]
         },
         {
-            "id": 128.0,
-            "name": "SpotLight46",
+            "id": 29.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight46 on Wall_400x410",
-                "SpotLight46 inside Wall_400x410",
-                "SpotLight46 behind Wall_400x411",
-                "SpotLight46 infront Wall_400x429"
+                "SpotLight46 inside Wall_400x417"
             ],
             "state": [],
             "transform": [
@@ -1771,13 +391,10 @@
             ]
         },
         {
-            "id": 129.0,
-            "name": "SpotLight47",
+            "id": 30.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight47 on BP_ThirdPersonCharacter0",
-                "SpotLight47 inside BP_ThirdPersonCharacter0",
-                "SpotLight47 behind Wall_400x443",
-                "SpotLight47 infront Wall_400x430"
+                "SpotLight47 inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
@@ -1787,13 +404,10 @@
             ]
         },
         {
-            "id": 130.0,
-            "name": "SpotLight48",
+            "id": 31.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight48 on BP_ThirdPersonCharacter0",
-                "SpotLight48 inside BP_ThirdPersonCharacter0",
-                "SpotLight48 behind Wall_400x443",
-                "SpotLight48 infront Wall_400x430"
+                "SpotLight48 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -1803,13 +417,10 @@
             ]
         },
         {
-            "id": 131.0,
-            "name": "SpotLight49",
+            "id": 32.0,
+            "name": "SpotLight",
             "relation": [
-                "SpotLight49 on Wall_400x411",
-                "SpotLight49 inside Wall_400x411",
-                "SpotLight49 behind Wall_400x444",
-                "SpotLight49 infront Wall_400x431"
+                "SpotLight49 inside Wall_400x411"
             ],
             "state": [],
             "transform": [
@@ -1819,47 +430,10 @@
             ]
         },
         {
-            "id": 132.0,
-            "name": "Floor_400x497",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-600.000 Y=304.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.500 Y=0.480 Z=1.000"
-            ]
-        },
-        {
-            "id": 133.0,
-            "name": "Rugs-Rectangle-5000x5000-3",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1032.000 Y=-14.000 Z=0.000",
-                "P=0.000000 Y=90.000002 R=0.000000",
-                "X=1.200 Y=1.200 Z=0.250"
-            ]
-        },
-        {
-            "id": 134.0,
-            "name": "Floor_400x622",
+            "id": 33.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x622 on Floor_400x497",
-                "Floor_400x622 inside Floor_400x497"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=304.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=0.500 Y=0.400 Z=1.000"
-            ]
-        },
-        {
-            "id": 135.0,
-            "name": "Floor_400x623",
-            "relation": [
-                "Floor_400x623 on Floor_400x497",
-                "Floor_400x623 inside Floor_400x497"
+                "Floor_400x623 inside Floor_400x623"
             ],
             "state": [],
             "transform": [
@@ -1869,64 +443,11 @@
             ]
         },
         {
-            "id": 136.0,
-            "name": "Decor-Vase2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=7.000 Y=438.000 Z=70.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 137.0,
-            "name": "Decor-Vase6",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-7.000 Y=420.000 Z=70.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 138.0,
-            "name": "Decor-Bowl2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1.000 Y=805.000 Z=33.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 139.0,
-            "name": "Decor-Bowl4",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-126.000 Y=998.000 Z=33.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 140.0,
-            "name": "Decor-Vase5",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=171.000 Y=430.000 Z=72.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.250 Y=1.250 Z=1.250"
-            ]
-        },
-        {
-            "id": 141.0,
-            "name": "Decor-Vase4",
-            "relation": [],
+            "id": 34.0,
+            "name": "DecorVase",
+            "relation": [
+                "Decor-Vase4 inside Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-959.000 Y=448.000 Z=28.000",
@@ -1935,9 +456,11 @@
             ]
         },
         {
-            "id": 142.0,
-            "name": "Decor-Tray5",
-            "relation": [],
+            "id": 35.0,
+            "name": "DecorTray",
+            "relation": [
+                "Decor-Tray5 on Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-912.097 Y=439.268 Z=67.300",
@@ -1946,9 +469,11 @@
             ]
         },
         {
-            "id": 143.0,
-            "name": "Decor-Bowl5",
-            "relation": [],
+            "id": 36.0,
+            "name": "DecorBowl",
+            "relation": [
+                "Decor-Bowl5 inside Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-1092.681 Y=440.160 Z=65.500",
@@ -1957,9 +482,11 @@
             ]
         },
         {
-            "id": 144.0,
-            "name": "Decor-Vase3",
-            "relation": [],
+            "id": 37.0,
+            "name": "DecorVase",
+            "relation": [
+                "Decor-Vase3 inside Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-1119.311 Y=427.718 Z=65.500",
@@ -1968,229 +495,11 @@
             ]
         },
         {
-            "id": 145.0,
+            "id": 38.0,
             "name": "SM_DownLight",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 146.0,
-            "name": "SM_DownLight2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 147.0,
-            "name": "SM_DownLight3",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 148.0,
-            "name": "SM_DownLight4",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 149.0,
-            "name": "SM_DownLight5",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=500.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 150.0,
-            "name": "SM_DownLight6",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=500.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 151.0,
-            "name": "SM_DownLight7",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=500.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 152.0,
-            "name": "SM_DownLight8",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=500.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 153.0,
-            "name": "SM_DownLight9",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=800.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 154.0,
-            "name": "SM_DownLight10",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=800.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 155.0,
-            "name": "SM_DownLight11",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=800.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 156.0,
-            "name": "SM_DownLight12",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=800.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 157.0,
-            "name": "SM_DownLight13",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=1100.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 158.0,
-            "name": "SM_DownLight14",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=1100.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 159.0,
-            "name": "SM_DownLight15",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=1100.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 160.0,
-            "name": "SM_DownLight16",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=1100.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 161.0,
-            "name": "SM_DownLight17",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 162.0,
-            "name": "SM_DownLight18",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 163.0,
-            "name": "SM_DownLight19",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 164.0,
-            "name": "SM_DownLight20",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 165.0,
-            "name": "SM_DownLight21",
-            "relation": [],
+            "relation": [
+                "SM_DownLight21 inside SM_DownLight21"
+            ],
             "state": [],
             "transform": [
                 "X=-1300.000 Y=500.000 Z=300.000",
@@ -2199,9 +508,11 @@
             ]
         },
         {
-            "id": 166.0,
-            "name": "SM_DownLight22",
-            "relation": [],
+            "id": 39.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight22 inside SM_DownLight22"
+            ],
             "state": [],
             "transform": [
                 "X=-1100.000 Y=500.000 Z=300.000",
@@ -2210,9 +521,11 @@
             ]
         },
         {
-            "id": 167.0,
-            "name": "SM_DownLight23",
-            "relation": [],
+            "id": 40.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight23 inside SM_DownLight23"
+            ],
             "state": [],
             "transform": [
                 "X=-900.000 Y=500.000 Z=300.000",
@@ -2221,9 +534,11 @@
             ]
         },
         {
-            "id": 168.0,
-            "name": "SM_DownLight24",
-            "relation": [],
+            "id": 41.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight24 inside SM_DownLight24"
+            ],
             "state": [],
             "transform": [
                 "X=-700.000 Y=500.000 Z=300.000",
@@ -2232,9 +547,11 @@
             ]
         },
         {
-            "id": 169.0,
-            "name": "SM_DownLight25",
-            "relation": [],
+            "id": 42.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight25 inside SM_DownLight25"
+            ],
             "state": [],
             "transform": [
                 "X=-1300.000 Y=800.000 Z=300.000",
@@ -2243,9 +560,11 @@
             ]
         },
         {
-            "id": 170.0,
-            "name": "SM_DownLight26",
-            "relation": [],
+            "id": 43.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight26 inside SM_DownLight26"
+            ],
             "state": [],
             "transform": [
                 "X=-1100.000 Y=800.000 Z=300.000",
@@ -2254,9 +573,11 @@
             ]
         },
         {
-            "id": 171.0,
-            "name": "SM_DownLight27",
-            "relation": [],
+            "id": 44.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight27 inside SM_DownLight27"
+            ],
             "state": [],
             "transform": [
                 "X=-900.000 Y=800.000 Z=300.000",
@@ -2265,9 +586,11 @@
             ]
         },
         {
-            "id": 172.0,
-            "name": "SM_DownLight28",
-            "relation": [],
+            "id": 45.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight28 inside SM_DownLight28"
+            ],
             "state": [],
             "transform": [
                 "X=-700.000 Y=800.000 Z=300.000",
@@ -2276,9 +599,11 @@
             ]
         },
         {
-            "id": 173.0,
-            "name": "SM_DownLight29",
-            "relation": [],
+            "id": 46.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight29 inside SM_DownLight29"
+            ],
             "state": [],
             "transform": [
                 "X=-1300.000 Y=1100.000 Z=300.000",
@@ -2287,9 +612,11 @@
             ]
         },
         {
-            "id": 174.0,
-            "name": "SM_DownLight30",
-            "relation": [],
+            "id": 47.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight30 inside SM_DownLight30"
+            ],
             "state": [],
             "transform": [
                 "X=-1100.000 Y=1100.000 Z=300.000",
@@ -2298,9 +625,11 @@
             ]
         },
         {
-            "id": 175.0,
-            "name": "SM_DownLight31",
-            "relation": [],
+            "id": 48.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight31 inside SM_DownLight31"
+            ],
             "state": [],
             "transform": [
                 "X=-900.000 Y=1100.000 Z=300.000",
@@ -2309,9 +638,11 @@
             ]
         },
         {
-            "id": 176.0,
-            "name": "SM_DownLight32",
-            "relation": [],
+            "id": 49.0,
+            "name": "SM_DownLight",
+            "relation": [
+                "SM_DownLight32 inside SM_DownLight32"
+            ],
             "state": [],
             "transform": [
                 "X=-700.000 Y=1100.000 Z=300.000",
@@ -2320,215 +651,23 @@
             ]
         },
         {
-            "id": 177.0,
-            "name": "SM_DownLight41",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 178.0,
-            "name": "SM_DownLight42",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 179.0,
-            "name": "SM_DownLight43",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 180.0,
-            "name": "SM_DownLight44",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 181.0,
-            "name": "SM_DownLight45",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1300.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 182.0,
-            "name": "SM_DownLight46",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 183.0,
-            "name": "SM_DownLight47",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-900.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 184.0,
-            "name": "SM_DownLight48",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-700.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 185.0,
-            "name": "SM_DownLight49",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 186.0,
-            "name": "SM_DownLight50",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 187.0,
-            "name": "SM_DownLight51",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 188.0,
-            "name": "SM_DownLight52",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=-300.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 189.0,
-            "name": "SM_DownLight53",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-300.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 190.0,
-            "name": "SM_DownLight54",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-100.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 191.0,
-            "name": "SM_DownLight55",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 192.0,
-            "name": "SM_DownLight56",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=300.000 Y=0.000 Z=300.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 193.0,
-            "name": "Rugs-Rectangle-5000x5000-4",
+            "id": 50.0,
+            "name": "RugsRectanglex",
             "relation": [
-                "Rugs-Rectangle-5000x5000-4 on Floor_400x542",
-                "Rugs-Rectangle-5000x5000-4 inside Floor_400x542"
+                "Rugs-Rectangle-5000x5000-4 inside Floor_400x541"
             ],
             "state": [],
             "transform": [
-                "X=-1010.000 Y=875.000 Z=0.000",
+                "X=-960.000 Y=795.000 Z=0.000",
                 "P=0.000000 Y=90.000002 R=0.000000",
                 "X=1.250 Y=1.100 Z=0.250"
             ]
         },
         {
-            "id": 194.0,
-            "name": "Rugs-Rectangle-5000x5000-1",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-227.000 Y=2.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.250 Y=1.000 Z=0.250"
-            ]
-        },
-        {
-            "id": 195.0,
+            "id": 51.0,
             "name": "PlayerStart",
             "relation": [
-                "PlayerStart on Floor_400x555",
-                "PlayerStart right of Wall_400x462",
-                "PlayerStart left of Wall_400x406",
-                "PlayerStart behind Wall_400x444",
-                "PlayerStart infront Wall_400x431"
+                "PlayerStart on Floor_400x555"
             ],
             "state": [],
             "transform": [
@@ -2538,45 +677,11 @@
             ]
         },
         {
-            "id": 196.0,
-            "name": "Wall_400x423",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-600.000 Y=-400.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 197.0,
-            "name": "Wall_400x426",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-410.000 Y=-400.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 198.0,
-            "name": "Wall_400x427",
+            "id": 52.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x427 on Floor_400x512",
-                "Wall_400x427 inside Floor_400x512"
+                "Wall_400x462 inside Wall_400x462"
             ],
-            "state": [],
-            "transform": [
-                "X=-1100.000 Y=-400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 199.0,
-            "name": "Wall_400x462",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=350.000 Z=300.000",
@@ -2585,42 +690,11 @@
             ]
         },
         {
-            "id": 200.0,
-            "name": "Wall_400x463",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=50.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=-90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 201.0,
-            "name": "Wall_400x464",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=-250.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=-90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 202.0,
-            "name": "Wall_400x465",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1400.000 Y=-390.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=-90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 203.0,
-            "name": "Wall_400x466",
-            "relation": [],
+            "id": 53.0,
+            "name": "Wall_x",
+            "relation": [
+                "Wall_400x466 inside Wall_400x466"
+            ],
             "state": [],
             "transform": [
                 "X=-1400.000 Y=900.000 Z=300.000",
@@ -2629,25 +703,10 @@
             ]
         },
         {
-            "id": 204.0,
-            "name": "Wall_400x428",
+            "id": 54.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x428 on Wall_400x424",
-                "Wall_400x428 inside Wall_400x424"
-            ],
-            "state": [],
-            "transform": [
-                "X=-200.000 Y=1200.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 205.0,
-            "name": "Wall_400x429",
-            "relation": [
-                "Wall_400x429 on Wall_400x428",
-                "Wall_400x429 inside Wall_400x428"
+                "Wall_400x429 inside Wall_400x429"
             ],
             "state": [],
             "transform": [
@@ -2657,11 +716,10 @@
             ]
         },
         {
-            "id": 206.0,
-            "name": "Wall_400x430",
+            "id": 55.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x430 on Floor_400x550",
-                "Wall_400x430 inside Floor_400x550"
+                "Wall_400x430 inside Wall_400x429"
             ],
             "state": [],
             "transform": [
@@ -2671,10 +729,9 @@
             ]
         },
         {
-            "id": 207.0,
-            "name": "Wall_400x431",
+            "id": 56.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x431 on Floor_400x549",
                 "Wall_400x431 inside Floor_400x549"
             ],
             "state": [],
@@ -2685,131 +742,11 @@
             ]
         },
         {
-            "id": 208.0,
-            "name": "Wall_400x402",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=-390.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=89.999999",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 209.0,
-            "name": "Wall_400x404",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=-90.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=90.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 210.0,
-            "name": "Wall_400x405",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=210.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=90.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 211.0,
-            "name": "Wall_400x406",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=510.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=90.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 212.0,
-            "name": "Wall_400x407",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=810.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=90.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 213.0,
-            "name": "Wall_400x408",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=410.000 Y=890.000 Z=300.000",
-                "P=-90.000000 Y=0.000000 R=90.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 214.0,
-            "name": "Floor_400x624",
+            "id": 57.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x624 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x624 inside Rugs-Rectangle-5000x5000-1"
+                "Floor_400x628 inside Floor_400x545"
             ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=144.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=0.500 Y=0.400 Z=1.000"
-            ]
-        },
-        {
-            "id": 215.0,
-            "name": "Floor_400x625",
-            "relation": [
-                "Floor_400x625 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x625 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=-16.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=0.500 Y=0.400 Z=1.000"
-            ]
-        },
-        {
-            "id": 216.0,
-            "name": "Floor_400x626",
-            "relation": [
-                "Floor_400x626 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x626 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=-176.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=0.500 Y=0.400 Z=1.000"
-            ]
-        },
-        {
-            "id": 217.0,
-            "name": "Floor_400x627",
-            "relation": [
-                "Floor_400x627 on Rugs-Rectangle-5000x5000-1",
-                "Floor_400x627 inside Rugs-Rectangle-5000x5000-1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-400.000 Y=-231.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=0.500 Y=0.400 Z=1.000"
-            ]
-        },
-        {
-            "id": 218.0,
-            "name": "Floor_400x628",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-600.000 Y=656.000 Z=0.000",
@@ -2818,9 +755,11 @@
             ]
         },
         {
-            "id": 219.0,
-            "name": "Floor_400x629",
-            "relation": [],
+            "id": 58.0,
+            "name": "Floor_x",
+            "relation": [
+                "Floor_400x629 inside Floor_400x544"
+            ],
             "state": [],
             "transform": [
                 "X=-600.000 Y=816.000 Z=0.000",
@@ -2829,11 +768,10 @@
             ]
         },
         {
-            "id": 220.0,
-            "name": "Floor_400x630",
+            "id": 59.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x630 on Floor_400x629",
-                "Floor_400x630 inside Floor_400x629"
+                "Floor_400x630 inside Floor_400x630"
             ],
             "state": [],
             "transform": [
@@ -2843,10 +781,9 @@
             ]
         },
         {
-            "id": 221.0,
-            "name": "Floor_400x631",
+            "id": 60.0,
+            "name": "Floor_x",
             "relation": [
-                "Floor_400x631 on Floor_400x630",
                 "Floor_400x631 inside Floor_400x630"
             ],
             "state": [],
@@ -2857,24 +794,9 @@
             ]
         },
         {
-            "id": 222.0,
-            "name": "Wall_400x409",
+            "id": 61.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x409 on Floor_400x454",
-                "Wall_400x409 inside Floor_400x454"
-            ],
-            "state": [],
-            "transform": [
-                "X=400.000 Y=400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 223.0,
-            "name": "Wall_400x444",
-            "relation": [
-                "Wall_400x444 on Wall_400x443",
                 "Wall_400x444 inside Wall_400x443"
             ],
             "state": [],
@@ -2885,23 +807,11 @@
             ]
         },
         {
-            "id": 224.0,
-            "name": "Wall_400x410",
+            "id": 62.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x410 on Wall_400x403",
-                "Wall_400x410 inside Wall_400x403"
+                "Wall_400x411 inside Wall_400x412"
             ],
-            "state": [],
-            "transform": [
-                "X=-50.000 Y=400.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 225.0,
-            "name": "Wall_400x411",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-655.000 Y=400.000 Z=0.000",
@@ -2910,34 +820,11 @@
             ]
         },
         {
-            "id": 226.0,
-            "name": "Wall_400x412",
+            "id": 63.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x412 on Wall_400x413",
-                "Wall_400x412 inside Wall_400x413"
+                "Wall_400x414 inside Wall_400x429"
             ],
-            "state": [],
-            "transform": [
-                "X=-505.000 Y=-90.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 227.0,
-            "name": "Wall_400x413",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-505.000 Y=210.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 228.0,
-            "name": "Wall_400x414",
-            "relation": [],
             "state": [],
             "transform": [
                 "X=-505.000 Y=1190.000 Z=0.000",
@@ -2946,10 +833,9 @@
             ]
         },
         {
-            "id": 229.0,
-            "name": "Wall_400x415",
+            "id": 64.0,
+            "name": "Wall_x",
             "relation": [
-                "Wall_400x415 on Wall_400x414",
                 "Wall_400x415 inside Wall_400x414"
             ],
             "state": [],
@@ -2960,14 +846,10 @@
             ]
         },
         {
-            "id": 230.0,
-            "name": "CameraActor2",
+            "id": 65.0,
+            "name": "CameraActor",
             "relation": [
-                "CameraActor2 on Floor_400x551",
-                "CameraActor2 right of Wall_400x466",
-                "CameraActor2 left of SM_R3_Wardrobe",
-                "CameraActor2 behind Wall_400x444",
-                "CameraActor2 infront Wall_400x431"
+                "CameraActor2 on Floor_400x551"
             ],
             "state": [],
             "transform": [
@@ -2977,11 +859,10 @@
             ]
         },
         {
-            "id": 231.0,
-            "name": "RecastNavMesh-Default",
+            "id": 66.0,
+            "name": "RecastNavMeshDefault",
             "relation": [
-                "RecastNavMesh-Default on Floor_400x400",
-                "RecastNavMesh-Default inside Floor_400x400"
+                "RecastNavMesh-Default inside "
             ],
             "state": [],
             "transform": [
@@ -2991,11 +872,10 @@
             ]
         },
         {
-            "id": 232.0,
+            "id": 67.0,
             "name": "NavMeshBoundsVolume",
             "relation": [
-                "NavMeshBoundsVolume on Floor_400x497",
-                "NavMeshBoundsVolume inside Floor_400x497"
+                "NavMeshBoundsVolume inside Floor_400x624"
             ],
             "state": [],
             "transform": [
@@ -3005,27 +885,22 @@
             ]
         },
         {
-            "id": 233.0,
+            "id": 68.0,
             "name": "CameraActor",
             "relation": [
-                "CameraActor on Floor_400x497",
-                "CameraActor right of ",
-                "CameraActor left of ",
-                "CameraActor behind ",
-                "CameraActor infront "
+                "CameraActor inside "
             ],
             "state": [],
             "transform": [
-                "X=-513.619 Y=397.546 Z=1947.291",
-                "P=-88.000000 Y=0.000022 R=-0.000000",
+                "X=-987.276 Y=743.988 Z=1099.217",
+                "P=-88.600000 Y=0.199293 R=-0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 234.0,
-            "name": "BP_TV05",
+            "id": 69.0,
+            "name": "BP_TV",
             "relation": [
-                "BP_TV05 on Sideboard-Jeremy5",
                 "BP_TV05 inside Sideboard-Jeremy5"
             ],
             "state": [],
@@ -3036,141 +911,11 @@
             ]
         },
         {
-            "id": 235.0,
-            "name": "BP_TV6",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=90.000 Y=440.000 Z=70.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 236.0,
-            "name": "RectLight",
-            "relation": [
-                "RectLight on Wall_400x412",
-                "RectLight inside Wall_400x412",
-                "RectLight behind BP_KitchenBuilder",
-                "RectLight infront BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1170.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 237.0,
-            "name": "RectLight2",
-            "relation": [
-                "RectLight2 on Wall_400x412",
-                "RectLight2 inside Wall_400x412",
-                "RectLight2 behind BP_KitchenBuilder",
-                "RectLight2 infront BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1080.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 238.0,
-            "name": "RectLight3",
-            "relation": [
-                "RectLight3 on Wall_400x412",
-                "RectLight3 inside Wall_400x412",
-                "RectLight3 behind BP_KitchenBuilder",
-                "RectLight3 infront BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-980.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 239.0,
-            "name": "RectLight4",
-            "relation": [
-                "RectLight4 on Wall_400x412",
-                "RectLight4 inside Wall_400x412",
-                "RectLight4 behind BP_KitchenBuilder",
-                "RectLight4 infront Wall_400x443"
-            ],
-            "state": [],
-            "transform": [
-                "X=-890.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 240.0,
-            "name": "RectLight5",
-            "relation": [
-                "RectLight5 on Wall_400x412",
-                "RectLight5 inside Wall_400x412",
-                "RectLight5 behind BP_KitchenBuilder",
-                "RectLight5 infront Wall_400x411"
-            ],
-            "state": [],
-            "transform": [
-                "X=-800.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 241.0,
-            "name": "RectLight6",
-            "relation": [
-                "RectLight6 on Wall_400x412",
-                "RectLight6 inside Wall_400x412",
-                "RectLight6 behind Wall_400x422",
-                "RectLight6 infront Wall_400x411"
-            ],
-            "state": [],
-            "transform": [
-                "X=-710.000 Y=-340.000 Z=160.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 242.0,
-            "name": "Wall_400x416",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=55.000 Y=-29.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=90.000001",
-                "X=1.000 Y=1.000 Z=0.800"
-            ]
-        },
-        {
-            "id": 243.0,
-            "name": "Wall_400x417",
-            "relation": [
-                "Wall_400x417 on Wall_400x403",
-                "Wall_400x417 inside Wall_400x403"
-            ],
-            "state": [],
-            "transform": [
-                "X=55.000 Y=395.000 Z=0.000",
-                "P=90.000000 Y=180.000000 R=90.000001",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 244.0,
+            "id": 70.0,
             "name": "PostProcessVolume",
-            "relation": [],
+            "relation": [
+                "PostProcessVolume inside "
+            ],
             "state": [],
             "transform": [
                 "X=280.000 Y=1785.000 Z=910.000",
@@ -3179,89 +924,10 @@
             ]
         },
         {
-            "id": 245.0,
-            "name": "SM_Shower_Frame3",
+            "id": 71.0,
+            "name": "SM_Wire_A",
             "relation": [
-                "SM_Shower_Frame3 on Floor_400x419",
-                "SM_Shower_Frame3 inside Floor_400x419"
-            ],
-            "state": [],
-            "transform": [
-                "X=313.000 Y=346.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.062"
-            ]
-        },
-        {
-            "id": 246.0,
-            "name": "SM_Shower_Frame4",
-            "relation": [
-                "SM_Shower_Frame4 on Floor_400x419",
-                "SM_Shower_Frame4 inside Floor_400x419"
-            ],
-            "state": [],
-            "transform": [
-                "X=313.000 Y=260.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.062"
-            ]
-        },
-        {
-            "id": 247.0,
-            "name": "Wall_400x418",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=100.000 Y=-149.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 248.0,
-            "name": "Wall_400x419",
-            "relation": [
-                "Wall_400x419 on Wall_400x416",
-                "Wall_400x419 inside Wall_400x416"
-            ],
-            "state": [],
-            "transform": [
-                "X=48.000 Y=-149.000 Z=300.000",
-                "P=-90.000000 Y=180.000000 R=180.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 249.0,
-            "name": "SM_R1_Basin",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=190.000 Y=-108.000 Z=91.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 250.0,
-            "name": "SM_Bath_Mirror",
-            "relation": [
-                "SM_Bath_Mirror on Wall_400x418",
-                "SM_Bath_Mirror inside Wall_400x418"
-            ],
-            "state": [],
-            "transform": [
-                "X=188.000 Y=-144.000 Z=208.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=3.800 Z=0.700"
-            ]
-        },
-        {
-            "id": 251.0,
-            "name": "SM_Wire_A01",
-            "relation": [
-                "SM_Wire_A01 on Floor_400x547",
-                "SM_Wire_A01 inside Floor_400x547"
+                "SM_Wire_A01 on "
             ],
             "state": [],
             "transform": [
@@ -3271,11 +937,10 @@
             ]
         },
         {
-            "id": 252.0,
-            "name": "SM_Wire_A2",
+            "id": 72.0,
+            "name": "SM_Wire_A",
             "relation": [
-                "SM_Wire_A2 on Floor_400x546",
-                "SM_Wire_A2 inside Floor_400x546"
+                "SM_Wire_A2 inside "
             ],
             "state": [],
             "transform": [
@@ -3285,9 +950,11 @@
             ]
         },
         {
-            "id": 253.0,
-            "name": "SM_TV02",
-            "relation": [],
+            "id": 73.0,
+            "name": "SM_TV",
+            "relation": [
+                "SM_TV02 inside Sideboard-Jeremy5"
+            ],
             "state": [],
             "transform": [
                 "X=-1362.514 Y=706.097 Z=74.650",
@@ -3296,9 +963,11 @@
             ]
         },
         {
-            "id": 254.0,
-            "name": "SM_PCKeyboard03",
-            "relation": [],
+            "id": 74.0,
+            "name": "SM_PCKeyboard",
+            "relation": [
+                "SM_PCKeyboard03 inside BP_Table2"
+            ],
             "state": [],
             "transform": [
                 "X=-1323.870 Y=712.637 Z=74.650",
@@ -3307,9 +976,11 @@
             ]
         },
         {
-            "id": 255.0,
-            "name": "SM_PCMouse03",
-            "relation": [],
+            "id": 75.0,
+            "name": "SM_PCMouse",
+            "relation": [
+                "SM_PCMouse03 inside BP_Table2"
+            ],
             "state": [],
             "transform": [
                 "X=-1320.443 Y=679.037 Z=74.650",
@@ -3318,9 +989,11 @@
             ]
         },
         {
-            "id": 256.0,
-            "name": "SM_DeskLamp_A01_N1",
-            "relation": [],
+            "id": 76.0,
+            "name": "SM_DeskLamp_A_N",
+            "relation": [
+                "SM_DeskLamp_A01_N1 on Floor_400x547"
+            ],
             "state": [],
             "transform": [
                 "X=-1366.946 Y=621.476 Z=74.656",
@@ -3329,10 +1002,9 @@
             ]
         },
         {
-            "id": 257.0,
-            "name": "GroupActor_0",
+            "id": 77.0,
+            "name": "GroupActor_",
             "relation": [
-                "GroupActor_0 on SM_DeskLamp_A01_N1",
                 "GroupActor_0 inside SM_DeskLamp_A01_N1"
             ],
             "state": [],
@@ -3343,10 +1015,9 @@
             ]
         },
         {
-            "id": 258.0,
-            "name": "RectLight7",
+            "id": 78.0,
+            "name": "RectLight",
             "relation": [
-                "RectLight7 on SM_DeskLamp_A01_N1",
                 "RectLight7 inside SM_DeskLamp_A01_N1"
             ],
             "state": [],
@@ -3357,9 +1028,11 @@
             ]
         },
         {
-            "id": 259.0,
-            "name": "SM_DeskLamp_A01_N3",
-            "relation": [],
+            "id": 79.0,
+            "name": "SM_DeskLamp_A_N",
+            "relation": [
+                "SM_DeskLamp_A01_N3 inside SM_TableDining13"
+            ],
             "state": [],
             "transform": [
                 "X=-1347.224 Y=979.419 Z=74.656",
@@ -3368,10 +1041,9 @@
             ]
         },
         {
-            "id": 260.0,
-            "name": "GroupActor_2",
+            "id": 80.0,
+            "name": "GroupActor_",
             "relation": [
-                "GroupActor_2 on SM_DeskLamp_A01_N3",
                 "GroupActor_2 inside SM_DeskLamp_A01_N3"
             ],
             "state": [],
@@ -3382,10 +1054,9 @@
             ]
         },
         {
-            "id": 261.0,
-            "name": "RectLight9",
+            "id": 81.0,
+            "name": "RectLight",
             "relation": [
-                "RectLight9 on SM_DeskLamp_A01_N3",
                 "RectLight9 inside SM_DeskLamp_A01_N3"
             ],
             "state": [],
@@ -3396,9 +1067,11 @@
             ]
         },
         {
-            "id": 262.0,
-            "name": "SM_BooksPamphlets_K01_N1",
-            "relation": [],
+            "id": 82.0,
+            "name": "SM_BooksPamphlets_K_N",
+            "relation": [
+                "SM_BooksPamphlets_K01_N1 inside SM_BooksPamphlets_K01_N1"
+            ],
             "state": [],
             "transform": [
                 "X=-1320.000 Y=772.000 Z=74.000",
@@ -3407,9 +1080,11 @@
             ]
         },
         {
-            "id": 263.0,
-            "name": "SM_Laptop02",
-            "relation": [],
+            "id": 83.0,
+            "name": "SM_Laptop",
+            "relation": [
+                "SM_Laptop02 inside SM_TableDining13"
+            ],
             "state": [],
             "transform": [
                 "X=-1289.000 Y=978.000 Z=74.000",
@@ -3418,9 +1093,11 @@
             ]
         },
         {
-            "id": 264.0,
-            "name": "SM_Earphone01Base",
-            "relation": [],
+            "id": 84.0,
+            "name": "SM_EarphoneBase",
+            "relation": [
+                "SM_Earphone01Base inside SM_Earphone01Base"
+            ],
             "state": [],
             "transform": [
                 "X=-1299.000 Y=953.000 Z=74.431",
@@ -3429,9 +1106,11 @@
             ]
         },
         {
-            "id": 265.0,
-            "name": "SM_Earphone01Left",
-            "relation": [],
+            "id": 85.0,
+            "name": "SM_EarphoneLeft",
+            "relation": [
+                "SM_Earphone01Left inside SM_Earphone01Left"
+            ],
             "state": [],
             "transform": [
                 "X=-1305.589 Y=948.284 Z=74.650",
@@ -3440,9 +1119,11 @@
             ]
         },
         {
-            "id": 266.0,
-            "name": "SM_Earphone01Right",
-            "relation": [],
+            "id": 86.0,
+            "name": "SM_EarphoneRight",
+            "relation": [
+                "SM_Earphone01Right inside SM_TableDining13"
+            ],
             "state": [],
             "transform": [
                 "X=-1306.409 Y=944.329 Z=74.650",
@@ -3451,9 +1132,11 @@
             ]
         },
         {
-            "id": 267.0,
-            "name": "SM_Food_Leftover_EO1_N1",
-            "relation": [],
+            "id": 87.0,
+            "name": "SM_Food_Leftover_EO_N",
+            "relation": [
+                "SM_Food_Leftover_EO1_N1 inside BP_Table2"
+            ],
             "state": [],
             "transform": [
                 "X=-1311.000 Y=803.000 Z=75.000",
@@ -3462,9 +1145,11 @@
             ]
         },
         {
-            "id": 268.0,
-            "name": "SM_Food_Leftover_FO1_N1",
-            "relation": [],
+            "id": 88.0,
+            "name": "SM_Food_Leftover_FO_N",
+            "relation": [
+                "SM_Food_Leftover_FO1_N1 inside BP_Table2"
+            ],
             "state": [],
             "transform": [
                 "X=-1312.000 Y=789.000 Z=75.000",
@@ -3473,42 +1158,11 @@
             ]
         },
         {
-            "id": 269.0,
-            "name": "BP_Plate2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-964.000 Y=-69.000 Z=75.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 270.0,
-            "name": "BP_Fork01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-954.000 Y=-51.000 Z=75.303",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 271.0,
-            "name": "BP_GlassWhiskey01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-981.000 Y=-84.000 Z=75.266",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 272.0,
-            "name": "PostProcessVolume2",
-            "relation": [],
+            "id": 89.0,
+            "name": "PostProcessVolume",
+            "relation": [
+                "PostProcessVolume2 inside "
+            ],
             "state": [],
             "transform": [
                 "X=-1566.000 Y=835.000 Z=321.000",
@@ -3517,9 +1171,11 @@
             ]
         },
         {
-            "id": 273.0,
+            "id": 90.0,
             "name": "SM_M_Pro",
-            "relation": [],
+            "relation": [
+                "SM_M_Pro inside BP_Table2"
+            ],
             "state": [],
             "transform": [
                 "X=-1345.000 Y=796.000 Z=75.000",
@@ -3528,437 +1184,9 @@
             ]
         },
         {
-            "id": 274.0,
-            "name": "BP_Knife01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-953.000 Y=-87.000 Z=75.328",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 275.0,
-            "name": "BP_Spoon01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-954.000 Y=-47.000 Z=75.146",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 276.0,
-            "name": "BP_Plate3",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-964.000 Y=15.000 Z=75.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 277.0,
-            "name": "BP_Fork2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-954.000 Y=33.000 Z=75.303",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 278.0,
-            "name": "BP_GlassWhiskey2",
+            "id": 91.0,
+            "name": "BP_Table",
             "relation": [
-                "BP_GlassWhiskey2 on BP_Table1",
-                "BP_GlassWhiskey2 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-981.000 Y=0.000 Z=75.266",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 279.0,
-            "name": "BP_Knife2",
-            "relation": [
-                "BP_Knife2 on BP_Table1",
-                "BP_Knife2 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-953.000 Y=-3.000 Z=75.328",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 280.0,
-            "name": "BP_Spoon2",
-            "relation": [
-                "BP_Spoon2 on BP_Table1",
-                "BP_Spoon2 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-954.000 Y=37.000 Z=75.146",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 281.0,
-            "name": "BP_Plate4",
-            "relation": [
-                "BP_Plate4 on BP_Table1",
-                "BP_Plate4 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1027.000 Y=16.000 Z=75.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 282.0,
-            "name": "BP_Fork3",
-            "relation": [
-                "BP_Fork3 on BP_Table1",
-                "BP_Fork3 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1037.000 Y=-2.000 Z=75.303",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 283.0,
-            "name": "BP_GlassWhiskey3",
-            "relation": [
-                "BP_GlassWhiskey3 on BP_Table1",
-                "BP_GlassWhiskey3 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1010.000 Y=31.000 Z=75.266",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 284.0,
-            "name": "BP_Knife3",
-            "relation": [
-                "BP_Knife3 on BP_Table1",
-                "BP_Knife3 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1038.000 Y=34.000 Z=75.328",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 285.0,
-            "name": "BP_Spoon3",
-            "relation": [
-                "BP_Spoon3 on BP_Table1",
-                "BP_Spoon3 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1037.000 Y=-6.000 Z=75.146",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 286.0,
-            "name": "BP_Plate5",
-            "relation": [
-                "BP_Plate5 on BP_ThirdPersonCharacter1",
-                "BP_Plate5 inside BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1027.000 Y=-68.000 Z=75.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 287.0,
-            "name": "BP_Fork4",
-            "relation": [
-                "BP_Fork4 on BP_ThirdPersonCharacter1",
-                "BP_Fork4 inside BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1037.000 Y=-86.000 Z=75.303",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 288.0,
-            "name": "BP_GlassWhiskey4",
-            "relation": [
-                "BP_GlassWhiskey4 on BP_Table1",
-                "BP_GlassWhiskey4 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1010.000 Y=-53.000 Z=75.266",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 289.0,
-            "name": "BP_Knife4",
-            "relation": [
-                "BP_Knife4 on BP_Table1",
-                "BP_Knife4 inside BP_Table1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1038.000 Y=-50.000 Z=75.328",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 290.0,
-            "name": "BP_Spoon4",
-            "relation": [
-                "BP_Spoon4 on BP_ThirdPersonCharacter1",
-                "BP_Spoon4 inside BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1037.000 Y=-90.000 Z=75.146",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 291.0,
-            "name": "NavModifierVolume",
-            "relation": [
-                "NavModifierVolume on BP_KitchenBuilder",
-                "NavModifierVolume inside BP_KitchenBuilder",
-                "NavModifierVolume right of BP_Microwave_01",
-                "NavModifierVolume left of BP_Stove_A",
-                "NavModifierVolume infront BP_ThirdPersonCharacter1"
-            ],
-            "state": [],
-            "transform": [
-                "X=-985.000 Y=-359.000 Z=100.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=2.725 Y=0.302 Z=1.000"
-            ]
-        },
-        {
-            "id": 292.0,
-            "name": "BP_KitchenBuilder",
-            "relation": [
-                "BP_KitchenBuilder on Floor_400x518",
-                "BP_KitchenBuilder inside Floor_400x518"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1345.000 Y=-390.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 293.0,
-            "name": "NavModifierVolume2",
-            "relation": [
-                "NavModifierVolume2 on Floor_400x419",
-                "NavModifierVolume2 right of Wall_400x417",
-                "NavModifierVolume2 left of Wall_400x405",
-                "NavModifierVolume2 behind SM_Shower_Frame4",
-                "NavModifierVolume2 infront SM_Shower_Frame3"
-            ],
-            "state": [],
-            "transform": [
-                "X=306.000 Y=311.000 Z=100.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.050 Y=0.950 Z=1.000"
-            ]
-        },
-        {
-            "id": 294.0,
-            "name": "SM_Tap",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=190.000 Y=-123.000 Z=121.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 295.0,
-            "name": "NavModifierVolume3",
-            "relation": [
-                "NavModifierVolume3 on Sofa-Blazer-Sectional-213",
-                "NavModifierVolume3 right of Wall_400x415",
-                "NavModifierVolume3 left of Wall_400x406",
-                "NavModifierVolume3 behind Wall_400x409",
-                "NavModifierVolume3 infront Wall_400x425"
-            ],
-            "state": [],
-            "transform": [
-                "X=217.000 Y=790.000 Z=100.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.600 Y=1.700 Z=1.000"
-            ]
-        },
-        {
-            "id": 296.0,
-            "name": "NavModifierVolume4",
-            "relation": [
-                "NavModifierVolume4 on Sofa-Blazer-Sectional-214",
-                "NavModifierVolume4 right of Sideboard-Vertigo1",
-                "NavModifierVolume4 left of Sideboard-Vertigo1",
-                "NavModifierVolume4 behind Sideboard-Vertigo1",
-                "NavModifierVolume4 infront Sideboard-Vertigo1"
-            ],
-            "state": [],
-            "transform": [
-                "X=91.000 Y=1022.000 Z=100.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=0.600 Y=1.900 Z=1.000"
-            ]
-        },
-        {
-            "id": 297.0,
-            "name": "BP_Shower_Door",
-            "relation": [
-                "BP_Shower_Door on Floor_400x419",
-                "BP_Shower_Door inside Floor_400x419"
-            ],
-            "state": [],
-            "transform": [
-                "X=314.000 Y=204.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 298.0,
-            "name": "BP_Stove_A",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-865.099 Y=-353.955 Z=0.400",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 299.0,
-            "name": "BP_Shower_Panel",
-            "relation": [],
-            "state": [
-                "Switched Off"
-            ],
-            "transform": [
-                "X=370.000 Y=337.000 Z=221.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 300.0,
-            "name": "BP_Table1",
-            "relation": [
-                "BP_Table1 on Floor_400x493",
-                "BP_Table1 inside Floor_400x493"
-            ],
-            "state": [],
-            "transform": [
-                "X=-995.000 Y=-25.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 301.0,
-            "name": "BP_Chair",
-            "relation": [
-                "BP_Chair on Rugs-Rectangle-5000x5000-3",
-                "BP_Chair inside Rugs-Rectangle-5000x5000-3"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1065.000 Y=-70.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 302.0,
-            "name": "BP_Chair2",
-            "relation": [
-                "BP_Chair2 on Floor_400x494",
-                "BP_Chair2 inside Floor_400x494"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1065.000 Y=15.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 303.0,
-            "name": "BP_Chair3",
-            "relation": [
-                "BP_Chair3 on Floor_400x492",
-                "BP_Chair3 inside Floor_400x492"
-            ],
-            "state": [],
-            "transform": [
-                "X=-925.000 Y=15.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 304.0,
-            "name": "BP_Chair4",
-            "relation": [
-                "BP_Chair4 on Floor_400x493",
-                "BP_Chair4 inside Floor_400x493"
-            ],
-            "state": [],
-            "transform": [
-                "X=-925.000 Y=-70.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 305.0,
-            "name": "BP_Table2",
-            "relation": [
-                "BP_Table2 on Floor_400x547",
                 "BP_Table2 inside Floor_400x547"
             ],
             "state": [],
@@ -3969,24 +1197,9 @@
             ]
         },
         {
-            "id": 306.0,
-            "name": "SM_TableDining13",
+            "id": 92.0,
+            "name": "SideboardJeremy",
             "relation": [
-                "SM_TableDining13 on Floor_400x546",
-                "SM_TableDining13 inside Floor_400x546"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1304.337 Y=985.017 Z=-0.350",
-                "P=0.000000 Y=40.000000 R=0.000000",
-                "X=0.500 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 307.0,
-            "name": "Sideboard-Jeremy5",
-            "relation": [
-                "Sideboard-Jeremy5 on Floor_400x552",
                 "Sideboard-Jeremy5 inside Floor_400x552"
             ],
             "state": [],
@@ -3997,38 +1210,9 @@
             ]
         },
         {
-            "id": 308.0,
-            "name": "BP_SideTable1",
+            "id": 93.0,
+            "name": "SM_R_Wardrobe",
             "relation": [
-                "BP_SideTable1 on Floor_400x548",
-                "BP_SideTable1 inside Floor_400x548"
-            ],
-            "state": [],
-            "transform": [
-                "X=-865.000 Y=1155.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 309.0,
-            "name": "BP_SideTable2",
-            "relation": [
-                "BP_SideTable2 on Floor_400x549",
-                "BP_SideTable2 inside Floor_400x549"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1154.000 Y=1155.000 Z=0.000",
-                "P=0.000000 Y=-179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 310.0,
-            "name": "SM_R3_Wardrobe",
-            "relation": [
-                "SM_R3_Wardrobe on Floor_400x630",
                 "SM_R3_Wardrobe inside Floor_400x630"
             ],
             "state": [],
@@ -4039,10 +1223,9 @@
             ]
         },
         {
-            "id": 311.0,
-            "name": "SM_R3_Wardrobe2",
+            "id": 94.0,
+            "name": "SM_R_Wardrobe",
             "relation": [
-                "SM_R3_Wardrobe2 on Floor_400x629",
                 "SM_R3_Wardrobe2 inside Floor_400x629"
             ],
             "state": [],
@@ -4053,81 +1236,101 @@
             ]
         },
         {
-            "id": 312.0,
-            "name": "CoffeeTable-Square-Hubert2",
+            "id": 95.0,
+            "name": "BP_SideTable_D",
             "relation": [
-                "CoffeeTable-Square-Hubert2 on Floor_400x412",
-                "CoffeeTable-Square-Hubert2 inside Floor_400x412"
+                "BP_SideTable_D inside Floor_400x540"
             ],
             "state": [],
             "transform": [
-                "X=5.000 Y=809.000 Z=0.000",
+                "X=-960.000 Y=810.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 313.0,
-            "name": "Sideboard-Vertigo1",
+            "id": 96.0,
+            "name": "Floor_x",
             "relation": [
-                "Sideboard-Vertigo1 on Floor_400x452",
-                "Sideboard-Vertigo1 inside Floor_400x452"
+                "Floor_400x624 inside Floor_400x624"
             ],
             "state": [],
             "transform": [
-                "X=88.000 Y=440.000 Z=0.000",
+                "X=-600.000 Y=400.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
+                "X=0.500 Y=0.400 Z=1.000"
+            ]
+        },
+        {
+            "id": 97.0,
+            "name": "Wall_x",
+            "relation": [
+                "Wall_400x412 inside Wall_400x412"
+            ],
+            "state": [],
+            "transform": [
+                "X=-361.000 Y=400.000 Z=0.000",
+                "P=90.000000 Y=180.000000 R=180.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 314.0,
-            "name": "SideTable-Rectangular-Hubert1",
+            "id": 98.0,
+            "name": "Wall_x",
             "relation": [
-                "SideTable-Rectangular-Hubert1 on Rugs-Rectangle-5000x5000-2",
-                "SideTable-Rectangular-Hubert1 inside Rugs-Rectangle-5000x5000-2"
+                "Wall_400x416 inside BP_StandardDoor"
             ],
             "state": [],
             "transform": [
-                "X=-122.000 Y=1023.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=-1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 315.0,
-            "name": "SofaTable-Rectangular-Hubert1",
-            "relation": [
-                "SofaTable-Rectangular-Hubert1 on Floor_400x420",
-                "SofaTable-Rectangular-Hubert1 inside Floor_400x420"
-            ],
-            "state": [],
-            "transform": [
-                "X=288.000 Y=877.000 Z=0.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
+                "X=-505.000 Y=493.000 Z=0.000",
+                "P=90.000000 Y=180.000000 R=90.000001",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 316.0,
-            "name": "SideTable-Round-PannaCotta4",
+            "id": 99.0,
+            "name": "Wall_x",
             "relation": [
-                "SideTable-Round-PannaCotta4 on Rugs-Rectangle-5000x5000-2",
-                "SideTable-Round-PannaCotta4 inside Rugs-Rectangle-5000x5000-2"
+                "Wall_400x417 inside Wall_400x417"
             ],
             "state": [],
             "transform": [
-                "X=-204.000 Y=719.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=-505.000 Y=712.000 Z=206.000",
+                "P=90.000000 Y=180.000000 R=90.000001",
+                "X=0.312 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 100.0,
+            "name": "SM_TableDining",
+            "relation": [
+                "SM_TableDining13 on "
+            ],
+            "state": [],
+            "transform": [
+                "X=-1304.337 Y=985.017 Z=-0.350",
+                "P=0.000000 Y=40.000000 R=0.000000",
+                "X=0.500 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 101.0,
+            "name": "BP_remotecontrol",
+            "relation": [
+                "BP_remotecontrol inside BP_SideTable_D"
+            ],
+            "state": [],
+            "transform": [
+                "X=-916.000 Y=831.000 Z=33.000",
+                "P=0.000000 Y=-35.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 317.0,
-            "name": "SM_Chair01",
+            "id": 102.0,
+            "name": "SM_Chair",
             "relation": [
-                "SM_Chair01 on Floor_400x547",
-                "SM_Chair01 inside Floor_400x547"
+                "SM_Chair01 on "
             ],
             "state": [],
             "transform": [
@@ -4137,237 +1340,127 @@
             ]
         },
         {
-            "id": 318.0,
-            "name": "Bed_1",
+            "id": 103.0,
+            "name": "BP_Paper",
             "relation": [
-                "Bed_1 on Floor_400x549",
-                "Bed_1 inside Floor_400x549"
+                "BP_Paper inside BP_SideTable_D"
             ],
             "state": [],
             "transform": [
-                "X=-1010.000 Y=1085.000 Z=0.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
+                "X=-977.000 Y=783.000 Z=33.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 319.0,
-            "name": "Armchair-Walter-4",
+            "id": 104.0,
+            "name": "BP_light_toggle_",
             "relation": [
-                "Armchair-Walter-4 on Floor_400x541",
-                "Armchair-Walter-4 inside Floor_400x541"
+                "BP_light_toggle_01 inside Wall_400x416"
             ],
             "state": [],
             "transform": [
-                "X=-802.000 Y=694.000 Z=0.000",
+                "X=-515.000 Y=469.000 Z=117.000",
                 "P=0.000000 Y=89.999999 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 320.0,
-            "name": "Armchair-Kaori2",
+            "id": 105.0,
+            "name": "BP_GardenStorage",
             "relation": [
-                "Armchair-Kaori2 on Rugs-Rectangle-5000x5000-2",
-                "Armchair-Kaori2 inside Rugs-Rectangle-5000x5000-2"
+                "BP_GardenStorage4 inside Floor_400x548"
             ],
             "state": [],
             "transform": [
-                "X=-211.790 Y=805.867 Z=0.000",
-                "P=0.000000 Y=-89.262388 R=0.000000",
+                "X=-882.000 Y=1146.000 Z=0.000",
+                "P=0.000000 Y=-179.999999 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 321.0,
-            "name": "Armchair-Kaori",
+            "id": 106.0,
+            "name": "BP_GardenStorage",
             "relation": [
-                "Armchair-Kaori on Rugs-Rectangle-5000x5000-2",
-                "Armchair-Kaori inside Rugs-Rectangle-5000x5000-2"
+                "BP_GardenStorage5 inside Floor_400x549"
             ],
             "state": [],
             "transform": [
-                "X=-155.790 Y=651.867 Z=-0.000",
-                "P=0.000000 Y=-49.262387 R=0.000000",
+                "X=-1057.000 Y=1146.000 Z=0.000",
+                "P=0.000000 Y=-179.999999 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 322.0,
-            "name": "Armchair-Walter-3",
+            "id": 107.0,
+            "name": "BP_CardReader",
             "relation": [
-                "Armchair-Walter-3 on Floor_400x540",
-                "Armchair-Walter-3 inside Floor_400x540"
+                "BP_CardReader inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
-                "X=-802.000 Y=840.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
+                "X=-514.000 Y=469.000 Z=135.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=0.031 Y=0.094 Z=0.156"
             ]
         },
         {
-            "id": 323.0,
-            "name": "BP_BathTub",
+            "id": 108.0,
+            "name": "BP_Card",
             "relation": [
-                "BP_BathTub on Floor_400x413",
-                "BP_BathTub inside Floor_400x413"
+                "BP_Card inside BP_GardenStorage4"
             ],
             "state": [],
             "transform": [
-                "X=155.000 Y=346.000 Z=0.000",
+                "X=-886.000 Y=1139.000 Z=11.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 324.0,
-            "name": "SM_R1_Bath_Drawer",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=132.000 Y=-107.000 Z=68.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 325.0,
-            "name": "SM_R1_Bath_Drawer2",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=244.000 Y=-107.000 Z=68.000",
-                "P=0.000000 Y=-89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 326.0,
-            "name": "BP_dish_washer_2",
+            "id": 109.0,
+            "name": "BP_Card",
             "relation": [
-                "BP_dish_washer_2 on Floor_400x512",
-                "BP_dish_washer_2 inside Floor_400x512"
+                "BP_Card2 inside BP_Card2"
             ],
-            "state": [
-                "Closed",
-                "Switched On"
-            ],
+            "state": [],
             "transform": [
-                "X=-1165.000 Y=-352.000 Z=0.000",
+                "X=-764.000 Y=642.000 Z=14.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 327.0,
-            "name": "BP_dryer_01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=358.000 Y=-235.000 Z=0.000",
-                "P=0.000000 Y=179.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 328.0,
-            "name": "BP_Microwave_01",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=-1222.000 Y=-360.000 Z=94.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 329.0,
-            "name": "BP_washing_machine",
-            "relation": [
-                "BP_washing_machine on Floor_400x430",
-                "BP_washing_machine inside Floor_400x430"
-            ],
-            "state": [],
-            "transform": [
-                "X=357.000 Y=-325.000 Z=0.000",
-                "P=0.000000 Y=89.999999 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 330.0,
-            "name": "BP_Bidet",
-            "relation": [],
-            "state": [],
-            "transform": [
-                "X=355.000 Y=-109.000 Z=25.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 331.0,
-            "name": "BP_smart_trash_bin_01",
-            "relation": [
-                "BP_smart_trash_bin_01 on Floor_400x516",
-                "BP_smart_trash_bin_01 inside Floor_400x516"
-            ],
-            "state": [],
-            "transform": [
-                "X=-681.000 Y=-359.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 332.0,
-            "name": "BP_refrigerator_2",
-            "relation": [
-                "BP_refrigerator_2 on Floor_400x518",
-                "BP_refrigerator_2 inside Floor_400x518"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1306.000 Y=-344.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 333.0,
-            "name": "BP_Apple",
-            "relation": [
-                "BP_Apple on Floor_400x552",
-                "BP_Apple inside Floor_400x552"
-            ],
-            "state": [],
-            "transform": [
-                "X=-990.000 Y=540.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 334.0,
+            "id": 110.0,
             "name": "API",
             "relation": [
-                "API on Floor_400x497",
-                "API inside Floor_400x497"
+                "API inside "
             ],
             "state": [],
             "transform": [
-                "X=-500.000 Y=420.000 Z=0.000",
+                "X=-930.000 Y=680.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 335.0,
-            "name": "BP_Milk",
+            "id": 111.0,
+            "name": "BP_StandardDoor",
             "relation": [
-                "BP_Milk on Floor_400x400",
-                "BP_Milk inside Floor_400x400"
+                "BP_StandardDoor inside Floor_400x623"
+            ],
+            "state": [],
+            "transform": [
+                "X=-509.000 Y=541.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=1.000 Y=1.000 Z=1.000"
+            ]
+        },
+        {
+            "id": 112.0,
+            "name": "DefaultPhysicsVolume",
+            "relation": [
+                "DefaultPhysicsVolume0 inside "
             ],
             "state": [],
             "transform": [
@@ -4377,25 +1470,10 @@
             ]
         },
         {
-            "id": 336.0,
-            "name": "DefaultPhysicsVolume0",
+            "id": 113.0,
+            "name": "GameplayDebuggerPlayerManager",
             "relation": [
-                "DefaultPhysicsVolume0 on Floor_400x400",
-                "DefaultPhysicsVolume0 inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 337.0,
-            "name": "GameplayDebuggerPlayerManager0",
-            "relation": [
-                "GameplayDebuggerPlayerManager0 on Floor_400x400",
-                "GameplayDebuggerPlayerManager0 inside Floor_400x400"
+                "GameplayDebuggerPlayerManager0 inside "
             ],
             "state": [],
             "transform": [
@@ -4405,11 +1483,10 @@
             ]
         },
         {
-            "id": 338.0,
+            "id": 114.0,
             "name": "Actor",
             "relation": [
-                "Actor on Floor_400x400",
-                "Actor inside Floor_400x400"
+                "Actor inside "
             ],
             "state": [],
             "transform": [
@@ -4419,11 +1496,10 @@
             ]
         },
         {
-            "id": 339.0,
-            "name": "BP_ThirdPersonGameMode0",
+            "id": 115.0,
+            "name": "BP_ThirdPersonGameMode",
             "relation": [
-                "BP_ThirdPersonGameMode0 on Floor_400x400",
-                "BP_ThirdPersonGameMode0 inside Floor_400x400"
+                "BP_ThirdPersonGameMode0 inside "
             ],
             "state": [],
             "transform": [
@@ -4433,11 +1509,10 @@
             ]
         },
         {
-            "id": 340.0,
-            "name": "GameSession0",
+            "id": 116.0,
+            "name": "GameSession",
             "relation": [
-                "GameSession0 on Floor_400x400",
-                "GameSession0 inside Floor_400x400"
+                "GameSession0 inside "
             ],
             "state": [],
             "transform": [
@@ -4447,11 +1522,10 @@
             ]
         },
         {
-            "id": 341.0,
-            "name": "ParticleEventManager0",
+            "id": 117.0,
+            "name": "ParticleEventManager",
             "relation": [
-                "ParticleEventManager0 on Floor_400x400",
-                "ParticleEventManager0 inside Floor_400x400"
+                "ParticleEventManager0 inside "
             ],
             "state": [],
             "transform": [
@@ -4461,11 +1535,10 @@
             ]
         },
         {
-            "id": 342.0,
-            "name": "GameNetworkManager0",
+            "id": 118.0,
+            "name": "GameNetworkManager",
             "relation": [
-                "GameNetworkManager0 on Floor_400x400",
-                "GameNetworkManager0 inside Floor_400x400"
+                "GameNetworkManager0 inside "
             ],
             "state": [],
             "transform": [
@@ -4475,11 +1548,10 @@
             ]
         },
         {
-            "id": 343.0,
-            "name": "GameStateBase0",
+            "id": 119.0,
+            "name": "GameStateBase",
             "relation": [
-                "GameStateBase0 on Floor_400x400",
-                "GameStateBase0 inside Floor_400x400"
+                "GameStateBase0 inside "
             ],
             "state": [],
             "transform": [
@@ -4489,11 +1561,10 @@
             ]
         },
         {
-            "id": 344.0,
+            "id": 120.0,
             "name": "AbstractNavData",
             "relation": [
-                "AbstractNavData on Floor_400x400",
-                "AbstractNavData inside Floor_400x400"
+                "AbstractNavData inside "
             ],
             "state": [],
             "transform": [
@@ -4503,28 +1574,23 @@
             ]
         },
         {
-            "id": 345.0,
-            "name": "BP_ThirdPersonPlayerController0",
+            "id": 121.0,
+            "name": "BP_ThirdPersonPlayerController",
             "relation": [
-                "BP_ThirdPersonPlayerController0 on Floor_400x555",
-                "BP_ThirdPersonPlayerController0 right of Wall_400x462",
-                "BP_ThirdPersonPlayerController0 left of Wall_400x406",
-                "BP_ThirdPersonPlayerController0 behind Wall_400x444",
-                "BP_ThirdPersonPlayerController0 infront Wall_400x431"
+                "BP_ThirdPersonPlayerController0 on Floor_400x555"
             ],
             "state": [],
             "transform": [
                 "X=-1240.781 Y=525.275 Z=92.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
+                "P=0.000000 Y=0.875000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 346.0,
-            "name": "PlayerState0",
+            "id": 122.0,
+            "name": "PlayerState",
             "relation": [
-                "PlayerState0 on Floor_400x400",
-                "PlayerState0 inside Floor_400x400"
+                "PlayerState0 inside "
             ],
             "state": [],
             "transform": [
@@ -4534,28 +1600,23 @@
             ]
         },
         {
-            "id": 347.0,
-            "name": "PlayerCameraManager0",
+            "id": 123.0,
+            "name": "PlayerCameraManager",
             "relation": [
-                "PlayerCameraManager0 on Rugs-Rectangle-5000x5000-1",
-                "PlayerCameraManager0 right of Wall_400x413",
-                "PlayerCameraManager0 left of BP_ThirdPersonCharacter0",
-                "PlayerCameraManager0 behind Wall_400x423",
-                "PlayerCameraManager0 infront Wall_400x428"
+                "PlayerCameraManager0 on Rugs-Rectangle-5000x5000-4"
             ],
             "state": [],
             "transform": [
-                "X=-431.901 Y=19.381 Z=101.067",
-                "P=0.000000 Y=0.000000 R=0.000000",
+                "X=-940.583 Y=540.892 Z=100.767",
+                "P=0.000000 Y=0.875000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 348.0,
-            "name": "HUD0",
+            "id": 124.0,
+            "name": "HUD",
             "relation": [
-                "HUD0 on Floor_400x400",
-                "HUD0 inside Floor_400x400"
+                "HUD0 inside "
             ],
             "state": [],
             "transform": [
@@ -4565,124 +1626,25 @@
             ]
         },
         {
-            "id": 349.0,
-            "name": "BP_ThirdPersonCharacter0",
+            "id": 125.0,
+            "name": "BP_ThirdPersonCharacter",
             "relation": [
-                "BP_ThirdPersonCharacter0 Close To BP_ThirdPersonCharacter0",
-                "BP_ThirdPersonCharacter0 Close To BP_Milk",
-                "BP_ThirdPersonCharacter0 Close To BP_Milk",
+                "BP_ThirdPersonCharacter0 inside BP_ThirdPersonCharacter0",
                 "Left hand empty",
-                "Right hand holding BP_Milk"
+                "Right hand empty"
             ],
             "state": [],
             "transform": [
-                "X=-31.901 Y=19.381 Z=92.575",
-                "P=0.000000 Y=-31.262238 R=0.000000",
+                "X=-540.629 Y=547.001 Z=92.275",
+                "P=0.000000 Y=0.875000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
-            "id": 350.0,
-            "name": "BP_ThirdPersonPlayerController1",
+            "id": 126.0,
+            "name": "GameplayDebuggerCategoryReplicator",
             "relation": [
-                "BP_ThirdPersonPlayerController1 on Floor_400x555",
-                "BP_ThirdPersonPlayerController1 right of Wall_400x462",
-                "BP_ThirdPersonPlayerController1 left of Wall_400x406",
-                "BP_ThirdPersonPlayerController1 behind Wall_400x444",
-                "BP_ThirdPersonPlayerController1 infront Wall_400x431"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1240.781 Y=525.275 Z=92.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 351.0,
-            "name": "PlayerState1",
-            "relation": [
-                "PlayerState1 on Floor_400x400",
-                "PlayerState1 inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.000 Y=0.000 Z=0.000"
-            ]
-        },
-        {
-            "id": 352.0,
-            "name": "PlayerCameraManager1",
-            "relation": [
-                "PlayerCameraManager1 on Floor_400x501",
-                "PlayerCameraManager1 right of Wall_400x464",
-                "PlayerCameraManager1 left of BP_ThirdPersonCharacter1",
-                "PlayerCameraManager1 behind Wall_400x427",
-                "PlayerCameraManager1 infront Wall_400x444"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1377.887 Y=-150.794 Z=101.067",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 353.0,
-            "name": "HUD1",
-            "relation": [
-                "HUD1 on Floor_400x400",
-                "HUD1 inside Floor_400x400"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=0.000 Y=0.000 Z=0.000"
-            ]
-        },
-        {
-            "id": 354.0,
-            "name": "BP_ThirdPersonCharacter1",
-            "relation": [
-                "BP_ThirdPersonCharacter1 Close To BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter1 Close To BP_Chair",
-                "BP_ThirdPersonCharacter1 Close To BP_Table1",
-                "BP_ThirdPersonCharacter1 Close To BP_Plate5",
-                "BP_ThirdPersonCharacter1 Close To BP_Fork4",
-                "BP_ThirdPersonCharacter1 Close To BP_Spoon4",
-                "Left hand empty",
-                "Right hand holding BP_Milk"
-            ],
-            "state": [],
-            "transform": [
-                "X=-1072.587 Y=-150.794 Z=92.575",
-                "P=0.000000 Y=41.730118 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 355.0,
-            "name": "GameplayDebuggerCategoryReplicator0",
-            "relation": [
-                "GameplayDebuggerCategoryReplicator0 on Wall_400x408",
-                "GameplayDebuggerCategoryReplicator0 inside Wall_400x408"
-            ],
-            "state": [],
-            "transform": [
-                "X=0.000 Y=0.000 Z=0.000",
-                "P=0.000000 Y=0.000000 R=0.000000",
-                "X=1.000 Y=1.000 Z=1.000"
-            ]
-        },
-        {
-            "id": 356.0,
-            "name": "GameplayDebuggerCategoryReplicator1",
-            "relation": [
-                "GameplayDebuggerCategoryReplicator1 on Wall_400x408",
-                "GameplayDebuggerCategoryReplicator1 inside Wall_400x408"
+                "GameplayDebuggerCategoryReplicator0 inside Floor_400x630"
             ],
             "state": [],
             "transform": [
