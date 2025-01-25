@@ -4,32 +4,21 @@
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\"}",
         "success": true
     },
     {
         "observation": "{\"type\":\"full\"}",
         "success": true
-    },
-    {
-        "observation": "{\"type\":\"full\"}",
-        "success": true
-    },
-    {
-        "set_action": "{\"agent_index\":[0],\"task\":[1,300,0,0]}",
-        "success": true
-    },
-    {
-        "set_action": "{\"agent_index\":[1],\"task\":[1,300,0,0]}",
-        "success": true
-    },
-    {
-        "observation": "{\"type\":\"full\"}",
-        "success": true
+<<<<<<< Updated upstream
     },
     {
         "observation": "{\"type\":\"full\"}",
@@ -396,5 +385,7 @@
         "success": true
     }
 ]success": true
+=======
+>>>>>>> Stashed changes
     }
 ]

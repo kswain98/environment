@@ -19,7 +19,9 @@ class Agent:
         model: str = "gpt-4o",
         base_url: str = "localhost:5000",
         max_steps: int = 20,
-        debug: bool = False
+        debug: bool = False,
+        alice_prompt: str = None,
+        bob_prompt: str = None
     ):
         self.agent_id = agent_id
         self.agent_name = agent_name
@@ -40,12 +42,12 @@ class Agent:
         with open(f'{dir_path}/dataset/object_info_small.json', 'r') as f:
             self.object_info = json.load(f)
             
-        self.alice_system_prompt = self._create_alice_prompt()
-        self.bob_system_prompt = self._create_bob_prompt()
+        self.alice_system_prompt = alice_prompt if alice_prompt else self._create_alice_prompt()
+        self.bob_system_prompt = bob_prompt if bob_prompt else self._create_bob_prompt()
 
     def get_observation(self) -> Dict:
         """Gets the current environment observation"""
-        observation({"type": "full"})
+        observation({"type": "partial"})
         with open('graph.json', 'r') as f:
             data = json.load(f)
         self.current_state = data['WatchAndHelp1']
@@ -239,7 +241,15 @@ Respond with only the next action, no explanation needed."""
             print("Max steps reached without achieving goal")
         return 0.0
 
-def run_experiment(goal_specs, api_key, api_option="openai", model="gpt-4o", debug=False):
+def run_experiment(
+    goal_specs, 
+    api_key, 
+    api_option="openai", 
+    model="gpt-4o", 
+    debug=False,
+    alice_prompt=None,
+    bob_prompt=None
+):
     """Runs the collaborative agents to achieve goals"""
     # Initialize single agent that controls both Alice and Bob
     agent = Agent(
@@ -248,7 +258,9 @@ def run_experiment(goal_specs, api_key, api_option="openai", model="gpt-4o", deb
         api_key=api_key,
         api_option=api_option,
         model=model,
-        debug=debug
+        debug=debug,
+        alice_prompt=alice_prompt,
+        bob_prompt=bob_prompt
     )
     
     # Standardize goal_specs format
@@ -280,6 +292,6 @@ if __name__ == "__main__":
     
     run_experiment(
         goal_specs=goal_spec,
-        api_key="",
+        api_key="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",
         debug=True
     ) 
