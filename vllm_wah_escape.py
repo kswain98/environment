@@ -21,16 +21,16 @@ class Agent:
         base_url: str = "localhost:5000",
         max_steps: int = 20,
         debug: bool = False,
-        environment: str = "WatchAndHelp1"
+        environment: str = "WatchAndHelp1",
+        screenshot_dir: str = r"E:\environment-sourcecode\environment\Saved\Screenshots\WindowsEditor",
     ):
         self.agent_id = agent_id
         self.agent_name = agent_name
         self.max_steps = max_steps
         self.debug = debug
         self.environment = environment
-        
+        self.screenshot_dir = screenshot_dir
         # Set up screenshot directory and clear existing screenshots
-        self.screenshot_dir = r"E:\environment-sourcecode\environment\Saved\Screenshots\WindowsEditor"
         self._clear_screenshots()
         
         self.screenshot_counter = 0
@@ -414,7 +414,7 @@ Respond with only the next action, no explanation needed."""
             print("Max steps reached")
         return 0.0
 
-def run_experiment(user_prompt: str, api_key: str, api_option="openai", model="gpt-4o", debug=False, environment: str = "WatchAndHelp1"):
+def run_experiment(user_prompt: str, api_key: str, api_option="openai", model="gpt-4o", debug=False, environment: str = "WatchAndHelp1", screenshot_dir: str = r"E:\environment-sourcecode\environment\Saved\Screenshots\WindowsEditor"):
     """Runs the collaborative agents with a user-defined prompt"""
     agent = Agent(
         agent_id=0,
@@ -423,7 +423,8 @@ def run_experiment(user_prompt: str, api_key: str, api_option="openai", model="g
         api_option=api_option,
         model=model,
         debug=debug,
-        environment = environment
+        environment = environment,
+        screenshot_dir = screenshot_dir,
     )
     
     success = agent.run(user_prompt)
@@ -454,5 +455,6 @@ if __name__ == "__main__":
         user_prompt=user_prompt,
         api_key="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",
         debug=True,
-        environment="WatchAndHelp1"
+        environment="WatchAndHelp1",
+        screenshot_dir=r"E:\environment-sourcecode\environment\Saved\Screenshots\WindowsEditor"
     ) 
