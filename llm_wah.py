@@ -47,7 +47,7 @@ class Agent:
 
     def get_observation(self) -> Dict:
         """Gets the current environment observation"""
-        observation({"type": "partial"})
+        observation({"type": "full"})
         with open('graph.json', 'r') as f:
             data = json.load(f)
         self.current_state = data['WatchAndHelp1']
@@ -75,8 +75,13 @@ class Agent:
         # Find nodes for all relevant objects and agents
         subject_node = next((node for node in obs if subject.lower() in node['name'].lower()), None)
         target_node = next((node for node in obs if target.lower() in node['name'].lower()), None)
-        alice_node = next((node for node in obs if 'BP_ThirdPersonCharacter0' in node['name']), None)
-        bob_node = next((node for node in obs if 'BP_ThirdPersonCharacter1' in node['name']), None)
+        character_nodes = [node for node in obs if 'BP_ThirdPersonCharacter' in node['name']]
+        if len(character_nodes) >= 2:
+            alice_node = character_nodes[0]  # First instance is Alice
+            bob_node = character_nodes[1]    # Second instance is Bob
+        else:
+            alice_node = None
+            bob_node = None
         
         # Handle missing nodes
         if not all([subject_node, target_node, alice_node, bob_node]):
@@ -262,7 +267,8 @@ def run_experiment(
         alice_prompt=alice_prompt,
         bob_prompt=bob_prompt
     )
-    
+    observation({"type": "full"})
+    time.sleep(0.5)
     # Standardize goal_specs format
     if isinstance(goal_specs, tuple):
         goal_specs = {goal_specs: 1}
@@ -293,5 +299,7 @@ if __name__ == "__main__":
     run_experiment(
         goal_specs=goal_spec,
         api_key="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",
-        debug=True
+        debug=True,
+        alice_prompt=None,
+        bob_prompt=None
     ) 

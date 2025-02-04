@@ -3072,7 +3072,7 @@
             "id": 236.0,
             "name": "RectLight",
             "relation": [
-                "RectLight inside BP_ThirdPersonCharacter1"
+                "RectLight inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3085,7 +3085,7 @@
             "id": 237.0,
             "name": "RectLight",
             "relation": [
-                "RectLight2 inside BP_ThirdPersonCharacter1"
+                "RectLight2 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3098,7 +3098,7 @@
             "id": 238.0,
             "name": "RectLight",
             "relation": [
-                "RectLight3 inside BP_ThirdPersonCharacter1"
+                "RectLight3 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3111,7 +3111,7 @@
             "id": 239.0,
             "name": "RectLight",
             "relation": [
-                "RectLight4 inside BP_ThirdPersonCharacter1"
+                "RectLight4 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3124,7 +3124,7 @@
             "id": 240.0,
             "name": "RectLight",
             "relation": [
-                "RectLight5 inside BP_ThirdPersonCharacter1"
+                "RectLight5 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3137,7 +3137,7 @@
             "id": 241.0,
             "name": "RectLight",
             "relation": [
-                "RectLight6 inside BP_ThirdPersonCharacter1"
+                "RectLight6 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -3293,7 +3293,7 @@
             "id": 253.0,
             "name": "SM_TV",
             "relation": [
-                "SM_TV02 inside Sideboard-Jeremy5"
+                "SM_TV02 inside BP_ThirdPersonCharacter0"
             ],
             "state": [],
             "transform": [
@@ -4272,10 +4272,7 @@
             "relation": [
                 "BP_Microwave_01 inside BP_Microwave_01"
             ],
-            "state": [
-                "Closed",
-                "Switched On"
-            ],
+            "state": [],
             "transform": [
                 "X=-1222.000 Y=-360.000 Z=94.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
@@ -4314,10 +4311,7 @@
             "relation": [
                 "BP_smart_trash_bin_01 inside Floor_400x516"
             ],
-            "state": [
-                "Closed",
-                "Switched Off"
-            ],
+            "state": [],
             "transform": [
                 "X=-681.000 Y=-359.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
@@ -4330,10 +4324,7 @@
             "relation": [
                 "BP_refrigerator_2 inside Floor_400x518"
             ],
-            "state": [
-                "Closed",
-                "Switched On"
-            ],
+            "state": [],
             "transform": [
                 "X=-1306.000 Y=-344.000 Z=0.000",
                 "P=0.000000 Y=0.000000 R=0.000000",
@@ -4357,12 +4348,12 @@
             "id": 334.0,
             "name": "BP_Apple",
             "relation": [
-                "BP_Apple inside BP_ThirdPersonCharacter1"
+                "BP_Apple inside Floor_400x552"
             ],
             "state": [],
             "transform": [
-                "X=-650.826 Y=-295.203 Z=82.646",
-                "P=74.587791 Y=108.519785 R=33.740591",
+                "X=-990.000 Y=540.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
@@ -4370,12 +4361,12 @@
             "id": 335.0,
             "name": "BP_Milk",
             "relation": [
-                "BP_Milk inside BP_ThirdPersonCharacter0"
+                "BP_Milk inside BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
-                "X=-1245.896 Y=-258.386 Z=82.613",
-                "P=74.270147 Y=96.206715 R=38.249300",
+                "X=-997.822 Y=637.627 Z=82.542",
+                "P=77.256383 Y=85.209141 R=111.308210",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
@@ -4526,12 +4517,12 @@
             "id": 347.0,
             "name": "PlayerCameraManager",
             "relation": [
-                "PlayerCameraManager0 on Floor_400x551"
+                "PlayerCameraManager0 on BP_Table2"
             ],
             "state": [],
             "transform": [
-                "X=-1335.000 Y=1155.000 Z=250.000",
-                "P=-28.114776 Y=-39.388204 R=-2.443002",
+                "X=-1343.555 Y=656.919 Z=101.047",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
@@ -4552,48 +4543,19 @@
             "id": 349.0,
             "name": "BP_ThirdPersonCharacter",
             "relation": [
-                "BP_ThirdPersonCharacter0 inside BP_refrigerator_2",
+                "BP_ThirdPersonCharacter0 inside BP_ThirdPersonCharacter1",
                 "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter0",
                 "BP_ThirdPersonCharacter0 close to BP_Milk",
                 "BP_ThirdPersonCharacter0 close to BP_Milk",
-                "BP_ThirdPersonCharacter0 close to BP_dish_washer_2",
-                "BP_ThirdPersonCharacter0 close to BP_Microwave_01",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_Microwave_01",
-                "BP_ThirdPersonCharacter0 close to BP_Microwave_01",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
-                "BP_ThirdPersonCharacter0 close to BP_refrigerator_2",
+                "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter1",
+                "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter1",
                 "Left hand empty",
                 "Right hand holding BP_Milk"
             ],
             "state": [],
             "transform": [
-                "X=-1272.926 Y=-263.199 Z=92.575",
-                "P=0.000000 Y=-112.283417 R=0.000000",
+                "X=-1069.952 Y=656.919 Z=92.555",
+                "P=0.000000 Y=37.618454 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
@@ -4627,11 +4589,11 @@
             "id": 352.0,
             "name": "PlayerCameraManager",
             "relation": [
-                "PlayerCameraManager1 on Rugs-Rectangle-5000x5000-3"
+                "PlayerCameraManager1 inside BP_ThirdPersonCharacter1"
             ],
             "state": [],
             "transform": [
-                "X=-1075.193 Y=-307.630 Z=100.767",
+                "X=-1023.924 Y=666.427 Z=101.055",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
@@ -4655,25 +4617,17 @@
             "relation": [
                 "BP_ThirdPersonCharacter1 inside BP_ThirdPersonCharacter1",
                 "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter1 close to BP_Apple",
-                "BP_ThirdPersonCharacter1 close to BP_Apple",
-                "BP_ThirdPersonCharacter1 close to BP_smart_trash_bin_01",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_smart_trash_bin_01",
-                "BP_ThirdPersonCharacter1 close to BP_smart_trash_bin_01",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
-                "BP_ThirdPersonCharacter1 close to BP_KitchenBuilder",
+                "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter0",
+                "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter0",
+                "BP_ThirdPersonCharacter1 close to BP_Milk",
+                "BP_ThirdPersonCharacter1 close to BP_Milk",
                 "Left hand empty",
-                "Right hand holding BP_Apple"
+                "Right hand holding BP_Milk"
             ],
             "state": [],
             "transform": [
-                "X=-675.193 Y=-307.630 Z=92.275",
-                "P=0.000000 Y=-94.699219 R=0.000000",
+                "X=-1000.582 Y=666.427 Z=92.563",
+                "P=0.000000 Y=160.021225 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },

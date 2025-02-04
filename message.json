@@ -1,18 +1,38 @@
 [
     {
-        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\"}",
+        "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[9,332,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[6,335,0,0]}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[1],\"task\":[1,331,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[6,335,0,0]}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[1],\"task\":[1,331,0,0]}",
+        "set_action": "{\"agent_index\":[1],\"task\":[6,335,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[6,335,0,0]}",
         "success": true
     }
 ]
