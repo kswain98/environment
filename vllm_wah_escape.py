@@ -328,9 +328,11 @@ Respond with only the next action, no explanation needed."""
         goal_state_prompt = self._create_goal_state_prompt(all_objects, user_prompt)
         _, alice_analysis = self.alice_llm(goal_state_prompt, image=self.get_screenshot(self.render_config_alice))
         _, bob_analysis = self.bob_llm(goal_state_prompt, image=self.get_screenshot(self.render_config_bob))
-        
+        print("alice_analysis", alice_analysis)
+        print("bob_analysis", bob_analysis)
         try:
             self.alice_current_goals = eval(alice_analysis.strip().strip('`python').strip('`'))
+
             self.bob_current_goals = eval(bob_analysis.strip().strip('`python').strip('`'))
         except Exception as e:
             print(f"Error parsing initial goal states: {e}")

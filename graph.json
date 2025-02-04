@@ -30,7 +30,7 @@
             "id": 2.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x400 inside Wall_400x401"
+                "Wall_400x400 inside Wall_400x400"
             ],
             "state": [],
             "transform": [
@@ -108,7 +108,7 @@
             "id": 8.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x407 inside Floor_400x407"
+                "Floor_400x407 inside Floor_400x401"
             ],
             "state": [],
             "transform": [
@@ -121,7 +121,7 @@
             "id": 9.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x408 inside Floor_400x408"
+                "Floor_400x408 inside Floor_400x624"
             ],
             "state": [],
             "transform": [
@@ -134,7 +134,7 @@
             "id": 10.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x409 inside Floor_400x409"
+                "Floor_400x409 inside Floor_400x626"
             ],
             "state": [],
             "transform": [
@@ -160,7 +160,7 @@
             "id": 12.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x415 inside Floor_400x402"
+                "Floor_400x415 inside Floor_400x415"
             ],
             "state": [],
             "transform": [
@@ -173,7 +173,7 @@
             "id": 13.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x419 inside Floor_400x419"
+                "Floor_400x419 inside Floor_400x413"
             ],
             "state": [],
             "transform": [
@@ -186,7 +186,7 @@
             "id": 14.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x421 inside Floor_400x408"
+                "Floor_400x421 inside Floor_400x622"
             ],
             "state": [],
             "transform": [
@@ -199,7 +199,7 @@
             "id": 15.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x424 inside Floor_400x424"
+                "Floor_400x424 inside Wall_400x400"
             ],
             "state": [],
             "transform": [
@@ -212,7 +212,7 @@
             "id": 16.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x426 inside Wall_400x400"
+                "Floor_400x426 inside Wall_400x426"
             ],
             "state": [],
             "transform": [
@@ -225,7 +225,7 @@
             "id": 17.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x430 inside Wall_400x401"
+                "Floor_400x430 inside Floor_400x424"
             ],
             "state": [],
             "transform": [
@@ -238,7 +238,7 @@
             "id": 18.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x432 inside Wall_400x426"
+                "Floor_400x432 inside Wall_400x423"
             ],
             "state": [],
             "transform": [
@@ -264,7 +264,7 @@
             "id": 20.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x401 inside Wall_400x401"
+                "Wall_400x401 inside Wall_400x400"
             ],
             "state": [],
             "transform": [
@@ -446,7 +446,7 @@
             "id": 34.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x414 inside Floor_400x414"
+                "Floor_400x414 inside Floor_400x452"
             ],
             "state": [],
             "transform": [
@@ -472,7 +472,7 @@
             "id": 36.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x418 inside Floor_400x418"
+                "Floor_400x418 inside Floor_400x453"
             ],
             "state": [],
             "transform": [
@@ -485,7 +485,7 @@
             "id": 37.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x420 inside Floor_400x420"
+                "Floor_400x420 inside Floor_400x412"
             ],
             "state": [],
             "transform": [
@@ -498,7 +498,7 @@
             "id": 38.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x422 inside Floor_400x422"
+                "Floor_400x422 inside Floor_400x452"
             ],
             "state": [],
             "transform": [
@@ -511,7 +511,7 @@
             "id": 39.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x440 inside Floor_400x440"
+                "Floor_400x440 inside Floor_400x628"
             ],
             "state": [],
             "transform": [
@@ -524,7 +524,7 @@
             "id": 40.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x441 inside Floor_400x441"
+                "Floor_400x441 inside Floor_400x623"
             ],
             "state": [],
             "transform": [
@@ -550,7 +550,7 @@
             "id": 42.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x447 inside Floor_400x416"
+                "Floor_400x447 inside Floor_400x447"
             ],
             "state": [],
             "transform": [
@@ -563,7 +563,7 @@
             "id": 43.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x448 inside Floor_400x448"
+                "Floor_400x448 inside Floor_400x446"
             ],
             "state": [],
             "transform": [
@@ -576,7 +576,7 @@
             "id": 44.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x450 inside Floor_400x440"
+                "Floor_400x450 inside Floor_400x630"
             ],
             "state": [],
             "transform": [
@@ -589,7 +589,7 @@
             "id": 45.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x452 inside Wall_400x403"
+                "Floor_400x452 inside Floor_400x452"
             ],
             "state": [],
             "transform": [
@@ -615,7 +615,7 @@
             "id": 47.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x454 inside Floor_400x454"
+                "Floor_400x454 inside Wall_400x409"
             ],
             "state": [],
             "transform": [
@@ -628,7 +628,7 @@
             "id": 48.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x456 inside Floor_400x456"
+                "Floor_400x456 inside Floor_400x497"
             ],
             "state": [],
             "transform": [
@@ -654,7 +654,7 @@
             "id": 50.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x424 inside Wall_400x425"
+                "Wall_400x424 inside Wall_400x424"
             ],
             "state": [],
             "transform": [
@@ -667,7 +667,7 @@
             "id": 51.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x425 inside Wall_400x425"
+                "Wall_400x425 inside Wall_400x424"
             ],
             "state": [],
             "transform": [
@@ -953,7 +953,7 @@
             "id": 73.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x492 inside Floor_400x492"
+                "Floor_400x492 inside Floor_400x493"
             ],
             "state": [],
             "transform": [
@@ -966,7 +966,7 @@
             "id": 74.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x493 inside Floor_400x493"
+                "Floor_400x493 inside Floor_400x510"
             ],
             "state": [],
             "transform": [
@@ -992,7 +992,7 @@
             "id": 76.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x495 inside Floor_400x495"
+                "Floor_400x495 inside Floor_400x512"
             ],
             "state": [],
             "transform": [
@@ -1005,7 +1005,7 @@
             "id": 77.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x498 inside Floor_400x492"
+                "Floor_400x498 inside Floor_400x493"
             ],
             "state": [],
             "transform": [
@@ -1018,7 +1018,7 @@
             "id": 78.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x499 inside Floor_400x493"
+                "Floor_400x499 inside Floor_400x510"
             ],
             "state": [],
             "transform": [
@@ -1031,7 +1031,7 @@
             "id": 79.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x500 inside Floor_400x500"
+                "Floor_400x500 inside Wall_400x464"
             ],
             "state": [],
             "transform": [
@@ -1044,7 +1044,7 @@
             "id": 80.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x501 inside Wall_400x464"
+                "Floor_400x501 inside Floor_400x518"
             ],
             "state": [],
             "transform": [
@@ -1057,7 +1057,7 @@
             "id": 81.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x504 inside Floor_400x492"
+                "Floor_400x504 inside Floor_400x494"
             ],
             "state": [],
             "transform": [
@@ -1083,7 +1083,7 @@
             "id": 83.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x507 inside Floor_400x492"
+                "Floor_400x507 inside Floor_400x498"
             ],
             "state": [],
             "transform": [
@@ -1122,7 +1122,7 @@
             "id": 86.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x512 inside Floor_400x512"
+                "Floor_400x512 inside Wall_400x427"
             ],
             "state": [],
             "transform": [
@@ -1148,7 +1148,7 @@
             "id": 88.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x518 inside Floor_400x518"
+                "Floor_400x518 inside Wall_400x427"
             ],
             "state": [],
             "transform": [
@@ -1187,7 +1187,7 @@
             "id": 91.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x443 inside Wall_400x443"
+                "Wall_400x443 inside Floor_400x504"
             ],
             "state": [],
             "transform": [
@@ -1421,7 +1421,7 @@
             "id": 109.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x546 inside Floor_400x546"
+                "Floor_400x546 inside Wall_400x461"
             ],
             "state": [],
             "transform": [
@@ -1473,7 +1473,7 @@
             "id": 113.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x550 inside Floor_400x550"
+                "Floor_400x550 inside Floor_400x548"
             ],
             "state": [],
             "transform": [
@@ -1486,7 +1486,7 @@
             "id": 114.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x551 inside Floor_400x551"
+                "Floor_400x551 inside Wall_400x466"
             ],
             "state": [],
             "transform": [
@@ -1499,7 +1499,7 @@
             "id": 115.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x552 inside Wall_400x443"
+                "Floor_400x552 inside Floor_400x504"
             ],
             "state": [],
             "transform": [
@@ -1512,7 +1512,7 @@
             "id": 116.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x553 inside Floor_400x553"
+                "Floor_400x553 inside Wall_400x444"
             ],
             "state": [],
             "transform": [
@@ -1525,7 +1525,7 @@
             "id": 117.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x554 inside Wall_400x411"
+                "Floor_400x554 inside Floor_400x504"
             ],
             "state": [],
             "transform": [
@@ -1538,7 +1538,7 @@
             "id": 118.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x555 inside Floor_400x555"
+                "Floor_400x555 inside Wall_400x462"
             ],
             "state": [],
             "transform": [
@@ -1720,7 +1720,7 @@
             "id": 132.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x497 inside Floor_400x497"
+                "Floor_400x497 inside Floor_400x507"
             ],
             "state": [],
             "transform": [
@@ -1759,7 +1759,7 @@
             "id": 135.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x623 inside Floor_400x497"
+                "Floor_400x623 inside Floor_400x554"
             ],
             "state": [],
             "transform": [
@@ -2539,7 +2539,7 @@
             "id": 195.0,
             "name": "PlayerStart",
             "relation": [
-                "PlayerStart on Floor_400x555"
+                "PlayerStart inside BP_ThirdPersonCharacter_C_1"
             ],
             "state": [],
             "transform": [
@@ -2565,7 +2565,7 @@
             "id": 197.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x426 inside Wall_400x426"
+                "Wall_400x426 inside Wall_400x423"
             ],
             "state": [],
             "transform": [
@@ -2578,7 +2578,7 @@
             "id": 198.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x427 inside Floor_400x512"
+                "Wall_400x427 inside Wall_400x427"
             ],
             "state": [],
             "transform": [
@@ -2591,7 +2591,7 @@
             "id": 199.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x462 inside Wall_400x462"
+                "Wall_400x462 inside Wall_400x463"
             ],
             "state": [],
             "transform": [
@@ -2630,7 +2630,7 @@
             "id": 202.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x465 inside Wall_400x465"
+                "Wall_400x465 inside Wall_400x427"
             ],
             "state": [],
             "transform": [
@@ -2656,7 +2656,7 @@
             "id": 204.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x428 inside Wall_400x424"
+                "Wall_400x428 inside Wall_400x428"
             ],
             "state": [],
             "transform": [
@@ -2669,7 +2669,7 @@
             "id": 205.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x429 inside Wall_400x428"
+                "Wall_400x429 inside Wall_400x429"
             ],
             "state": [],
             "transform": [
@@ -2682,7 +2682,7 @@
             "id": 206.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x430 inside Floor_400x550"
+                "Wall_400x430 inside Wall_400x429"
             ],
             "state": [],
             "transform": [
@@ -2695,7 +2695,7 @@
             "id": 207.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x431 inside Floor_400x549"
+                "Wall_400x431 inside Wall_400x430"
             ],
             "state": [],
             "transform": [
@@ -2721,7 +2721,7 @@
             "id": 209.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x404 inside Wall_400x404"
+                "Wall_400x404 inside Wall_400x402"
             ],
             "state": [],
             "transform": [
@@ -2760,7 +2760,7 @@
             "id": 212.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x407 inside Wall_400x407"
+                "Wall_400x407 inside Wall_400x406"
             ],
             "state": [],
             "transform": [
@@ -2773,7 +2773,7 @@
             "id": 213.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x408 inside Wall_400x408"
+                "Wall_400x408 inside Wall_400x407"
             ],
             "state": [],
             "transform": [
@@ -2786,7 +2786,7 @@
             "id": 214.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x624 inside Floor_400x408"
+                "Floor_400x624 inside Floor_400x622"
             ],
             "state": [],
             "transform": [
@@ -2812,7 +2812,7 @@
             "id": 216.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x626 inside Floor_400x409"
+                "Floor_400x626 inside Floor_400x625"
             ],
             "state": [],
             "transform": [
@@ -2825,7 +2825,7 @@
             "id": 217.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x627 inside Floor_400x432"
+                "Floor_400x627 inside Floor_400x626"
             ],
             "state": [],
             "transform": [
@@ -2851,7 +2851,7 @@
             "id": 219.0,
             "name": "Floor_x",
             "relation": [
-                "Floor_400x629 inside Floor_400x629"
+                "Floor_400x629 inside Floor_400x628"
             ],
             "state": [],
             "transform": [
@@ -2890,7 +2890,7 @@
             "id": 222.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x409 inside Floor_400x454"
+                "Wall_400x409 inside Wall_400x409"
             ],
             "state": [],
             "transform": [
@@ -2903,7 +2903,7 @@
             "id": 223.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x444 inside Wall_400x443"
+                "Wall_400x444 inside Wall_400x444"
             ],
             "state": [],
             "transform": [
@@ -2916,7 +2916,7 @@
             "id": 224.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x410 inside Wall_400x403"
+                "Wall_400x410 inside Floor_400x453"
             ],
             "state": [],
             "transform": [
@@ -2942,7 +2942,7 @@
             "id": 226.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x412 inside Wall_400x413"
+                "Wall_400x412 inside Wall_400x412"
             ],
             "state": [],
             "transform": [
@@ -2955,7 +2955,7 @@
             "id": 227.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x413 inside Wall_400x413"
+                "Wall_400x413 inside Floor_400x622"
             ],
             "state": [],
             "transform": [
@@ -2968,7 +2968,7 @@
             "id": 228.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x414 inside Wall_400x414"
+                "Wall_400x414 inside Wall_400x429"
             ],
             "state": [],
             "transform": [
@@ -2981,7 +2981,7 @@
             "id": 229.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x415 inside Wall_400x414"
+                "Wall_400x415 inside Floor_400x629"
             ],
             "state": [],
             "transform": [
@@ -3163,7 +3163,7 @@
             "id": 243.0,
             "name": "Wall_x",
             "relation": [
-                "Wall_400x417 inside Wall_400x403"
+                "Wall_400x417 inside Wall_400x417"
             ],
             "state": [],
             "transform": [
@@ -3293,7 +3293,7 @@
             "id": 253.0,
             "name": "SM_TV",
             "relation": [
-                "SM_TV02 inside BP_ThirdPersonCharacter0"
+                "SM_TV02 inside BP_ThirdPersonCharacter_C_0"
             ],
             "state": [],
             "transform": [
@@ -3800,7 +3800,7 @@
             "id": 292.0,
             "name": "BP_KitchenBuilder",
             "relation": [
-                "BP_KitchenBuilder inside Floor_400x518"
+                "BP_KitchenBuilder inside Wall_400x427"
             ],
             "state": [],
             "transform": [
@@ -4283,7 +4283,7 @@
             "id": 329.0,
             "name": "BP_washing_machine",
             "relation": [
-                "BP_washing_machine inside Floor_400x430"
+                "BP_washing_machine inside BP_washing_machine"
             ],
             "state": [],
             "transform": [
@@ -4309,7 +4309,7 @@
             "id": 331.0,
             "name": "BP_smart_trash_bin_",
             "relation": [
-                "BP_smart_trash_bin_01 inside Floor_400x516"
+                "BP_smart_trash_bin_01 inside BP_smart_trash_bin_01"
             ],
             "state": [],
             "transform": [
@@ -4322,7 +4322,7 @@
             "id": 332.0,
             "name": "BP_refrigerator_",
             "relation": [
-                "BP_refrigerator_2 inside Floor_400x518"
+                "BP_refrigerator_2 inside BP_refrigerator_2"
             ],
             "state": [],
             "transform": [
@@ -4361,20 +4361,20 @@
             "id": 335.0,
             "name": "BP_Milk",
             "relation": [
-                "BP_Milk inside BP_ThirdPersonCharacter1"
+                "BP_Milk inside Floor_400x543"
             ],
             "state": [],
             "transform": [
-                "X=-997.822 Y=637.627 Z=82.542",
-                "P=77.256383 Y=85.209141 R=111.308210",
+                "X=-1040.000 Y=680.000 Z=0.000",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 336.0,
-            "name": "DefaultPhysicsVolume",
+            "name": "DefaultPhysicsVolume_",
             "relation": [
-                "DefaultPhysicsVolume0 inside "
+                "DefaultPhysicsVolume_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4385,9 +4385,9 @@
         },
         {
             "id": 337.0,
-            "name": "GameplayDebuggerPlayerManager",
+            "name": "GameplayDebuggerPlayerManager_",
             "relation": [
-                "GameplayDebuggerPlayerManager0 inside "
+                "GameplayDebuggerPlayerManager_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4398,9 +4398,9 @@
         },
         {
             "id": 338.0,
-            "name": "Actor",
+            "name": "ChaosDebugDrawActor",
             "relation": [
-                "Actor inside "
+                "ChaosDebugDrawActor inside "
             ],
             "state": [],
             "transform": [
@@ -4411,9 +4411,9 @@
         },
         {
             "id": 339.0,
-            "name": "BP_ThirdPersonGameMode",
+            "name": "BP_ThirdPersonGameMode_C_",
             "relation": [
-                "BP_ThirdPersonGameMode0 inside "
+                "BP_ThirdPersonGameMode_C_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4424,9 +4424,9 @@
         },
         {
             "id": 340.0,
-            "name": "GameSession",
+            "name": "GameSession_",
             "relation": [
-                "GameSession0 inside Floor_400x400"
+                "GameSession_0 inside Floor_400x400"
             ],
             "state": [],
             "transform": [
@@ -4437,9 +4437,9 @@
         },
         {
             "id": 341.0,
-            "name": "ParticleEventManager",
+            "name": "ParticleEventManager_",
             "relation": [
-                "ParticleEventManager0 inside "
+                "ParticleEventManager_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4450,9 +4450,9 @@
         },
         {
             "id": 342.0,
-            "name": "GameNetworkManager",
+            "name": "GameNetworkManager_",
             "relation": [
-                "GameNetworkManager0 inside Floor_400x400"
+                "GameNetworkManager_0 inside Floor_400x400"
             ],
             "state": [],
             "transform": [
@@ -4463,9 +4463,9 @@
         },
         {
             "id": 343.0,
-            "name": "GameStateBase",
+            "name": "GameStateBase_",
             "relation": [
-                "GameStateBase0 inside "
+                "GameStateBase_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4476,9 +4476,9 @@
         },
         {
             "id": 344.0,
-            "name": "AbstractNavData",
+            "name": "AbstractNavDataDefault",
             "relation": [
-                "AbstractNavData inside "
+                "AbstractNavData-Default inside "
             ],
             "state": [],
             "transform": [
@@ -4489,9 +4489,9 @@
         },
         {
             "id": 345.0,
-            "name": "BP_ThirdPersonPlayerController",
+            "name": "BP_ThirdPersonPlayerController_C_",
             "relation": [
-                "BP_ThirdPersonPlayerController0 on Floor_400x555"
+                "BP_ThirdPersonPlayerController_C_0 inside BP_ThirdPersonCharacter_C_1"
             ],
             "state": [],
             "transform": [
@@ -4502,9 +4502,9 @@
         },
         {
             "id": 346.0,
-            "name": "PlayerState",
+            "name": "PlayerState_",
             "relation": [
-                "PlayerState0 inside "
+                "PlayerState_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4515,22 +4515,22 @@
         },
         {
             "id": 347.0,
-            "name": "PlayerCameraManager",
+            "name": "PlayerCameraManager_",
             "relation": [
-                "PlayerCameraManager0 on BP_Table2"
+                "PlayerCameraManager_0 on Floor_400x555"
             ],
             "state": [],
             "transform": [
-                "X=-1343.555 Y=656.919 Z=101.047",
+                "X=-1377.887 Y=525.275 Z=100.767",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 348.0,
-            "name": "HUD",
+            "name": "HUD_",
             "relation": [
-                "HUD0 inside "
+                "HUD_0 inside "
             ],
             "state": [],
             "transform": [
@@ -4541,29 +4541,27 @@
         },
         {
             "id": 349.0,
-            "name": "BP_ThirdPersonCharacter",
+            "name": "BP_ThirdPersonCharacter_C_",
             "relation": [
-                "BP_ThirdPersonCharacter0 inside BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter0",
-                "BP_ThirdPersonCharacter0 close to BP_Milk",
-                "BP_ThirdPersonCharacter0 close to BP_Milk",
-                "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter0 close to BP_ThirdPersonCharacter1",
+                "BP_ThirdPersonCharacter_C_0 inside BP_ThirdPersonCharacter_C_1",
+                "BP_ThirdPersonCharacter_C_0 close to BP_ThirdPersonCharacter_C_1",
+                "BP_ThirdPersonCharacter_C_0 close to BP_ThirdPersonCharacter_C_1",
+                "BP_ThirdPersonCharacter_C_0 close to BP_ThirdPersonCharacter_C_0",
                 "Left hand empty",
-                "Right hand holding BP_Milk"
+                "Right hand empty"
             ],
             "state": [],
             "transform": [
-                "X=-1069.952 Y=656.919 Z=92.555",
-                "P=0.000000 Y=37.618454 R=0.000000",
+                "X=-1240.781 Y=525.275 Z=92.275",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 350.0,
-            "name": "BP_ThirdPersonPlayerController",
+            "name": "BP_ThirdPersonPlayerController_C_",
             "relation": [
-                "BP_ThirdPersonPlayerController1 on Floor_400x555"
+                "BP_ThirdPersonPlayerController_C_1 inside BP_ThirdPersonCharacter_C_1"
             ],
             "state": [],
             "transform": [
@@ -4574,9 +4572,9 @@
         },
         {
             "id": 351.0,
-            "name": "PlayerState",
+            "name": "PlayerState_",
             "relation": [
-                "PlayerState1 inside "
+                "PlayerState_1 inside "
             ],
             "state": [],
             "transform": [
@@ -4587,22 +4585,22 @@
         },
         {
             "id": 352.0,
-            "name": "PlayerCameraManager",
+            "name": "PlayerCameraManager_",
             "relation": [
-                "PlayerCameraManager1 inside BP_ThirdPersonCharacter1"
+                "PlayerCameraManager_1 on Floor_400x555"
             ],
             "state": [],
             "transform": [
-                "X=-1023.924 Y=666.427 Z=101.055",
+                "X=-1377.887 Y=455.025 Z=100.767",
                 "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 353.0,
-            "name": "HUD",
+            "name": "HUD_",
             "relation": [
-                "HUD1 inside "
+                "HUD_1 inside "
             ],
             "state": [],
             "transform": [
@@ -4613,29 +4611,27 @@
         },
         {
             "id": 354.0,
-            "name": "BP_ThirdPersonCharacter",
+            "name": "BP_ThirdPersonCharacter_C_",
             "relation": [
-                "BP_ThirdPersonCharacter1 inside BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter1",
-                "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter0",
-                "BP_ThirdPersonCharacter1 close to BP_ThirdPersonCharacter0",
-                "BP_ThirdPersonCharacter1 close to BP_Milk",
-                "BP_ThirdPersonCharacter1 close to BP_Milk",
+                "BP_ThirdPersonCharacter_C_1 inside BP_ThirdPersonCharacter_C_1",
+                "BP_ThirdPersonCharacter_C_1 close to BP_ThirdPersonCharacter_C_0",
+                "BP_ThirdPersonCharacter_C_1 close to BP_ThirdPersonCharacter_C_0",
+                "BP_ThirdPersonCharacter_C_1 close to BP_ThirdPersonCharacter_C_1",
                 "Left hand empty",
-                "Right hand holding BP_Milk"
+                "Right hand empty"
             ],
             "state": [],
             "transform": [
-                "X=-1000.582 Y=666.427 Z=92.563",
-                "P=0.000000 Y=160.021225 R=0.000000",
+                "X=-1240.781 Y=455.025 Z=92.275",
+                "P=0.000000 Y=0.000000 R=0.000000",
                 "X=1.000 Y=1.000 Z=1.000"
             ]
         },
         {
             "id": 355.0,
-            "name": "GameplayDebuggerCategoryReplicator",
+            "name": "GameplayDebuggerCategoryReplicator_",
             "relation": [
-                "GameplayDebuggerCategoryReplicator0 inside Wall_400x408"
+                "GameplayDebuggerCategoryReplicator_0 inside Wall_400x423"
             ],
             "state": [],
             "transform": [
@@ -4646,9 +4642,9 @@
         },
         {
             "id": 356.0,
-            "name": "GameplayDebuggerCategoryReplicator",
+            "name": "GameplayDebuggerCategoryReplicator_",
             "relation": [
-                "GameplayDebuggerCategoryReplicator1 inside Wall_400x408"
+                "GameplayDebuggerCategoryReplicator_1 inside Wall_400x423"
             ],
             "state": [],
             "transform": [
