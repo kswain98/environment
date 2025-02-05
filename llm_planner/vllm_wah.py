@@ -2,7 +2,7 @@ from typing import Dict, List, Tuple, Union
 import json
 import os
 from llm import OpenAIBot
-from utils import sequence
+from llm_planner.utils import sequence
 from client import *
 import time
 import openai
