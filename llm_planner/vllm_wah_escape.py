@@ -1,10 +1,14 @@
 from typing import Dict, List, Tuple, Union
 import json
 import os
+
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from interface.client import *
 from llm import OpenAIBot
-from utils import sequence
-from client import *
+from llm_planner.utils import sequence 
 import time
+
 import openai
 import base64
 
@@ -46,8 +50,6 @@ class Agent:
             
         # Load object info
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        with open(f'{dir_path}/dataset/object_info_small.json', 'r') as f:
-            self.object_info = json.load(f)
         #make the initial observation
         self.get_observation()
         self.alice_system_prompt = self._create_alice_prompt()

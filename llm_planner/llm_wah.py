@@ -1,8 +1,12 @@
 from typing import Dict, List, Tuple, Union
 import json
 import os
+
+
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from llm import OpenAIBot
-from utils import sequence
+from llm_planner.utils import sequence 
 from interface.client import *
 import time
 import openai
@@ -36,11 +40,6 @@ class Agent:
         else:
             self.alice_llm = OpenAIBot(base_url=base_url, model=model, llm_config={'max_token': 2048})
             self.bob_llm = OpenAIBot(base_url=base_url, model=model, llm_config={'max_token': 2048})
-            
-        # Load object info
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        with open(f'{dir_path}/dataset/object_info_small.json', 'r') as f:
-            self.object_info = json.load(f)
             
         self.alice_system_prompt = alice_prompt if alice_prompt else self._create_alice_prompt()
         self.bob_system_prompt = bob_prompt if bob_prompt else self._create_bob_prompt()
