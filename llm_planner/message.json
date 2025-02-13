@@ -1,6 +1,14 @@
 [
     {
-        "set_action": "{\"agent_index\":[1],\"task\":[6,326,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[6,326,0,0]}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[6,326,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
         "success": true
     },
     {
@@ -8,7 +16,11 @@
         "success": true
     },
     {
-        "observation": "{\"type\":\"full\"}",
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
         "success": true
     },
     {
@@ -16,15 +28,303 @@
         "success": true
     },
     {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
         "observation": "{\"type\":\"full\"}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[0],\"task\":[1,335,0,0]}",
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
         "success": true
     },
     {
-        "set_action": "{\"agent_index\":[1],\"task\":[1,335,0,0]}",
+        "set_action": "{\"agent_index\":[0],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,128,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,128,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[2],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "observation": "{\"type\":\"full\"}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[0],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[0],\"task\":[9,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[1],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
+        "success": true
+    },
+    {
+        "set_action": "{\"agent_index\":[1],\"task\":[1,107,0,0]}",
+        "success": true
+    },
+    {
+        "render": "{\"camera_index\":[2],\"fov\":[90],\"fps\":[60],\"image_height\":[1080],\"image_width\":[1920],\"render_pipeline\":\"raytracing\",\"screenshot_dir\":\"E:\\\\environment-sourcecode\\\\environment\\\\Saved\\\\Screenshots\\\\WindowsEditor\"}",
         "success": true
     }
 ]
