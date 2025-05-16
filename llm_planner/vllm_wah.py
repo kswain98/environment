@@ -349,6 +349,6 @@ if __name__ == "__main__":
     render(render_config)
     run_experiment(
         goal_specs=goal_spec,
-        api_key="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",
+        api_key="your_api_key",
         debug=True
     ) 
