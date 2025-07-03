@@ -49,7 +49,15 @@ class Agent:
         observation({"type": "full"})
         with open('graph.json', 'r') as f:
             data = json.load(f)
-        self.current_state = data['WatchAndHelp1']
+        # Try to get the current environment, fallback to WatchAndHelp1
+        if 'EscapeRoom1' in data:
+            self.current_state = data['EscapeRoom1']
+        elif 'WatchAndHelp1' in data:
+            self.current_state = data['WatchAndHelp1']
+        else:
+            # Get the first available environment
+            first_env = list(data.keys())[0]
+            self.current_state = data[first_env]
         return self.current_state
 
     def execute_action(self, action: str) -> None:
@@ -281,24 +289,32 @@ def run_experiment(
     return success
 
 if __name__ == "__main__":
-    # add a new agent
-
-    data = {
-        "environment": "WatchAndHelp1", 
-    }
-
-    make(data)
-    set_action({'agent_index': [1], 'task': [6, 326, 0, 0]})
-
-    goal_spec = {
-        ('milk', 'on', 'table'): 1,
-        ('apple', 'on', 'table2'): 1,
-    }
+    # You need to replace this with a valid API key
+    API_KEY = "YOUR_OPENAI_API_KEY_HERE"  # Replace with your actual API key
     
-    run_experiment(
-        goal_specs=goal_spec,
-        api_key="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",
-        debug=True,
-        alice_prompt=None,
-        bob_prompt=None
-    ) 
+    try:
+        # Set up environment
+        data = {
+            "environment": "EscapeRoom1",  # Changed to EscapeRoom1
+        }
+
+        make(data)
+        set_action({'agent_index': [1], 'task': [6, 326, 0, 0]})
+
+        goal_spec = {
+            ('milk', 'on', 'table'): 1,
+            ('apple', 'on', 'table2'): 1,
+        }
+        
+        run_experiment(
+            goal_specs=goal_spec,
+            api_key=API_KEY,
+            debug=True,
+            alice_prompt=None,
+            bob_prompt=None
+        )
+    except Exception as e:
+        print(f"Error running experiment: {e}")
+        print("Please check your API key and make sure it's valid.")
+        print("You can get a new API key from: https://platform.openai.com/account/api-keys") 
+    

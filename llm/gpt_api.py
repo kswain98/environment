@@ -49,7 +49,7 @@ class OpenAIBot():
         
         self.sampling_params = {
             "max_tokens": 16384, # max_tokens for gpt-4o-mini
-            "temperature": 0.4,
+            "temperature": 1,
             "top_p": 0.9
         }
  
@@ -72,26 +72,52 @@ class OpenAIBot():
         if sys_msg:
             self.sys_msg = sys_msg
 
-        user_query = {"role": "user", "content": [{"type": "text", "text": text}]}
-        if image:
-            user_query["content"].append(
-                {
-                    "type": "image_url", 
-                    "image_url": {"url": f"data:image/{img_format};base64,{image}"}
-                }
-            )
+        # Prepare the content array for the user message
+        user_content = []
+        
+        # Add image first if present (for o3 model)
+        if image and self.model == "o3":
+            user_content.append({
+                "type": "image_url", 
+                "image_url": {"url": f"data:image/{img_format or 'jpeg'};base64,{image}"}
+            })
+            
+        # Add text content
+        user_content.append({"type": "text", "text": text})
+        
+        # For non-o3 models with the older format
+        if self.model != "o3" and image:
+            user_query = {"role": "user", "content": [{"type": "text", "text": text}]}
+            user_query["content"].append({
+                "type": "image_url", 
+                "image_url": {"url": f"data:image/{img_format or 'jpeg'};base64,{image}"}
+            })
+        else:
+            user_query = {"role": "user", "content": user_content}
         
         if self.use_openai:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": self.sys_msg},
-                    user_query,
-                ],
-                max_tokens=self.sampling_params['max_tokens'],
-                temperature=self.sampling_params['temperature'],
-                top_p=self.sampling_params['top_p']
-            )
+            # Special handling for o3 model which has parameter restrictions
+            if self.model == "o3":
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": self.sys_msg},
+                        user_query,
+                    ],
+                    max_completion_tokens=self.sampling_params['max_tokens']
+                    # o3 model doesn't support temperature or top_p parameters
+                )
+            else:
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": self.sys_msg},
+                        user_query,
+                    ],
+                    max_tokens=self.sampling_params['max_tokens'],
+                    temperature=self.sampling_params['temperature'],
+                    top_p=self.sampling_params['top_p']
+                )
         
         else:
             response = self.client.chat.completions.create(
