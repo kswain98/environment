@@ -3,7 +3,7 @@
  <img src="assets/environment.png" width="300px" style="max-width: 100%;">
 </div>
 
-# VirtualCity
+# VirtualEnv
 
 <p align="center">
   <a href="https://">Environment</a> •
@@ -12,7 +12,7 @@
   <a href="https://">Contribute</a>
 </p>
 
-VirtualCity is an interactive platform to simulate complex everyday activities. Key aspect of VirtualCity is that it allows complex interactions with the environment, such as picking up objects, switching on/off electronics, opening appliances, etc. Our environment can easily be interacted with a Python API: write the activity as a simple sequence of instructions which then get rendered in the environment. You can choose between different agents and environments, as well as modify environments on the fly. You can also stream different ground-truth such as time-stamped actions, instance/semantic segmentation, and optical flow and depth. The platform allows to simulate multi-agent activities and can serve as an environment to train agents for embodied AI tasks.
+VirtualEnv is an interactive platform to simulate complex everyday activities. Key aspect of VirtualEnv is that it allows complex interactions with the environment, such as picking up objects, switching on/off electronics, opening appliances, etc. Our environment can easily be interacted with a Python API: write the activity as a simple sequence of instructions which then get rendered in the environment. You can choose between different agents and environments, as well as modify environments on the fly. You can also stream different ground-truth such as time-stamped actions, instance/semantic segmentation, and optical flow and depth. The platform allows to simulate multi-agent activities and can serve as an environment to train agents for embodied AI tasks.
 
 For detailed usage, installation guidelines, and more, please refer to our comprehensive documentation.
 
@@ -20,12 +20,12 @@ For detailed usage, installation guidelines, and more, please refer to our compr
 
 ______________________________________________________________________
 
-## Install VirtualCity API
+## Install VirtualEnv API
 
 Simple installation from PyPI
 
 ```bash
-pip install virtualcity
+pip install virtualenv
 ```
 
 <details>
@@ -49,7 +49,7 @@ Supported Platform:
 * MacOS [(Apple GPTK)](https://developer.apple.com/download/all/?q=game%20porting%20toolkit)
 
 Supported GPU:
-* NVIDIA Ada, Ampere, Volta, and Turing architecture (8 GB or more)
+* NVIDIA Blackwell, Ada, Ampere, Volta, and Turing architecture (8 GB or more)
 * AMD RDNA 2/3 (8 GB or more)
 
 Supported CPU:
@@ -66,12 +66,3 @@ ______________________________________________________________________
 
 ## How to cite us
 If you found this environment useful, please consider citing our work:
-
-```bibtex
-@article{virtualcity2024cool,
-  title={VirtualCity},
-  author={},
-  journal={arXiv preprint arXiv:2024.2024},
-  year={2024}
-}
-```
