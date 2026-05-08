@@ -58,6 +58,25 @@ Supported CPU:
 
 ______________________________________________________________________
 
+
+
+## Citation
+
+```bibtex
+@misc{swain2026virtualenvplatformembodiedai,
+      title={VirtualEnv: A Platform for Embodied AI Research}, 
+      author={Kabir Swain and Sijie Han and Ayush Raina and Jin Zhang and Shuang Li and Michael Stopa and Antonio Torralba},
+      year={2026},
+      eprint={2601.07553},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2601.07553}, 
+}
+```
+
+______________________________________________________________________
+
+
 ## Acknowledgements
 We would like to thank [Xavier Puig](https://www.xavierpuigf.com/) for his work [VirtualHome](https://github.com/xavierpuigf/virtualhome) and the team developing [Unreal Engine](https://www.unrealengine.com/), allowing us to make this possible. 
 
