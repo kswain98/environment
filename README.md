@@ -18,7 +18,6 @@ For detailed usage, installation guidelines, and more, please refer to our compr
 
 </div>
 
-______________________________________________________________________
 
 ## Install VirtualEnv API
 
@@ -39,7 +38,6 @@ pip install virtualenv
 </div>
 </details>
 
-______________________________________________________________________
 
 
 ## Compatibility
@@ -56,7 +54,6 @@ Supported CPU:
 * Intel Skylake, AlderLake, and Raptor Lake architecture (8 cores or more)
 * AMD Zen 2/3/4 (8 cores or more)
 
-______________________________________________________________________
 
 
 
@@ -74,13 +71,11 @@ ______________________________________________________________________
 }
 ```
 
-______________________________________________________________________
 
 
 ## Acknowledgements
 We would like to thank [Xavier Puig](https://www.xavierpuigf.com/) for his work [VirtualHome](https://github.com/xavierpuigf/virtualhome) and the team developing [Unreal Engine](https://www.unrealengine.com/), allowing us to make this possible. 
 
-______________________________________________________________________
 
 
 ## How to cite us
