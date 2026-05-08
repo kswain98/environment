@@ -74,7 +74,7 @@ Supported CPU:
 
 
 ## Acknowledgements
-We would like to thank [Xavier Puig](https://www.xavierpuigf.com/) for his work [VirtualHome](https://github.com/xavierpuigf/virtualhome) and the team developing [Unreal Engine](https://www.unrealengine.com/), allowing us to make this possible. 
+We would like to thank Xavier Puig ([@xavierpuigf](https://github.com/xavierpuigf))) for his work [VirtualHome](https://github.com/xavierpuigf/virtualhome) and the team developing [Unreal Engine](https://www.unrealengine.com/), allowing us to make this possible. 
 
 
 
